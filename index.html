@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felt Sense Movement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    Background SVG — inlined so viewBox scales it as a true fluid vector.
+    aria-hidden: decorative only, invisible to screen readers.
+    CSS class .site-bg handles all sizing and positioning.
+    Only visible at min-width: 1280px (desktop); hidden on mobile/tablet.
+  -->
+  <svg
+    class="site-bg"
+    viewBox="0 0 1440 1100"
+    preserveAspectRatio="none"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true">
+    <g clip-path="url(#clip0_6_136)">
+      <rect width="1440" height="1100" fill="white"/>
+      <g clip-path="url(#clip1_6_136)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1506.03 748.828C1546 765.508 1849.78 594.468 1841.69 806.703C1840.7 833.098 1830.15 828.904 1700.78 859.251C1543.45 864.566 1460.28 894.757 1406.19 884.199C1408.65 839.226 1410.21 840.188 1403.86 795.066C1441.64 792.882 1490.54 757.655 1506.03 748.828Z" fill="#D093FE"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M666.222 439.827C678.108 320.352 690.619 274.797 690.619 224.592C690.619 178.2 689.993 101.94 592.406 66.9878C504.216 35.4013 315.908 119.734 252.101 144.141C252.101 144.141 252.101 144.141 128.866 189C33.7803 223.611 33.735 221.436 20.6434 225.645C14.4758 227.628 42.5104 219.197 20.6434 225.645C2.18656 232.261 8.25297 229.302 0 232.091V306.162C37.361 300.444 86.1494 282.931 139.653 263.728C328.232 196.042 575.386 107.331 587.228 439.827C588.295 469.764 584.95 503.041 581.767 534.704C573.058 621.326 565.565 695.861 652.969 656.836C653.038 656.806 653.699 656.403 654.902 655.669C676.315 642.613 870.158 522.83 978.377 519.465C1021.68 518.118 1027.88 548.678 1035.1 580.651C1039.5 600.124 1101.34 765.886 1114.75 781.635C1134.22 804.511 1366.85 875.142 1388.75 859.347C1412.52 811.329 1430.37 810.312 1403.76 772.789C1363.08 715.438 1281.77 903.129 1208.58 671.351C1200.45 620.332 1194.19 696.772 1190.44 631.315C1165.17 571.339 1197.92 526.275 1172.9 450.65C1147.88 375.026 1036.55 375.047 978.377 405.551C920.2 436.055 888.849 456.955 866.955 472.247C856.945 479.238 734.59 570.892 680.167 547.201C655.744 536.571 661.713 485.15 666.222 439.827Z" fill="#CF93FF"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1855 465.446V589.371C1784.95 587.649 1533.71 738.052 1507.56 752.942C1498.4 758.153 1472.88 790.182 1404.4 807.544C1357.11 819.534 1279.86 829.715 1250.38 818.995C1229.78 811.51 1209.86 769.301 1217.62 749.597C1241.87 687.955 1196.2 717.115 1120.16 725.535C1072.04 705.391 1082.01 708.642 1034.42 730.776C1031.08 732.324 984.287 746.38 973.231 725.535C857.27 506.949 670.633 730.783 615.757 714.895C512.616 685.029 587.504 484.591 532.024 356.005C459.426 187.726 238.598 269.493 0 362.357V298.144C167.566 250.354 603.242 -0.176483 618.295 428.293C621.918 531.337 545.262 672.935 624.055 654.123C631.102 652.443 641.471 648.515 649.097 645.083C655.455 642.227 681.812 626.729 681.812 626.729C681.812 626.729 736.924 590.84 778.208 560.67C780.793 558.78 879.893 495.237 922.422 478.866C968.096 461.288 1096.47 468.166 1070.48 576.651C1068.65 584.285 1049 617.243 1051.96 627.399C1054.82 637.176 1141.99 618.012 1149.68 616.319C1327.38 590.822 1349.76 605.978 1375.1 669.298C1389.67 705.738 1433.82 639.178 1507.9 604.788C1746.7 493.917 1826.22 473.097 1855 465.446Z" fill="#6360FF"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 427.148V354.868C238.599 261.903 465.336 181.36 537.938 349.826C589.464 469.387 526.823 648.036 600.272 696.832C605.905 700.573 612.337 703.552 619.683 705.681C674.558 721.588 860.755 500.968 976.714 719.797C987.771 740.662 1018.97 726.136 1022.31 724.581C1041.4 715.695 1058.13 709.19 1074.31 708.335C1098.47 707.06 1119.86 715.261 1133.76 721.824C1155.63 732.153 1154.36 776.757 1161.52 790.317C1165.46 797.778 1165.98 798.886 1167.44 799.568C1175.38 803.269 1180.52 801.384 1191.56 799.059C1222.7 792.498 1271.24 772.313 1282.37 768.439C1382.05 733.724 1412.05 772.676 1417.76 814.845C1421.24 840.518 1415.73 867.385 1411.44 879.545C1465.53 890.104 1548.71 859.915 1706.02 854.593C1715.37 857.882 1780.72 880.881 1759.71 968.87C1750.97 1005.49 1671.43 987.819 1653.96 980.866C1650.83 931.941 1654.13 936.66 1652.97 931.382C1636.17 855.373 1560.08 908.339 1295.22 912.769C1204.79 914.281 1217.44 874.379 1197.86 848.915C1195.79 846.23 1193.37 843.707 1190.43 841.409C1118.62 785.26 1112.05 796.35 1023.94 815.719C994.183 805.05 987.907 793.059 986.185 789.77C906.707 637.887 847.248 634.48 569.473 774.203C510.102 804.067 488.306 756.976 451.16 687.903C400.894 594.425 507.013 498.719 480.488 410.57C423.913 222.568 143.85 370.469 0 427.148Z" fill="#7AD3FF"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 491.627V421.122C143.822 364.475 423.828 223 480.39 410.906C506.911 499.005 429.25 576.882 460.962 684.276C483.245 759.753 515.839 787.931 576.777 761.644C868.092 635.961 922.468 630.374 985.984 789.903C994.092 810.264 1060.66 832.738 1208.02 868.871C1248.54 878.81 1345.18 884.842 1458.22 877.743C1523.12 873.663 1593.44 862.702 1661.65 852.168C1733.81 841.021 1753.58 871.778 1757.84 876.255C1778.12 897.52 1818.03 984.269 1761.71 997.494C1746.01 1001.18 1714.72 1000.58 1678.04 998.032C1612.91 993.501 1530.86 982.824 1489.11 979.055C1408.96 971.826 1341.47 956.283 1262.43 941.459C1255.47 940.156 1248.43 938.854 1241.28 937.571C1089.09 910.181 960.23 834.654 950.534 837.351C883.021 856.124 897.01 749.288 818.328 726.206C673.715 683.786 690.077 835.782 419.573 820.277C285.783 812.601 435.685 643.016 426.762 534.959C409.116 321.206 104.001 452.289 0 491.627Z" fill="#84FEF3"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1417.01 1034.01C1419.28 1033.99 1406.05 1056.05 1411.53 1056C1406.06 1056.05 1419.28 1033.99 1417.01 1034.01Z" fill="#FEF6D0"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 490.36V639.264C8.1263 635.828 17.4978 631.792 27.7768 627.364C119.546 587.836 280.917 512.65 277.065 560.069C277.029 560.512 268.085 579.202 265.934 582.942C257.894 596.919 238.722 617.249 207.277 732.205C207.028 734.429 206.63 737.129 206.172 740.241C198.593 791.704 174.392 956.055 528.509 950.87C590.05 949.972 644.361 925.252 688.953 907.098C718.843 894.929 743.995 878.509 763.166 886.768C898.125 990.748 997.942 951.733 1060.07 927.451C1102.7 910.785 1127.58 901.06 1133.88 949.276C1143.46 1022.59 1162.53 1036.13 1416.2 1034.01L1417.01 1034.01C1435.22 1033.85 1569.5 1032.71 1597.49 1030.95C1645.48 1027.94 1648.08 1022.85 1660.48 997.77C1657.35 948.836 1654.47 935.77 1653.31 930.484C1642.62 882.07 1607.85 885.974 1515.6 896.339C1462.99 902.25 1391.68 910.261 1295.47 911.87C1226.84 913.016 1217.58 890.311 1208.54 868.164C1204.41 858.05 1200.34 848.052 1190.67 840.496C1127.16 790.837 1114.67 793.76 1051.71 808.498C1043.46 810.428 1034.35 812.559 1024.15 814.803C1011.9 818.213 999.716 821.891 987.535 825.568C975.355 829.245 963.175 832.923 950.921 836.333C915.806 846.099 902.729 821.889 887.205 793.145C872.872 766.604 856.45 736.196 818.661 725.107C752.465 705.684 719.985 726.992 678.301 754.339C628.885 786.759 566.535 827.663 419.743 819.246C336.686 814.479 362.919 747.319 392.652 671.196C410.834 624.651 430.323 574.754 426.936 533.723C410.287 331.994 137.869 437.174 19.6379 482.824C12.4999 485.579 5.92381 488.119 0 490.36Z" fill="#FEF6D0"/>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clip0_6_136">
+        <rect width="1440" height="1100" fill="white"/>
+      </clipPath>
+      <clipPath id="clip1_6_136">
+        <rect width="1855" height="996" fill="white" transform="translate(0 60)"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+
+      <div class="nav__brand">
+        <img
+          src="assets/images/FSM-logo.png"
+          alt="Felt Sense Movement logo"
+          class="nav__logo"
+          width="43"
+          height="43">
+        <span class="nav__brand-name">Felt Sense Movement</span>
+      </div>
+
+      <ul class="nav__links" role="list">
+
+        <li class="nav__item">
+          <a href="about.html" class="nav__link">About</a>
+        </li>
+
+        <li class="nav__item nav__item--has-dropdown">
+          <!--
+            CSS-only dropdown: opens on :hover (desktop) + :focus-within (tap/keyboard).
+            JS phase will add: aria-expanded toggle, close-on-outside-click, Escape key.
+          -->
+          <button
+            class="nav__link nav__link--trigger"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Offerings
+          </button>
+
+          <ul class="nav__dropdown" role="list" aria-label="Offerings pages">
+            <li>
+              <a href="offerings/kinetic-waves.html" class="nav__dropdown-link">
+                Kinetic<br>Waves
+              </a>
+            </li>
+            <li>
+              <a href="offerings/the-overscore.html" class="nav__dropdown-link">
+                The Overscore
+              </a>
+            </li>
+            <li>
+              <a href="offerings/resonance-response.html" class="nav__dropdown-link">
+                Resonance &amp;<br>Response
+              </a>
+            </li>
+            <li>
+              <a href="offerings/felt-sense-fall-intensive.html" class="nav__dropdown-link">
+                Felt Sense<br>Fall Intensive
+              </a>
+            </li>
+            <li>
+              <a href="past-events.html" class="nav__dropdown-link">
+                Past Events
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav__item">
+          <a href="blog.html" class="nav__link">Blog</a>
+        </li>
+
+      </ul>
+
+    </nav>
+  </header>
+
+  <!--
+    Mobile background SVG #1 — top of page, behind all content.
+    Inlined so viewBox scales as a true fluid vector.
+    Only visible under 768px; hidden on desktop via CSS.
+    .mobile-bg-wrap is the positioned container; .mobile-dancer
+    is pinned to its bottom-right edge.
+  -->
+  <div class="mobile-bg-wrap">
+  <svg
+    class="site-bg-mobile"
+    viewBox="0 0 390 648"
+    preserveAspectRatio="none"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true">
+    <g clip-path="url(#clip0_171_390)">
+      <rect width="390" height="648" fill="white"/>
+      <g clip-path="url(#clip1_171_390)">
+        <mask id="mask0_171_390" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-46" y="36" width="496" height="420">
+          <path d="M450 36H-46V456H450V36Z" fill="white"/>
+        </mask>
+        <g mask="url(#mask0_171_390)">
+          <path d="M450 36H-46V456H450V36Z" fill="white"/>
+          <mask id="mask1_171_390" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-46" y="58" width="639" height="382">
+            <path d="M592.944 58.9092H-46V439.2H592.944V58.9092Z" fill="white"/>
+          </mask>
+          <g mask="url(#mask1_171_390)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M183.476 203.934C187.571 158.316 191.88 140.923 191.88 121.753C191.88 104.04 191.664 74.9226 158.051 61.5772C127.674 49.5169 62.8128 81.7167 40.8348 91.0357C40.8348 91.0357 40.8348 91.0357 -1.61282 108.164C-34.3646 121.379 -34.3802 120.548 -38.8895 122.155C-31.3575 119.693 -41.0139 122.913 -38.8895 122.155C-45.2469 124.682 -43.1573 123.552 -46 124.617V152.898C-33.1312 150.715 -16.3263 144.028 2.10271 136.696C67.0577 110.852 152.189 76.981 156.267 203.934C156.635 215.365 155.483 228.07 154.386 240.16C151.387 273.234 148.806 301.692 178.912 286.792C178.935 286.781 179.163 286.627 179.577 286.346C186.953 281.361 253.721 235.626 290.997 234.341C305.912 233.827 308.048 245.495 310.534 257.703C312.05 265.138 333.35 328.429 337.969 334.443C344.676 343.177 424.804 370.145 432.347 364.114C440.535 345.78 446.683 345.392 437.517 331.065C423.505 309.167 395.499 380.831 370.289 292.334C367.488 272.854 365.332 302.04 364.04 277.048C355.336 254.148 366.617 236.941 357.999 208.066C349.381 179.192 311.034 179.2 290.997 190.847C270.958 202.494 260.159 210.474 252.618 216.313C249.17 218.982 207.025 253.977 188.28 244.931C179.867 240.873 181.923 221.239 183.476 203.934Z" fill="#CF93FF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M592.944 213.716V261.033C568.816 260.375 482.278 317.802 473.271 323.487C470.116 325.477 461.325 337.706 437.738 344.335C421.449 348.913 394.841 352.8 384.686 348.707C377.591 345.849 370.73 329.733 373.402 322.21C381.755 298.674 366.024 309.808 339.833 313.022C323.258 305.331 326.692 306.572 310.3 315.024C309.15 315.615 293.032 320.981 289.224 313.022C249.282 229.562 184.996 315.026 166.094 308.96C130.568 297.557 156.362 221.026 137.253 171.929C112.247 107.677 36.1838 138.897 -46 174.355V149.837C11.7172 131.59 161.783 35.9326 166.968 199.53C168.216 238.874 141.812 292.939 168.952 285.756C171.38 285.115 174.951 283.615 177.578 282.304C179.768 281.214 188.846 275.297 188.846 275.297C188.846 275.297 207.829 261.593 222.049 250.074C222.94 249.352 257.074 225.091 271.723 218.84C287.455 212.128 331.673 214.754 322.721 256.176C322.091 259.091 315.322 271.675 316.342 275.552C317.327 279.285 347.352 271.968 350.001 271.322C411.209 261.587 418.917 267.373 427.646 291.55C432.664 305.464 447.871 280.05 473.388 266.919C555.641 224.587 583.031 216.637 592.944 213.716Z" fill="#6360FF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-46 199.093V171.495C36.1841 135.999 114.282 105.247 139.29 169.57C157.038 215.22 135.461 283.432 160.76 302.063C162.701 303.491 164.916 304.629 167.446 305.442C186.348 311.515 250.482 227.279 290.424 310.832C294.232 318.798 304.979 313.252 306.129 312.658C312.704 309.265 318.467 306.782 324.04 306.455C332.362 305.968 339.73 309.1 344.517 311.606C352.05 315.549 351.613 332.58 354.079 337.757C355.436 340.606 355.615 341.029 356.118 341.29C358.853 342.703 360.624 341.983 364.426 341.095C375.152 338.59 391.872 330.883 395.705 329.404C430.039 316.149 440.373 331.022 442.34 347.123C443.538 356.925 441.64 367.183 440.163 371.826C458.794 375.858 487.445 364.331 541.629 362.299C544.85 363.555 567.359 372.336 560.122 405.932C557.112 419.914 529.715 413.167 523.697 410.512C522.619 391.832 523.756 393.634 523.356 391.619C517.57 362.597 491.361 382.82 400.131 384.512C368.983 385.089 373.34 369.854 366.596 360.131C365.883 359.106 365.05 358.143 364.037 357.265C339.302 335.827 337.039 340.061 306.69 347.456C296.441 343.383 294.279 338.804 293.686 337.549C266.31 279.557 245.83 278.256 150.152 331.605C129.702 343.007 122.194 325.027 109.4 298.654C92.0857 262.962 128.638 226.42 119.501 192.763C100.014 120.98 3.54834 177.452 -46 199.093Z" fill="#7AD3FF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-46 223.712V196.792C3.53869 175.163 99.9852 121.146 119.468 192.892C128.603 226.529 101.853 256.264 112.776 297.269C120.451 326.088 131.678 336.847 152.668 326.81C253.009 278.822 271.739 276.688 293.617 337.6C296.409 345.374 319.338 353.955 370.096 367.751C384.053 371.546 417.34 373.849 456.276 371.138C478.63 369.581 502.852 365.396 526.346 361.373C551.201 357.117 558.011 368.861 559.478 370.57C566.464 378.69 580.21 411.812 560.811 416.862C555.403 418.269 544.626 418.04 531.992 417.067C509.558 415.337 481.296 411.26 466.916 409.821C439.308 407.061 416.062 401.126 388.837 395.466C386.44 394.969 384.015 394.472 381.552 393.982C329.131 383.524 284.746 354.686 281.406 355.716C258.152 362.884 262.97 322.092 235.869 313.279C186.057 297.082 191.693 355.117 98.5196 349.197C52.4364 346.266 104.069 281.515 100.996 240.257C94.9177 158.642 -10.1774 208.692 -46 223.712Z" fill="#84FEF3"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-46 223.228V280.083C-43.2009 278.771 -39.973 277.23 -36.4324 275.539C-4.82304 260.446 50.7603 231.739 49.4335 249.844C49.4211 250.014 46.3404 257.15 45.5995 258.578C42.8302 263.915 36.2265 271.677 25.3954 315.569C25.3096 316.418 25.1726 317.449 25.0148 318.637C22.4043 338.287 14.0683 401.039 136.042 399.059C157.239 398.717 175.947 389.278 191.306 382.346C201.601 377.7 210.265 371.431 216.868 374.584C263.354 414.286 297.736 399.389 319.135 390.118C333.819 383.754 342.389 380.041 344.559 398.451C347.858 426.443 354.427 431.613 441.802 430.804H442.081C448.354 430.743 494.606 430.307 504.247 429.635C520.776 428.486 521.672 426.543 525.943 416.967C524.865 398.283 523.873 393.294 523.473 391.276C519.791 372.79 507.815 374.281 476.04 378.238C457.919 380.495 433.356 383.554 400.217 384.169C376.578 384.606 373.389 375.937 370.275 367.481C368.852 363.619 367.45 359.802 364.12 356.917C342.244 337.956 337.942 339.072 316.256 344.699C313.414 345.436 310.276 346.25 306.763 347.107C302.543 348.409 298.347 349.813 294.151 351.217C289.956 352.621 285.76 354.025 281.539 355.327C269.444 359.056 264.94 349.812 259.593 338.837C254.656 328.703 248.999 317.093 235.983 312.859C213.182 305.443 201.995 313.579 187.637 324.02C170.616 336.399 149.14 352.017 98.5782 348.803C69.9696 346.983 79.0054 321.34 89.2468 292.275C95.5095 274.503 102.222 255.452 101.056 239.785C95.3211 162.761 1.48821 202.921 -39.2358 220.351C-41.6945 221.403 -43.9596 222.373 -46 223.228Z" fill="#FEF6D0"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clip0_171_390">
+        <rect width="390" height="648" fill="white"/>
+      </clipPath>
+      <clipPath id="clip1_171_390">
+        <rect width="496" height="420" fill="white" transform="translate(-46 36)"/>
+      </clipPath>
+    </defs>
+  </svg>
+  <img
+    class="mobile-dancer"
+    src="assets/images/dancers-img.png"
+    alt=""
+    aria-hidden="true">
+  </div>
+
+  <!--
+    Mobile background SVG #2 — mid-page, behind calendar / carousel / contact.
+    Inlined so viewBox scales as a true fluid vector.
+    Only visible under 768px; hidden on desktop via CSS.
+  -->
+  <div class="mobile-bg-wrap-2">
+  <svg
+    class="site-bg-mobile-2"
+    viewBox="0 0 390 1087"
+    preserveAspectRatio="none"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true">
+    <g clip-path="url(#clip0_171_428)">
+      <rect width="390" height="1087" fill="white"/>
+      <g clip-path="url(#clip1_171_428)">
+        <mask id="mask0_171_428" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-115" y="0" width="1386" height="1206">
+          <path d="M1271 0H-115V1206H1271V0Z" fill="white"/>
+        </mask>
+        <g mask="url(#mask0_171_428)">
+          <path d="M1271 0H-115V1206H1271V0Z" fill="white"/>
+          <mask id="mask1_171_428" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-115" y="65" width="1786" height="1093">
+            <path d="M1670.44 65.7819H-115V1157.76H1670.44V65.7819Z" fill="white"/>
+          </mask>
+          <g mask="url(#mask1_171_428)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M526.239 482.21C537.679 351.222 549.721 301.277 549.721 246.235C549.721 195.372 549.118 111.763 455.191 73.443C370.308 38.8127 189.061 131.272 127.647 158.031C127.647 158.031 127.647 158.031 9.03352 207.213C-82.4865 245.159 -82.5301 242.774 -95.1307 247.389C-74.0837 240.32 -101.067 249.563 -95.1307 247.389C-112.895 254.643 -107.057 251.398 -115 254.456V335.665C-79.04 329.396 -32.0812 310.195 19.416 289.142C200.923 214.933 438.809 117.674 450.207 482.21C451.234 515.032 448.014 551.516 444.951 586.23C436.568 681.199 429.356 762.917 513.483 720.131C513.549 720.098 514.185 719.656 515.343 718.852C535.953 704.538 722.527 573.212 826.688 569.523C868.367 568.046 874.334 601.551 881.284 636.605C885.519 657.954 945.04 839.69 957.947 856.956C976.687 882.037 1200.59 959.474 1221.67 942.157C1244.55 889.512 1261.73 888.397 1236.12 847.258C1196.96 784.38 1118.7 990.158 1048.26 736.045C1040.43 680.11 1034.41 763.916 1030.8 692.151C1006.48 626.395 1038 576.989 1013.92 494.076C989.834 411.165 882.679 411.188 826.688 444.631C770.692 478.075 740.517 500.989 719.444 517.755C709.81 525.419 592.043 625.905 539.661 599.931C516.154 588.277 521.899 531.901 526.239 482.21Z" fill="#CF93FF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1670.44 510.298V646.165C1603.01 644.277 1361.2 809.173 1336.03 825.498C1327.21 831.211 1302.65 866.327 1236.74 885.362C1191.22 898.507 1116.87 909.669 1088.49 897.916C1068.66 889.71 1049.49 843.433 1056.96 821.831C1080.3 754.249 1036.34 786.219 963.154 795.45C916.839 773.365 926.435 776.929 880.63 801.196C877.415 802.893 832.376 818.304 821.735 795.45C710.123 555.8 530.484 801.204 477.666 783.785C378.393 751.041 450.473 531.288 397.073 390.311C327.198 205.816 114.651 295.462 -115 397.275V326.874C46.2823 274.479 465.621 -0.193529 480.109 469.565C483.596 582.538 409.815 737.781 485.653 717.157C492.436 715.315 502.416 711.008 509.756 707.245C515.876 704.114 541.244 687.123 541.244 687.123C541.244 687.123 594.29 647.775 634.025 614.698C636.513 612.626 731.897 542.96 772.831 525.011C816.793 505.739 940.353 513.28 915.337 632.219C913.576 640.589 894.663 676.723 897.512 687.857C900.264 698.576 984.166 677.566 991.567 675.71C1162.6 647.756 1184.14 664.372 1208.53 733.794C1222.56 773.745 1265.05 700.771 1336.35 663.067C1566.2 541.513 1642.74 518.686 1670.44 510.298Z" fill="#6360FF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-115 468.31V389.064C114.651 287.141 332.886 198.836 402.765 383.536C452.359 514.619 392.067 710.483 462.762 763.981C468.183 768.083 474.374 771.349 481.445 773.683C534.262 791.123 713.477 549.243 825.087 789.159C835.729 812.035 865.758 796.109 868.973 794.404C887.347 784.662 903.45 777.53 919.023 776.593C942.277 775.195 962.865 784.186 976.244 791.382C997.294 802.706 996.071 851.608 1002.96 866.475C1006.76 874.655 1007.26 875.87 1008.66 876.617C1016.3 880.675 1021.25 878.608 1031.88 876.059C1061.85 868.866 1108.57 846.736 1119.28 842.489C1215.22 804.428 1244.1 847.134 1249.59 893.367C1252.94 921.513 1247.64 950.969 1243.51 964.301C1295.57 975.878 1375.63 942.78 1527.04 936.945C1536.04 940.551 1598.94 965.766 1578.72 1062.23C1570.31 1102.38 1493.75 1083.01 1476.94 1075.39C1473.92 1021.75 1477.1 1026.92 1475.98 1021.13C1459.81 937.8 1386.58 995.87 1131.65 1000.73C1044.61 1002.38 1056.79 958.637 1037.94 930.72C1035.95 927.776 1033.62 925.01 1030.79 922.49C961.672 860.931 955.348 873.089 870.542 894.325C841.901 882.628 835.86 869.481 834.203 865.875C757.705 699.356 700.476 695.621 433.118 848.808C375.973 881.55 354.994 829.921 319.241 754.192C270.86 651.706 373 546.777 347.47 450.134C293.016 244.015 23.4556 406.169 -115 468.31Z" fill="#7AD3FF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-115 539.002V461.703C23.4287 399.597 292.934 244.489 347.375 450.503C372.902 547.091 298.153 632.473 328.676 750.216C350.123 832.966 381.495 863.859 440.148 835.039C720.538 697.245 772.875 691.119 834.01 866.021C841.813 888.344 905.885 912.984 1047.72 952.599C1086.72 963.495 1179.74 970.109 1288.54 962.326C1351 957.853 1418.69 945.835 1484.34 934.286C1553.79 922.065 1572.82 955.786 1576.92 960.694C1596.44 984.008 1634.85 1079.12 1580.65 1093.62C1565.53 1097.66 1535.42 1097 1500.11 1094.21C1437.43 1089.24 1358.45 1077.53 1318.27 1073.4C1241.12 1065.47 1176.16 1048.43 1100.09 1032.18C1093.39 1030.75 1086.61 1029.33 1079.73 1027.92C933.249 997.89 809.221 915.084 799.889 918.041C734.908 938.623 748.372 821.492 672.641 796.186C533.451 749.678 549.199 916.321 288.839 899.322C160.066 890.906 304.347 704.98 295.758 586.51C278.774 352.159 -14.899 495.873 -115 539.002Z" fill="#84FEF3"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M-115 537.613V700.866C-107.178 697.099 -98.1584 692.674 -88.2648 687.819C0.0630325 644.482 155.383 562.051 151.675 614.039C151.64 614.525 143.032 635.016 140.961 639.117C133.223 654.44 114.77 676.729 84.5041 802.763C84.2645 805.201 83.8814 808.162 83.4406 811.573C76.1458 867.996 52.8523 1048.18 393.69 1042.5C452.923 1041.51 505.197 1014.41 548.117 994.509C576.886 981.168 601.095 963.165 619.547 972.22C749.445 1086.22 845.519 1043.45 905.317 1016.82C946.349 998.552 970.296 987.889 976.36 1040.75C985.58 1121.13 1003.94 1135.98 1248.09 1133.65H1248.87C1266.4 1133.48 1395.64 1132.23 1422.58 1130.3C1468.77 1127 1471.28 1121.42 1483.21 1093.92C1480.2 1040.27 1477.43 1025.94 1476.31 1020.15C1466.02 967.07 1432.56 971.35 1343.77 982.714C1293.13 989.194 1224.49 997.977 1131.89 999.741C1065.83 1001 1056.92 976.105 1048.22 951.824C1044.24 940.735 1040.33 929.773 1031.02 921.489C969.892 867.045 957.87 870.25 897.271 886.408C889.33 888.524 880.562 890.86 870.744 893.32C858.954 897.059 847.227 901.091 835.502 905.123C823.779 909.154 812.056 913.187 800.262 916.925C766.463 927.632 753.877 901.089 738.935 869.575C725.139 840.477 709.333 807.139 672.961 794.981C609.248 773.686 577.986 797.048 537.865 827.03C490.302 862.574 430.29 907.42 289.003 898.192C209.06 892.965 234.31 819.333 262.928 735.875C280.428 684.845 299.186 630.14 295.926 585.155C279.901 363.986 17.6989 479.302 -96.0985 529.351C-102.969 532.371 -109.298 535.156 -115 537.613Z" fill="#FEF6D0"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clip0_171_428">
+        <rect width="390" height="1087" fill="white"/>
+      </clipPath>
+      <clipPath id="clip1_171_428">
+        <rect width="1386" height="1206" fill="white" transform="translate(-115)"/>
+      </clipPath>
+    </defs>
+  </svg>
+  </div>
+
+  <main class="site-main">
+
+    <!-- ─ Carousel ──────────────────────────────────────────────── -->
+    <section class="carousel-section" aria-label="Photo carousel">
+      <div class="carousel-container">
+
+        <div class="carousel-viewport">
+          <ul class="carousel-track" role="list">
+
+            <li class="carousel-slide carousel-slide--1">
+              <img src="assets/images/carousel-1.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--2">
+              <img src="assets/images/carousel-2.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--3">
+              <img src="assets/images/carousel-3.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--4">
+              <img src="assets/images/carousel-4.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--5">
+              <img src="assets/images/carousel-5.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--6">
+              <img src="assets/images/carousel-6.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--7">
+              <img src="assets/images/carousel-7.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--8">
+              <img src="assets/images/carousel-8.jpg" alt="" class="carousel-img">
+            </li>
+
+            <li class="carousel-slide carousel-slide--9">
+              <img src="assets/images/carousel-9.jpg" alt="" class="carousel-img">
+            </li>
+
+          </ul>
+        </div>
+
+        <!--
+          Controls row: [prev arrow] [dot] [dot] [dot] [next arrow]
+          Dot 2 is pre-marked active because JS starts on group 1.
+        -->
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Previous slide group">
+            <svg class="carousel-btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="carousel-dots" role="group" aria-label="Slide group navigation">
+            <button class="carousel-dot" type="button" aria-label="Slide group 1" aria-pressed="false"></button>
+            <button class="carousel-dot carousel-dot--active" type="button" aria-label="Slide group 2" aria-pressed="true"></button>
+            <button class="carousel-dot" type="button" aria-label="Slide group 3" aria-pressed="false"></button>
+          </div>
+
+          <button class="carousel-btn carousel-btn--next" type="button" aria-label="Next slide group">
+            <svg class="carousel-btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─ Events Calendar ──────────────────────────────────────── -->
+    <!--
+      Requires a local HTTP server — fetch('events.json') is blocked
+      on file:// protocol. Run: python3 -m http.server 8080
+    -->
+    <section class="calendar-section">
+      <div class="calendar-layout">
+
+        <div class="calendar-col">
+          <h2 class="calendar-heading">Upcoming Events</h2>
+          <div class="calendar-container">
+            <ol class="calendar-list" id="calendar-list" role="list">
+              <!-- rendered by calendar.js -->
+            </ol>
+          </div>
+        </div>
+
+        <aside class="dancer-col">
+          <img
+            src="assets/images/dancers-img.png"
+            alt="Dancing figures in fluid somatic movement"
+            class="dancer-img">
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ─ Mobile Carousel ──────────────────────────────────────── -->
+    <section class="mobile-carousel-section" aria-label="Mobile photo carousel">
+      <div class="mobile-carousel">
+
+        <div class="mobile-carousel__viewport">
+          <ul class="mobile-carousel__track" role="list">
+            <li class="mobile-carousel__slide">
+              <img src="assets/images/carousel-1.jpg" alt="" class="mobile-carousel__img">
+            </li>
+            <li class="mobile-carousel__slide">
+              <img src="assets/images/carousel-2.jpg" alt="" class="mobile-carousel__img">
+            </li>
+            <li class="mobile-carousel__slide">
+              <img src="assets/images/carousel-3.jpg" alt="" class="mobile-carousel__img">
+            </li>
+            <li class="mobile-carousel__slide">
+              <img src="assets/images/carousel-4.jpg" alt="" class="mobile-carousel__img">
+            </li>
+            <li class="mobile-carousel__slide">
+              <img src="assets/images/carousel-5.jpg" alt="" class="mobile-carousel__img">
+            </li>
+          </ul>
+        </div>
+
+        <div class="mobile-carousel__controls">
+          <button class="mobile-carousel__btn mobile-carousel__btn--prev" type="button" aria-label="Previous image">
+            <svg class="mobile-carousel__btn-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="mobile-carousel__dots" role="group" aria-label="Image navigation">
+            <button class="mobile-carousel__dot mobile-carousel__dot--active" type="button" aria-label="Image 1" aria-pressed="true"></button>
+            <button class="mobile-carousel__dot" type="button" aria-label="Image 2" aria-pressed="false"></button>
+            <button class="mobile-carousel__dot" type="button" aria-label="Image 3" aria-pressed="false"></button>
+            <button class="mobile-carousel__dot" type="button" aria-label="Image 4" aria-pressed="false"></button>
+            <button class="mobile-carousel__dot" type="button" aria-label="Image 5" aria-pressed="false"></button>
+          </div>
+
+          <button class="mobile-carousel__btn mobile-carousel__btn--next" type="button" aria-label="Next image">
+            <svg class="mobile-carousel__btn-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─ Mobile Contact ────────────────────────────────────────── -->
+    <section class="mobile-contact-section" aria-label="Contact">
+
+      <!-- Newsletter signup -->
+      <div class="mobile-contact__newsletter">
+        <p class="mobile-contact__newsletter-label">Join the Newsletter</p>
+        <form class="mobile-contact__form" id="mobile-newsletter-form">
+          <input
+            class="mobile-contact__input"
+            type="email"
+            name="email"
+            aria-label="Email address"
+            required>
+          <button class="mobile-contact__submit" type="submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- Telegram -->
+      <div class="mobile-contact__telegram">
+        <span class="mobile-contact__telegram-label">Bay Area Axis<br>Syllabus Telegram<br>Group</span>
+        <!-- TODO: replace href="#" with real Telegram invite URL -->
+        <a
+          class="mobile-contact__btn"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer">Join Here</a>
+      </div>
+
+      <!-- Email Marcus -->
+      <div class="mobile-contact__row">
+        <span class="mobile-contact__row-label">Email Marcus</span>
+        <a class="contact-icon-link" href="mailto:PLACEHOLDER_EMAIL">
+          <svg
+            class="contact-icon contact-icon--email"
+            viewBox="0 0 33 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="0.5" y="0.5" width="32" height="26" rx="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M0.5 2L16.5 15L32.5 2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Instagram -->
+      <div class="mobile-contact__row">
+        <span class="mobile-contact__row-label">Instagram</span>
+        <a
+          class="contact-icon-link"
+          href="https://instagram.com/marcusvanduren"
+          target="_blank"
+          rel="noopener noreferrer">
+          <svg
+            class="contact-icon contact-icon--instagram"
+            viewBox="0 0 30 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="1" y="1" width="28" height="28" rx="7" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="15" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="22" cy="8" r="1.5" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="contact-inner">
+
+      <!-- Newsletter -->
+      <form
+        class="contact-newsletter"
+        action="PLACEHOLDER_GOOGLE_SHEET_WEBHOOK_URL"
+        method="POST">
+        <p class="contact-newsletter__label">Join the Newsletter</p>
+        <div class="contact-newsletter__fields">
+          <input
+            class="contact-newsletter__input"
+            type="email"
+            id="newsletter-email"
+            name="email"
+            aria-label="Email address"
+            required>
+          <button class="contact-btn" type="submit">Submit</button>
+        </div>
+      </form>
+
+      <!-- Telegram -->
+      <div class="contact-row">
+        <span class="contact-row__label">Bay Area Axis<br>Syllabus Telegram<br>Group</span>
+        <a
+          class="contact-btn"
+          href="https://t.me/BayAreaAxisSyllabus"
+          target="_blank"
+          rel="noopener noreferrer">
+          Join Here
+        </a>
+      </div>
+
+      <!-- Email -->
+      <div class="contact-row">
+        <span class="contact-row__label">Email Marcus</span>
+        <a class="contact-icon-link" href="mailto:PLACEHOLDER_EMAIL">
+          <svg
+            class="contact-icon contact-icon--email"
+            viewBox="0 0 33 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="0.5" y="0.5" width="32" height="26" rx="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M0.5 2L16.5 15L32.5 2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contact-row">
+        <span class="contact-row__label">Instagram</span>
+        <a
+          class="contact-icon-link"
+          href="https://instagram.com/marcusvanduren"
+          target="_blank"
+          rel="noopener noreferrer">
+          <svg
+            class="contact-icon contact-icon--instagram"
+            viewBox="0 0 30 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="1" y="1" width="28" height="28" rx="7" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="15" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="22" cy="8" r="1.5" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="nav.js" defer></script>
+  <script src="carousel.js" defer></script>
+  <script src="calendar.js" defer></script>
+  <script src="mobile-carousel.js" defer></script>
+  <script src="mobile-contact.js" defer></script>
+
+</body>
+</html>
