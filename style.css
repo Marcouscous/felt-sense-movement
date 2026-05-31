@@ -219,6 +219,29 @@ body {
 }
 
 /*
+  Mobile background #3 wrapper — hidden by default; shown on mobile behind calendar.
+*/
+.mobile-bg-wrap-3 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.site-bg-mobile-3 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 43.9375rem;   /* 703px — Figma mobile background 3 height */
+  z-index: var(--z-background);
+  pointer-events: none;
+}
+
+/*
   Mobile background #2 wrapper — hidden by default; shown on mobile.
   Positioned to cover the calendar / carousel / contact area.
 */
@@ -407,10 +430,20 @@ body {
 
   .site-bg-mobile { display: block; }
 
+  .mobile-bg-wrap-3 {
+    display: block;
+    top: 33.125rem;     /* 530px — top moved down 30px total */
+    height: 42.0625rem; /* 673px — 30px shorter, bottom edge unchanged at 1203px */
+    left: -0.3125rem;   /* -5px — extends left out of view */
+    width: calc(100% + 0.3125rem); /* right edge stays flush */
+  }
+
+  .site-bg-mobile-3 { display: block; }
+
   .mobile-bg-wrap-2 {
     display: block;
-    top: 64.25rem;      /* 1028px — wrapper shifted down 200px to enable top crop */
-    height: 55.4375rem; /* 887px — 200px cropped from bottom */
+    top: 63rem;         /* 1008px — 20px higher */
+    height: 56.6875rem; /* 907px — 20px taller */
     overflow: hidden;
   }
 
@@ -460,7 +493,7 @@ body {
   .nav__links {
     height: auto;
     align-items: center;
-    gap: var(--space-6);   /* 24px between About / Offerings / Blog */
+    gap: 2.125rem;   /* 34px between About / Offerings / Blog */
     padding: 0;
   }
 
@@ -1084,13 +1117,13 @@ body {
    MOBILE CAROUSEL  ·  visible only below 768px
 ═══════════════════════════════════════════════════════ */
 
-@media (min-width: 768px) {
-  .mobile-carousel-section { display: none; }
-}
-
 .mobile-carousel-section {
   padding: var(--space-8) 0 var(--space-8);
   margin-top: -2.1875rem;   /* 35px up */
+}
+
+@media (min-width: 768px) {
+  .mobile-carousel-section { display: none; }
 }
 
 .mobile-carousel {
@@ -1188,10 +1221,6 @@ body {
    Source: Figma node 108:78 — full 390px width, 18px
    horizontal padding, column layout, 35px row gap.
 ═══════════════════════════════════════════════════════ */
-
-@media (min-width: 768px) {
-  .mobile-contact-section { display: none; }
-}
 
 .mobile-contact-section {
   display: flex;
@@ -1321,4 +1350,8 @@ body {
   font-size: 0.8125rem;   /* 13px */
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .mobile-contact-section { display: none; }
 }

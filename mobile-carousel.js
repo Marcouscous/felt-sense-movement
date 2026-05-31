@@ -10,8 +10,8 @@
   const nextBtn = section.querySelector('.mobile-carousel__btn--next');
 
   const TOTAL        = dots.length;   /* 5 */
-  const AUTO_DELAY   = 4000;
-  const RESUME_DELAY = 4000;
+  const AUTO_DELAY   = 20000;
+  const RESUME_DELAY = 20000;
 
   let current     = 0;
   let autoTimer   = null;
