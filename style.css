@@ -771,7 +771,7 @@ body {
   color: var(--color-text);
   background: transparent;
   border: none;
-  padding: var(--space-1) 1.0625rem;   /* 4px 17px — +5px each side */
+  padding: var(--space-1) 0.828125rem;   /* 4px 13.25px — +5px total toggle width */
   cursor: pointer;
   white-space: nowrap;
   text-align: center;
@@ -1023,12 +1023,19 @@ body {
   }
 
   .calendar-header {
-    margin-left: 0.625rem;   /* 10px */
+    margin-left: 0.625rem;
     margin-right: 0.625rem;
+    flex-wrap: nowrap;
+    gap: 1.125rem;   /* 18px between heading and toggle */
   }
 
   .calendar-heading {
     font-size: var(--font-size-lg);   /* 18px */
+    min-width: 0;   /* allows text to wrap at narrow widths */
+  }
+
+  .calendar-toggle {
+    flex-shrink: 0;  /* toggle never compresses — heading wraps instead */
   }
 
   .calendar-container {
