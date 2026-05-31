@@ -305,6 +305,8 @@ body {
     var(--space-10)
     var(--space-2-5)
     var(--space-2-5);
+  text-decoration: none;
+  color: var(--color-text);
 }
 
 .nav__logo {
@@ -424,7 +426,7 @@ body {
 
   .mobile-bg-wrap {
     display: block;
-    top: 3.125rem;      /* 50px — push SVG down from top */
+    top: 4.0625rem;     /* 65px */
     height: 40.5rem;    /* 648px — matches SVG height; enables bottom: 0 on dancer */
   }
 
@@ -442,8 +444,8 @@ body {
 
   .mobile-bg-wrap-2 {
     display: block;
-    top: 66.125rem;     /* 1058px — 50px lower */
-    height: 56.6875rem; /* 907px — 20px taller */
+    top: 66.125rem;     /* 1058px */
+    height: 58.5625rem; /* 937px */
     overflow: hidden;
   }
 
@@ -467,7 +469,7 @@ body {
   .nav {
     flex-direction: column;
     align-items: center;
-    padding: var(--nav-padding);
+    padding: var(--nav-padding) var(--nav-padding) 1.5625rem;   /* 15px 15px 25px */
     gap: var(--space-2);
   }
 
@@ -476,7 +478,7 @@ body {
   .nav__brand {
     height: auto;
     gap: var(--space-2);
-    padding: 0;
+    padding: 0.3125rem 0;   /* 5px top/bottom */
   }
 
   .nav__logo {
@@ -493,7 +495,7 @@ body {
   .nav__links {
     height: auto;
     align-items: center;
-    gap: 2.125rem;   /* 34px between About / Offerings / Blog */
+    gap: 2.4375rem;  /* 39px between About / Offerings / Blog */
     padding: 0;
   }
 
@@ -536,7 +538,7 @@ body {
   /* ── Main — push calendar below dancer + 10px gap ── */
 
   .site-main {
-    padding-top: 26rem;   /* clears dancer bottom (~523px from body top) given ~100px navbar */
+    padding-top: 26.625rem;   /* 426px — +10px gap below dancer */
   }
 
   /* ── Sections hidden until mobile layout is built ─── */
@@ -771,7 +773,7 @@ body {
   color: var(--color-text);
   background: transparent;
   border: none;
-  padding: var(--space-1) 0.828125rem;   /* 4px 13.25px — +5px total toggle width */
+  padding: 0.46875rem 0.828125rem;   /* 7.5px 13.25px — +5px total height */
   cursor: pointer;
   white-space: nowrap;
   text-align: center;
@@ -1026,7 +1028,7 @@ body {
     margin-left: 0.625rem;
     margin-right: 0.625rem;
     flex-wrap: nowrap;
-    gap: 1.125rem;   /* 18px between heading and toggle */
+    gap: 1.75rem;    /* 28px between heading and toggle */
   }
 
   .calendar-heading {
@@ -1036,6 +1038,15 @@ body {
 
   .calendar-toggle {
     flex-shrink: 0;  /* toggle never compresses — heading wraps instead */
+  }
+
+  .calendar-toggle__btn {
+    padding-left: 0.984375rem;   /* 15.75px — +2.5px each side = +10px total toggle width */
+    padding-right: 0.984375rem;
+  }
+
+  .calendar-toggle__btn[data-category="workshop"] {
+    padding-right: 0.546875rem;   /* 8.75px */
   }
 
   .calendar-container {
@@ -1057,6 +1068,10 @@ body {
     overflow-wrap: break-word;
   }
 
+  .event-text {
+    margin-left: 0.3125rem;   /* 5px extra gap between date and text */
+  }
+
   .learn-more-btn {
     padding: var(--space-2) var(--space-1);
     white-space: normal;
@@ -1065,6 +1080,49 @@ body {
     max-width: 3.5rem;
   }
 
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   EVENTS PAGE BACKGROUND  (mobile only)
+═══════════════════════════════════════════════════════ */
+
+/* Flow-anchored between the two sections — moves with dynamic calendar height */
+.events-bg-wrap {
+  display: none;
+  position: relative;
+  height: 0;
+  width: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.events-bg-svg {
+  display: none;
+  position: absolute;
+  top: -15rem;          /* extends 240px above the section dividing line */
+  left: -0.3125rem;
+  width: calc(100% + 0.3125rem);
+  height: 37.6875rem;   /* 603px */
+  z-index: var(--z-background);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .events-bg-wrap {
+    display: block;
+    /* Cancel the 16px horizontal padding from .events-page so the wrap
+       spans the full viewport width. */
+    margin-left: calc(-1 * var(--space-4));
+    width: calc(100% + 2 * var(--space-4));
+  }
+  .events-bg-svg {
+    display: block;
+    top: -26.875rem;   /* -430px */
+    left: 0;
+    width: 100%;
+    height: 37.5rem;   /* 600px */
+  }
 }
 
 
@@ -1078,7 +1136,7 @@ body {
   padding: var(--space-8) var(--space-4) var(--space-16);
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: 6.75rem;    /* 108px */
 }
 
 .events-page__section {
@@ -1097,8 +1155,32 @@ body {
 
 .events-page__calendar {
   width: 100%;
+}
+
+.events-page__calendar--upcoming {
   height: auto;
+  max-height: none;
+  overflow-y: visible;   /* expands to fit all events — no scroll */
+}
+
+.events-page__calendar--past {
+  height: 60vh;          /* fixed height with scroll on desktop */
   max-height: 60vh;
+}
+
+@media (max-width: 767px) {
+  .events-page {
+    gap: 5rem;   /* 80px per item — 160px total between sections (was 108px×2=216px) */
+  }
+
+  .events-page > section:last-child {
+    margin-top: -4.375rem;   /* -70px */
+  }
+
+  .events-page__calendar--past {
+    height: 24.375rem;   /* 390px fixed with scroll on mobile */
+    max-height: none;
+  }
 }
 
 
@@ -1342,7 +1424,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--contact-row-gap);            /* 35px between newsletter and telegram */
+  gap: 3.4375rem;                          /* 55px — 35px base + 20px */
   padding: var(--space-3) var(--contact-pad-h) var(--space-16);
   /* space-3 (12px) top · contact-pad-h (18px) sides · space-16 (64px) bottom */
 }

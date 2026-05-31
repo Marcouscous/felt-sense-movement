@@ -6,6 +6,10 @@ A plain HTML/CSS business landing page for a somatic movement practice. No build
 - Desktop frame: node `1:154` — 1440×3000px
 - Mobile frame: node `1:163` — 390×2000px (iPhone 13 & 14)
 
+**Source of truth — mobile layout:** `index.html` (with its mobile CSS in `style.css`) is the visual reference for mobile patterns, spacing, and component style. Any page without a Figma node (see Page Inventory) should match the look and feel of `index.html` at `≤ 767px`.
+
+**No Figma source for `events.html`:** The all-events page is designed from prompts. Use `index.html` mobile layout as the visual reference for typography, spacing, card style, button style, and background SVGs.
+
 ---
 
 ## Folder Structure
@@ -320,7 +324,8 @@ Build each section **desktop + mobile simultaneously** before moving to the next
 
 | File | Status | Purpose |
 |------|--------|---------|
-| `index.html` | In progress | Landing page — all six sections |
+| `index.html` | In progress | Landing page — all six sections; **mobile source of truth** |
+| `events.html` | In progress | All-events page (upcoming + past); **no Figma node — built from prompts, modelled on `index.html` mobile** |
 | `about.html` | Skeleton (empty body) | Practitioner bio, philosophy, credentials |
 | `blog.html` | Skeleton (empty body) | Blog post listing |
 | `past-events.html` | Skeleton (empty body) | Archive of past events, driven by `calendar.js` |

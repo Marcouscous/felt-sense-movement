@@ -1,5 +1,32 @@
 [
   {
+    "date": "2026-04-12",
+    "title": "Ground & Flow",
+    "location": "Berkeley",
+    "locationMap": "Berkeley, CA",
+    "link": "https://feltsensemovement.com",
+    "description": "A somatic movement class exploring grounding through the lower body.",
+    "category": "class"
+  },
+  {
+    "date": "2026-03-08",
+    "title": "Body as Landscape",
+    "location": "Oakland",
+    "locationMap": "Oakland, CA",
+    "link": "https://feltsensemovement.com",
+    "description": "A workshop exploring the body as a living, sensing landscape.",
+    "category": "workshop"
+  },
+  {
+    "date": "2026-02-21",
+    "title": "Kinetic Waves",
+    "location": "San Francisco",
+    "locationMap": "San Francisco, CA",
+    "link": "https://feltsensemovement.com",
+    "description": "An ongoing series exploring fluid movement and somatic awareness through guided improvisation.",
+    "category": "class"
+  },
+  {
     "date": "2026-06-15",
     "title": "Moving The Spine From The Feet",
     "location": "Santa Barbara",
@@ -34,14 +61,5 @@
     "link": "https://feltsensemovement.com",
     "description": "A four-day immersive retreat deepening somatic awareness through movement, stillness, and reflection.",
     "category": "workshop"
-  },
-  {
-    "date": "2026-10-08",
-    "title": "The Overscore",
-    "location": "San Francisco",
-    "locationMap": "San Francisco, CA",
-    "link": "https://feltsensemovement.com",
-    "description": "An extended group score practice drawing from contact improvisation and somatic intelligence.",
-    "category": "class"
   }
 ]
