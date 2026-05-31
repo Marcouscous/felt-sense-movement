@@ -334,12 +334,19 @@
       <div class="calendar-layout">
 
         <div class="calendar-col">
-          <h2 class="calendar-heading">Upcoming Events</h2>
+          <div class="calendar-header">
+            <h2 class="calendar-heading">Upcoming Events</h2>
+            <div class="calendar-toggle" role="group" aria-label="Filter by category">
+              <button class="calendar-toggle__btn calendar-toggle__btn--active" type="button" data-category="class">Classes</button>
+              <button class="calendar-toggle__btn" type="button" data-category="workshop">Workshops</button>
+            </div>
+          </div>
           <div class="calendar-container">
             <ol class="calendar-list" id="calendar-list" role="list">
               <!-- rendered by calendar.js -->
             </ol>
           </div>
+          <a href="events.html" class="calendar-view-all">View All Events</a>
         </div>
 
         <aside class="dancer-col">

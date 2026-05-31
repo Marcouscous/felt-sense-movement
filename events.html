@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Events — Felt Sense Movement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+
+      <div class="nav__brand">
+        <img
+          src="assets/images/FSM-logo.png"
+          alt="Felt Sense Movement logo"
+          class="nav__logo"
+          width="43"
+          height="43">
+        <span class="nav__brand-name">Felt Sense Movement</span>
+      </div>
+
+      <ul class="nav__links" role="list">
+
+        <li class="nav__item">
+          <a href="about.html" class="nav__link">About</a>
+        </li>
+
+        <li class="nav__item nav__item--has-dropdown">
+          <button
+            class="nav__link nav__link--trigger"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Offerings
+          </button>
+
+          <ul class="nav__dropdown" role="list" aria-label="Offerings pages">
+            <li>
+              <a href="offerings/kinetic-waves.html" class="nav__dropdown-link">
+                Kinetic<br>Waves
+              </a>
+            </li>
+            <li>
+              <a href="offerings/the-overscore.html" class="nav__dropdown-link">
+                The Overscore
+              </a>
+            </li>
+            <li>
+              <a href="offerings/resonance-response.html" class="nav__dropdown-link">
+                Resonance &amp;<br>Response
+              </a>
+            </li>
+            <li>
+              <a href="offerings/felt-sense-fall-intensive.html" class="nav__dropdown-link">
+                Felt Sense<br>Fall Intensive
+              </a>
+            </li>
+            <li>
+              <a href="past-events.html" class="nav__dropdown-link">
+                Past Events
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav__item">
+          <a href="blog.html" class="nav__link">Blog</a>
+        </li>
+
+      </ul>
+
+    </nav>
+  </header>
+
+  <main class="events-page">
+
+    <section class="events-page__section">
+      <h2 class="events-page__heading">Upcoming Events</h2>
+      <div class="calendar-container events-page__calendar">
+        <ol class="calendar-list" id="calendar-list" role="list">
+          <!-- rendered by calendar.js -->
+        </ol>
+      </div>
+    </section>
+
+    <section class="events-page__section">
+      <h2 class="events-page__heading">Past Events</h2>
+      <div class="calendar-container events-page__calendar">
+        <ol class="calendar-list" id="past-events-list" role="list">
+          <!-- rendered by calendar.js -->
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="contact-inner">
+
+      <form
+        class="contact-newsletter"
+        action="PLACEHOLDER_GOOGLE_SHEET_WEBHOOK_URL"
+        method="POST">
+        <p class="contact-newsletter__label">Join the Newsletter</p>
+        <div class="contact-newsletter__fields">
+          <input
+            class="contact-newsletter__input"
+            type="email"
+            id="newsletter-email"
+            name="email"
+            aria-label="Email address"
+            required>
+          <button class="contact-btn" type="submit">Submit</button>
+        </div>
+      </form>
+
+      <div class="contact-row">
+        <span class="contact-row__label">Bay Area Axis<br>Syllabus Telegram<br>Group</span>
+        <a
+          class="contact-btn"
+          href="https://t.me/BayAreaAxisSyllabus"
+          target="_blank"
+          rel="noopener noreferrer">
+          Join Here
+        </a>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-row__label">Email Marcus</span>
+        <a class="contact-icon-link" href="mailto:PLACEHOLDER_EMAIL">
+          <svg
+            class="contact-icon contact-icon--email"
+            viewBox="0 0 33 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="0.5" y="0.5" width="32" height="26" rx="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M0.5 2L16.5 15L32.5 2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-row__label">Instagram</span>
+        <a
+          class="contact-icon-link"
+          href="https://instagram.com/marcusvanduren"
+          target="_blank"
+          rel="noopener noreferrer">
+          <svg
+            class="contact-icon contact-icon--instagram"
+            viewBox="0 0 30 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="1" y="1" width="28" height="28" rx="7" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="15" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="22" cy="8" r="1.5" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="nav.js" defer></script>
+  <script src="calendar.js" defer></script>
+
+</body>
+</html>

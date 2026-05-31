@@ -2,26 +2,57 @@ async function loadCalendar() {
   try {
     const res = await fetch('events.json');
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const events = await res.json();
+    const allEvents = await res.json();
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const upcoming = events
+    const upcoming = allEvents
       .filter(e => new Date(e.date + 'T00:00:00') >= today)
       .sort((a, b) => new Date(a.date) - new Date(b.date));
 
-    const past = events
+    const past = allEvents
       .filter(e => new Date(e.date + 'T00:00:00') < today)
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     const calendarList = document.getElementById('calendar-list');
     const pastList     = document.getElementById('past-events-list');
+    const toggleBtns   = document.querySelectorAll('.calendar-toggle__btn');
 
-    if (calendarList) {
-      calendarList.innerHTML = upcoming.length
-        ? upcoming.map(renderCard).join('')
+    function renderUpcoming(category) {
+      if (!calendarList) return;
+      const filtered = category
+        ? upcoming.filter(e => e.category === category)
+        : upcoming;
+      calendarList.innerHTML = filtered.length
+        ? filtered.map(renderCard).join('')
         : '<li class="calendar-empty">No upcoming events.</li>';
+    }
+
+    if (toggleBtns.length) {
+      const toggleContainer = toggleBtns[0].closest('.calendar-toggle');
+      const activeBtn = document.querySelector('.calendar-toggle__btn--active');
+      let activeCategory = activeBtn ? activeBtn.dataset.category : null;
+
+      function setSlider(btn) {
+        const index = Array.from(toggleBtns).indexOf(btn);
+        if (toggleContainer) toggleContainer.style.setProperty('--_active', index);
+      }
+
+      setSlider(activeBtn || toggleBtns[0]);
+      renderUpcoming(activeCategory);
+
+      toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggleBtns.forEach(b => b.classList.remove('calendar-toggle__btn--active'));
+          btn.classList.add('calendar-toggle__btn--active');
+          activeCategory = btn.dataset.category;
+          setSlider(btn);
+          renderUpcoming(activeCategory);
+        });
+      });
+    } else {
+      renderUpcoming(null);
     }
 
     if (pastList) {

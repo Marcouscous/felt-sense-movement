@@ -5,7 +5,8 @@
     "location": "Santa Barbara",
     "locationMap": "Santa Barbara, CA",
     "link": "https://feltsensemovement.com",
-    "description": "A workshop exploring how grounded awareness in the feet can unlock fluid movement up through the spine."
+    "description": "A workshop exploring how grounded awareness in the feet can unlock fluid movement up through the spine.",
+    "category": "workshop"
   },
   {
     "date": "2026-07-12",
@@ -13,7 +14,8 @@
     "location": "Berkeley",
     "locationMap": "Berkeley, CA",
     "link": "https://feltsensemovement.com",
-    "description": "An ongoing series exploring fluid movement and somatic awareness through guided improvisation."
+    "description": "An ongoing series exploring fluid movement and somatic awareness through guided improvisation.",
+    "category": "class"
   },
   {
     "date": "2026-08-03",
@@ -21,7 +23,8 @@
     "location": "Oakland",
     "locationMap": "Oakland, CA",
     "link": "https://feltsensemovement.com",
-    "description": "A partnered somatic practice exploring how bodies sense and respond to one another in movement."
+    "description": "A partnered somatic practice exploring how bodies sense and respond to one another in movement.",
+    "category": "workshop"
   },
   {
     "date": "2026-09-20",
@@ -29,7 +32,8 @@
     "location": "Santa Barbara",
     "locationMap": "Santa Barbara, CA",
     "link": "https://feltsensemovement.com",
-    "description": "A four-day immersive retreat deepening somatic awareness through movement, stillness, and reflection."
+    "description": "A four-day immersive retreat deepening somatic awareness through movement, stillness, and reflection.",
+    "category": "workshop"
   },
   {
     "date": "2026-10-08",
@@ -37,6 +41,7 @@
     "location": "San Francisco",
     "locationMap": "San Francisco, CA",
     "link": "https://feltsensemovement.com",
-    "description": "An extended group score practice drawing from contact improvisation and somatic intelligence."
+    "description": "An extended group score practice drawing from contact improvisation and somatic intelligence.",
+    "category": "class"
   }
 ]
