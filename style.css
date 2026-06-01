@@ -87,9 +87,6 @@
   --calendar-scrollbar:  1.0625rem;    /* 17px — scrollbar container width */
   --calendar-section-pt: 0;               /* 0px top */
   --calendar-section-pb: var(--space-16);  /* 64px bottom */
-  --calendar-section-pl: clamp(0rem, calc(100vw - 32.6875rem), 11.875rem);
-  /* Collapses from 190px → 0 only when viewport < 713px (190 + 523px calendar).
-     At full desktop width the padding is always 190px.                         */
 
   --carousel-btn-size:   2.1875rem;   /* 35px — arrow button diameter (25% smaller than original 47px) */
   --carousel-dot-size:   0.9375rem;   /* 15px — dot diameter */
@@ -208,7 +205,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 40.5rem;              /* 648px — Figma mobile background height */
+  height: 36.125rem;            /* 578px — 70px shorter than original */
   z-index: var(--z-background);
   pointer-events: none;
 }
@@ -427,14 +424,14 @@ body {
   .mobile-bg-wrap {
     display: block;
     top: 4.0625rem;     /* 65px */
-    height: 40.5rem;    /* 648px — matches SVG height; enables bottom: 0 on dancer */
+    height: 36.125rem;  /* 578px — 70px shorter, top unchanged */
   }
 
   .site-bg-mobile { display: block; }
 
   .mobile-bg-wrap-3 {
     display: block;
-    top: 33.125rem;     /* 530px — top moved down 30px total */
+    top: 30.0rem;       /* 480px — 50px higher */
     height: 42.0625rem; /* 673px — 30px shorter, bottom edge unchanged at 1203px */
     left: -0.3125rem;   /* -5px — extends left out of view */
     width: calc(100% + 0.3125rem); /* right edge stays flush */
@@ -444,7 +441,7 @@ body {
 
   .mobile-bg-wrap-2 {
     display: block;
-    top: 66.125rem;     /* 1058px */
+    top: 62.875rem;     /* 1006px — 50px higher */
     height: 58.5625rem; /* 937px */
     overflow: hidden;
   }
@@ -457,7 +454,7 @@ body {
   .mobile-dancer {
     display: block;
     position: absolute;
-    bottom: 10.9375rem;   /* 175px up from SVG bottom */
+    bottom: 9.0625rem;    /* 145px up from SVG bottom */
     left: 50%;
     transform: translateX(-50%);
     width: 13.6875rem;   /* 219px — 249px minus 30px */
@@ -538,7 +535,7 @@ body {
   /* ── Main — push calendar below dancer + 10px gap ── */
 
   .site-main {
-    padding-top: 26.625rem;   /* 426px — +10px gap below dancer */
+    padding-top: 23.5rem;     /* 376px — 50px higher */
   }
 
   /* ── Sections hidden until mobile layout is built ─── */
@@ -697,8 +694,10 @@ body {
 */
 .calendar-section {
   position: relative;
-  overflow: hidden;   /* clips dancer cleanly as it slides out of frame on narrow viewports */
-  padding: var(--calendar-section-pt) 0 var(--calendar-section-pb) var(--calendar-section-pl);
+  overflow: hidden;   /* clips dancer as it slides out of frame on narrow viewports */
+  display: flex;
+  justify-content: center;
+  padding: var(--calendar-section-pt) 0 var(--calendar-section-pb);
   margin-top: -0.4375rem;   /* 7px — pulls section up */
 }
 
@@ -725,7 +724,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-left: 10px;
-  margin-right: 4px;
+  margin-right: 11px;
 }
 
 .calendar-heading {
@@ -784,7 +783,7 @@ body {
 .calendar-view-all {
   display: block;
   text-align: center;
-  margin-top: 0.625rem;     /* 10px */
+  margin-top: 0.4375rem;    /* 7px — 3px less */
   margin-bottom: -0.5rem;   /* -8px — trims space below */
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
@@ -962,6 +961,32 @@ body {
 }
 
 /* Desktop: Learn More transparent with hover fill */
+@media (min-width: 768px) {
+  .calendar-toggle {
+    border-width: 2px;
+  }
+
+  .carousel-btn {
+    border-width: 1px;
+  }
+
+  .carousel-dot {
+    border-width: 2px;
+  }
+
+  .calendar-view-all {
+    font-size: var(--font-size-base);   /* 16px — 2px above base 14px */
+  }
+
+  .calendar-toggle__btn {
+    padding-top: 0.9375rem;      /* 15px */
+    padding-bottom: 0.9375rem;
+    padding-left: 1.609375rem;   /* 25.75px — +7.5px each side = +30px wider than mobile base */
+    padding-right: 1.609375rem;
+    font-size: 0.9375rem;        /* 15px */
+  }
+}
+
 @media (min-width: 1280px) {
   .learn-more-btn {
     background-color: transparent;
@@ -985,7 +1010,7 @@ body {
 
 .dancer-img {
   display: block;
-  width: 30.9375rem;   /* 495px — fixed; slides out of frame rather than shrinking */
+  width: 27.25rem;   /* 436px — 10% larger than 396px */
   height: auto;
   background: none;
 }
@@ -1041,8 +1066,11 @@ body {
   }
 
   .calendar-toggle__btn {
+    padding-top: 0.625rem;       /* 10px */
+    padding-bottom: 0.625rem;
     padding-left: 0.984375rem;   /* 15.75px — +2.5px each side = +10px total toggle width */
     padding-right: 0.984375rem;
+    font-size: 0.8125rem;        /* 13px — 1px above base 12px */
   }
 
   .calendar-toggle__btn[data-category="workshop"] {
@@ -1080,6 +1108,35 @@ body {
     max-width: 3.5rem;
   }
 
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   EVENTS PAGE — DESKTOP BACKGROUND SVG
+═══════════════════════════════════════════════════════ */
+
+.events-desktop-bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: var(--z-background);
+}
+
+.events-desktop-bg svg {
+  display: block;
+  width: 100%;
+  height: 43.125rem;   /* 690px */
+}
+
+@media (min-width: 768px) {
+  .events-desktop-bg { display: block; }
+}
+
+@media (max-width: 767px) {
+  .events-desktop-bg { display: none; }
 }
 
 
