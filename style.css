@@ -111,6 +111,19 @@
 }
 
 
+/* ── Mobile font-size overrides (+1px each) ──────────── */
+
+@media (max-width: 767px) {
+  :root {
+    --font-size-xs:      0.8125rem;   /* 13px — was 12px */
+    --font-size-sm:      0.9375rem;   /* 15px — was 14px */
+    --font-size-base:    1.0625rem;   /* 17px — was 16px */
+    --font-size-contact: 1rem;        /* 16px — was 15px */
+    --font-size-lg:      1.1875rem;   /* 19px — was 18px */
+  }
+}
+
+
 /* ═══════════════════════════════════════════════════════
    RESET
 ═══════════════════════════════════════════════════════ */
@@ -1071,7 +1084,7 @@ body {
     padding-bottom: 0.625rem;
     padding-left: 0.984375rem;   /* 15.75px — +2.5px each side = +10px total toggle width */
     padding-right: 0.984375rem;
-    font-size: 0.8125rem;        /* 13px — 1px above base 12px */
+    font-size: 0.875rem;         /* 14px — 1px above base 13px */
   }
 
   .calendar-toggle__btn[data-category="workshop"] {
@@ -1227,6 +1240,10 @@ body {
 }
 
 @media (max-width: 767px) {
+  .events-page__heading {
+    font-size: 1.3125rem;   /* 21px — was 20px */
+  }
+
   .events-page {
     gap: 5rem;   /* 80px per item — 160px total between sections (was 108px×2=216px) */
   }
@@ -1564,7 +1581,7 @@ body {
 
 .mobile-contact__telegram-label {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;   /* 13px */
+  font-size: 0.875rem;    /* 14px — was 13px */
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
   line-height: 1.4;
@@ -1603,7 +1620,7 @@ body {
 
 .mobile-contact__row-label {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;   /* 13px */
+  font-size: 0.875rem;    /* 14px — was 13px */
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
 }
