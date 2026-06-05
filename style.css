@@ -1786,6 +1786,7 @@ body {
 
 .rr-description__date {
   margin-top: calc(var(--space-6) * -0.5);
+  line-height: 1.3;
 }
 
 .rr-description__date-text {
