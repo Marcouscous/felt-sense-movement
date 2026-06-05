@@ -2048,7 +2048,8 @@ body {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows var(--transition-base);
-  background: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .rr-accordion--open .rr-accordion__body {
@@ -2060,7 +2061,13 @@ body {
   overflow: hidden;
   padding-top: 0;
   transition: padding-top var(--transition-base);
-  background: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.rr-accordion {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .rr-accordion--open .rr-accordion__inner {
