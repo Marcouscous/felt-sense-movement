@@ -1650,17 +1650,9 @@ body {
 .rr-hero {
   position: relative;
   padding: 0;
-}
-
-.rr-hero__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  object-fit: fill;
-  z-index: var(--z-background);
-  pointer-events: none;
+  background-image: url('assets/vectors/background-mobile-3.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 
