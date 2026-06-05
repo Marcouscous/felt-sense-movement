@@ -1651,8 +1651,8 @@ body {
   position: relative;
   padding: 0;
   background-image: url('assets/vectors/background-mobile-3.svg');
-  background-size: 100% calc(100% - 180px);
-  background-position: 0 180px;
+  background-size: 100% calc(100% - 200px);
+  background-position: 0 200px;
   background-repeat: no-repeat;
 }
 
