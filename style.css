@@ -1654,10 +1654,10 @@ body {
 
 .rr-hero__bg {
   position: absolute;
-  top: 6.875rem;
+  top: 0;
   left: 0;
   width: 100vw;
-  height: calc(100% + 0.625rem);
+  height: 100%;
   object-fit: fill;
   z-index: var(--z-background);
   pointer-events: none;
@@ -1697,7 +1697,7 @@ body {
   width: 100%;
   height: 18.75rem;   /* 300px — mobile */
   object-fit: contain;
-  background-color: var(--color-bg);
+  background-color: transparent;
 }
 
 /* ── Controls row: [arrow] [dots] [arrow] ────────────── */
