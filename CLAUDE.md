@@ -54,9 +54,9 @@ felt-sense-movement/
 
 | File | Description |
 |------|-------------|
-| `assets/logo.png` | Custom hand-drawn logo. Used as `<img>` top-left in navbar. `alt="Felt Sense Movement logo"`. |
+| `assets/images/FSM-logo.png` | Custom hand-drawn logo. Used as `<img>` top-left in navbar. `alt="Felt Sense Movement logo"`. |
 | `assets/background.svg` | Multi-color fluid wave vector (purple, blue, cyan, yellow/cream). Referenced as `<img>` or inline SVG — confirm which preserves colors once the file exists. `width: 100%` for responsive scaling. Positioned behind all content via `z-index`. Spans vertically from inside the navbar through the carousel, calendar, and dancer sections. |
-| `assets/dancers.png` | Transparent-background PNG of dancing figures. Positioned on the right side of the layout, overlapping the background SVG. Scale responsively — no fixed pixel dimensions. |
+| `assets/vectors/backgrounds/dancers-img.png` | Transparent-background PNG of dancing figures. Positioned on the right side of the layout, overlapping the background SVG. Scale responsively — no fixed pixel dimensions. |
 
 ---
 
@@ -331,7 +331,7 @@ Build each section **desktop + mobile simultaneously** before moving to the next
 | `past-events.html` | Skeleton (empty body) | Archive of past events, driven by `calendar.js` |
 | `offerings/kinetic-waves.html` | Empty | Offering detail — Kinetic Waves |
 | `offerings/the-overscore.html` | Empty | Offering detail — The Overscore |
-| `offerings/resonance-response.html` | Empty | Offering detail — Resonance & Response |
+| `offerings/resonance-response.html` | Fully built | Offering detail — Resonance & Response. Standalone page with own navbar, carousel, bios, schedule accordion, about accordion, video gallery, and Google Form embed |
 | `offerings/felt-sense-fall-intensive.html` | Empty | Offering detail — Felt Sense Fall Intensive |
 
 ---
@@ -370,3 +370,65 @@ Build each section **desktop + mobile simultaneously** before moving to the next
 - Interactive elements must be reachable and operable by keyboard.
 - Color contrast must meet WCAG AA (4.5:1 for body text, 3:1 for large text).
 - Page `<title>` should be unique and descriptive per page.
+
+---
+
+## Resonance & Response Page Copy
+
+### Page Title
+Resonance & Response: An Axis Syllabus and Contact Improvisation Workshop with Marcus van Duren and Emily Jones
+
+### Event Details
+- **Dates:** Aug 7–9
+- **Location:** Portland, OR at FLOCK
+
+### Description (3 paragraphs)
+Resonance & Response is an Axis Syllabus and Contact Improvisation workshop centered on physical conversation, both with ourselves and with the people we are dancing alongside. We practice listening through the body, noticing potential, and making movement choices that are supported by the physical conditions at hand.
+
+Drawing on theory and practice from the Axis Syllabus, we deepen our understanding of anatomy, movement, and our relationship to physics through connections to the natural world, honoring complexity, nuance, adaptability, and interdependence within the body in motion.
+
+In this workshop, we surf between solo improvisational explorations, set movement motifs, and Contact Improvisation practices, allowing these different modes to inform one another and create a richer palette for dancing.
+
+### Schedule
+
+**Friday**
+- Morning: 9:30–11:30am
+- Afternoon: 12:30–3:30pm
+
+**Saturday**
+- 10:30am–4:30pm
+
+**Sunday**
+- 9:30am–2:30pm
+
+### Daily Themes
+
+**Friday**
+- Morning: Surfacing Routes — sequential descents and departures
+- Afternoon: Maps of Motion — (anatomy picnic) presentation and group discussion of fascia, interstitium, spinal mechanics, and more!
+
+**Saturday**
+- Morning: The Conversational Nature of Contact — Contact Improvisation as physical dialog: exchanges informed by noticing potentials, following impulse, making invitations, releasing expectations in support of genuine exchange.
+- Afternoon: Guided by the Curve — Exploring rolling, crawling, walking, jumping, and all the movement in between while following the nuances of our hips and shoulders.
+
+**Sunday**
+- Morning: Earth to Flight Continuum — revisiting, further developing and expanding themes, movement patterns and scores from previous classes. Part solo dancing, part CI.
+- Closing Group Score: Overscore — group score ritual, improvise through a structure, accompanied by a live musician.
+
+### Page Implementation Notes
+
+- **Navbar:** Has its own standalone navbar (`.rr-nav`) separate from the main Felt Sense Movement navbar. Left side shows "Resonance & Response" as title text; right side is a hamburger menu opening a dropdown with four anchor links: About, Schedule, Videos, Registration.
+- **Bespoke JS files:**
+  - `rr-carousel.js` — handles the hero photo carousel (5 slides, prev/next arrows, dot navigation)
+  - `rr-nav.js` — handles hamburger open/close and outside-click dismissal
+  - `rr-accordion.js` — handles all accordion toggles (About, Schedule, Read Bio)
+  - `rr-videos.js` — handles custom play/pause overlay on the video gallery
+- **Carousel images:** `assets/images/carousel-RR-1.jpg` through `carousel-RR-5.jpg`
+- **Videos:** `assets/videos/RR-1.mp4` through `RR-4.mp4` — vertical format (9:16), muted, loop, custom play button overlay
+- **Google Form embed:** `https://docs.google.com/forms/d/e/1FAIpQLSd_Clobp-3vVvusTCs7aBqlxovuBturL7MEx0HMfwK1XXKGAA/viewform?embedded=true` — height 2808px, wrapped in `overflow-x: hidden` container
+
+### Marcus Bio
+Marcus van Duren is a dancer, teacher and musician based in the San Francisco Bay Area. Marcus has intensively studied movement and dance since his discovery of contact improvisation in 2012. He has been teaching CI locally and internationally for more than 10 years. Marcus is an active member of the axis syllabus community and is currently an Axis Syllabus Teacher Candidate. For Marcus, teaching is not just about transmitting information. It's also about creating a safe space for participants to explore, take risks and collaborate. When it comes to teaching contact improvisation, Marcus specializes in merging the technical information of bio-mechanics with play, humor and ritual to create engaging learning experiences that aim to serve the whole person, not just the dancer.
+
+### Emily Bio
+Emily Jones is a dancer, choreographer, movement educator, and bodyworker based in Portland, Oregon. Her interdisciplinary practice centers intuition, embodied learning, and movement-based research, with particular attention to community care, relational ethics, and communication within spaces of learning and collaboration. She has performed with numerous artists in Portland and the Bay Area and is engaged in a long-term artistic collaboration with Hannah Krafcik. Their interdisciplinary work has been presented nationally. Emily facilitates contact improvisation jams, organizes events, teaches and performs with the Queer Contact Improvisation Cohort based in Portland. She is a certified Axis Syllabus teacher and offers classes and workshops informed by this lens both locally and beyond. Website: emilyannejones.com

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resonance &amp; Response — Felt Sense Movement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="rr-body">
+
+  <header class="site-header">
+    <nav class="rr-nav" aria-label="Page navigation">
+
+      <span class="rr-nav__title">Resonance &amp; Response</span>
+
+      <div class="rr-nav__menu">
+        <button
+          class="rr-nav__hamburger"
+          type="button"
+          aria-label="Open menu"
+          aria-haspopup="true"
+          aria-expanded="false">
+          <svg class="rr-nav__hamburger-icon" viewBox="0 0 20 14" fill="none" aria-hidden="true" focusable="false">
+            <rect width="20" height="2" rx="1" fill="currentColor"/>
+            <rect y="6" width="20" height="2" rx="1" fill="currentColor"/>
+            <rect y="12" width="20" height="2" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <ul class="rr-nav__dropdown" role="list" aria-label="Page sections">
+          <li><a href="#about" class="rr-nav__dropdown-link">About</a></li>
+          <li><a href="#schedule" class="rr-nav__dropdown-link">Schedule</a></li>
+          <li><a href="#videos" class="rr-nav__dropdown-link">Videos</a></li>
+          <li><a href="#registration" class="rr-nav__dropdown-link">Registration</a></li>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="rr-page">
+
+    <!-- ─ Hero: wave background + image carousel ─────── -->
+    <section class="rr-hero" aria-label="Resonance and Response photo carousel">
+
+      <img
+        class="rr-hero__bg"
+        src="../assets/vectors/background-mobile-3.svg"
+        alt=""
+        aria-hidden="true">
+
+      <div class="rr-carousel">
+        <div class="rr-carousel__viewport">
+          <ul class="rr-carousel__track" role="list">
+            <li class="rr-carousel__slide">
+              <img src="../assets/images/carousel-RR-1.jpg" alt="" class="rr-carousel__img">
+            </li>
+            <li class="rr-carousel__slide">
+              <img src="../assets/images/carousel-RR-2.jpg" alt="" class="rr-carousel__img">
+            </li>
+            <li class="rr-carousel__slide">
+              <img src="../assets/images/carousel-RR-3.jpg" alt="" class="rr-carousel__img">
+            </li>
+            <li class="rr-carousel__slide">
+              <img src="../assets/images/carousel-RR-4.jpg" alt="" class="rr-carousel__img">
+            </li>
+            <li class="rr-carousel__slide">
+              <img src="../assets/images/carousel-RR-5.jpg" alt="" class="rr-carousel__img">
+            </li>
+          </ul>
+        </div>
+
+        <div class="rr-carousel__controls">
+          <button class="rr-carousel__btn rr-carousel__btn--prev" type="button" aria-label="Previous image">
+            <svg class="rr-carousel__btn-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="rr-carousel__dots" role="group" aria-label="Image navigation">
+            <button class="rr-carousel__dot rr-carousel__dot--active" type="button" aria-label="Image 1" aria-pressed="true"></button>
+            <button class="rr-carousel__dot" type="button" aria-label="Image 2" aria-pressed="false"></button>
+            <button class="rr-carousel__dot" type="button" aria-label="Image 3" aria-pressed="false"></button>
+            <button class="rr-carousel__dot" type="button" aria-label="Image 4" aria-pressed="false"></button>
+            <button class="rr-carousel__dot" type="button" aria-label="Image 5" aria-pressed="false"></button>
+          </div>
+
+          <button class="rr-carousel__btn rr-carousel__btn--next" type="button" aria-label="Next image">
+            <svg class="rr-carousel__btn-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <polyline points="9 18 15 12 9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    <!-- ─ Description ────────────────────────────────── -->
+    <section class="rr-description" id="about">
+      <p class="rr-description__body rr-description__body--centered"><em>An Axis Syllabus and Contact Improvisation Workshop with Marcus van Duren and Emily Jones</em></p>
+      <p class="rr-description__body"><strong>Aug 7–9</strong> &nbsp;·&nbsp; Portland, OR at FLOCK</p>
+
+      <div class="rr-accordion">
+        <button class="rr-accordion__toggle" type="button" aria-expanded="false">
+          About
+          <span class="rr-accordion__indicator" aria-hidden="true">+</span>
+        </button>
+        <div class="rr-accordion__body">
+          <div class="rr-accordion__inner">
+            <p class="rr-description__body">
+              Resonance &amp; Response is an Axis Syllabus and Contact Improvisation workshop centered on physical conversation, both with ourselves and with the people we are dancing alongside. We practice listening through the body, noticing potential, and making movement choices that are supported by the physical conditions at hand.
+            </p>
+            <p class="rr-description__body">
+              Drawing on theory and practice from the Axis Syllabus, we deepen our understanding of anatomy, movement, and our relationship to physics through connections to the natural world, honoring complexity, nuance, adaptability, and interdependence within the body in motion.
+            </p>
+            <p class="rr-description__body">
+              In this workshop, we surf between solo improvisational explorations, set movement motifs, and Contact Improvisation practices, allowing these different modes to inform one another and create a richer palette for dancing.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="rr-description__heading" id="schedule">Schedule</h2>
+
+      <p class="rr-description__body">
+        Friday: 9:30–11:30am, 12:30–3:30pm<br>
+        Saturday: 10:30am–4:30pm<br>
+        Sunday: 9:30am–2:30pm
+      </p>
+
+      <div class="rr-accordion">
+        <button class="rr-accordion__toggle" type="button" aria-expanded="false">
+          Schedule
+          <span class="rr-accordion__indicator" aria-hidden="true">+</span>
+        </button>
+        <div class="rr-accordion__body">
+          <div class="rr-accordion__inner">
+
+            <p class="rr-description__body"><strong>Friday</strong></p>
+            <p class="rr-description__body">
+              9:30–11:30am<br>
+              <strong>Surfacing Routes</strong> — sequential descents and departures
+            </p>
+            <p class="rr-description__body">
+              12:30–3:30pm<br>
+              <strong>Maps of Motion</strong> — (anatomy picnic) presentation and group discussion of fascia, interstitium, spinal mechanics, and more!
+            </p>
+
+            <hr class="rr-schedule__divider">
+
+            <p class="rr-description__body"><strong>Saturday</strong> &nbsp;·&nbsp; 10:30am–4:30pm</p>
+            <p class="rr-description__body">
+              <strong>The Conversational Nature of Contact</strong> — Contact Improvisation as physical dialog: exchanges informed by noticing potentials, following impulse, making invitations, releasing expectations in support of genuine exchange.
+            </p>
+            <p class="rr-description__body">
+              <strong>Guided by the Curve</strong> — Exploring rolling, crawling, walking, jumping, and all the movement in between while following the nuances of our hips and shoulders.
+            </p>
+
+            <hr class="rr-schedule__divider">
+
+            <p class="rr-description__body"><strong>Sunday</strong> &nbsp;·&nbsp; 9:30am–2:30pm</p>
+            <p class="rr-description__body">
+              <strong>Earth to Flight Continuum</strong> — revisiting, further developing and expanding themes, movement patterns and scores from previous classes. Part solo dancing, part CI.
+            </p>
+            <p class="rr-description__body">
+              <strong>Closing Group Score: Overscore</strong> — group score ritual, improvise through a structure, accompanied by a live musician.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </section><!-- close rr-hero -->
+
+    <!-- ─ Bios ──────────────────────────────────────── -->
+    <section class="rr-bios" aria-label="About the facilitators">
+
+      <div class="rr-bio">
+        <img
+          class="rr-bio__photo"
+          src="../assets/images/Emily-RR.jpg"
+          alt="Emily Jones">
+        <div class="rr-bio__text">
+          <h2 class="rr-bio__name">Emily Jones</h2>
+          <div class="rr-accordion">
+            <button class="rr-accordion__toggle" type="button" aria-expanded="false">
+              Read Bio
+              <span class="rr-accordion__indicator" aria-hidden="true">+</span>
+            </button>
+            <div class="rr-accordion__body">
+              <div class="rr-accordion__inner">
+                <p class="rr-bio__body">
+                  Emily Jones is a dancer, choreographer, movement educator, and bodyworker based in Portland, Oregon. Her interdisciplinary practice centers intuition, embodied learning, and movement-based research, with particular attention to community care, relational ethics, and communication within spaces of learning and collaboration. She has performed with numerous artists in Portland and the Bay Area and is engaged in a long-term artistic collaboration with Hannah Krafcik. Their interdisciplinary work has been presented nationally. Emily facilitates contact improvisation jams, organizes events, teaches and performs with the Queer Contact Improvisation Cohort based in Portland. She is a certified Axis Syllabus teacher and offers classes and workshops informed by this lens both locally and beyond.
+                </p>
+                <p class="rr-bio__body">
+                  <a href="https://www.emilyannejones.com" target="_blank" rel="noopener noreferrer">emilyannejones.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rr-bio rr-bio--reverse">
+        <img
+          class="rr-bio__photo"
+          src="../assets/images/Marcus-RR.jpg"
+          alt="Marcus van Duren">
+        <div class="rr-bio__text">
+          <h2 class="rr-bio__name">Marcus van Duren</h2>
+          <div class="rr-accordion">
+            <button class="rr-accordion__toggle" type="button" aria-expanded="false">
+              Read Bio
+              <span class="rr-accordion__indicator" aria-hidden="true">+</span>
+            </button>
+            <div class="rr-accordion__body">
+              <div class="rr-accordion__inner">
+                <p class="rr-bio__body">
+                  Marcus van Duren is a dancer, teacher and musician based in the San Francisco Bay Area. Marcus has intensively studied movement and dance since his discovery of contact improvisation in 2012. He has been teaching CI locally and internationally for more than 10 years. Marcus is an active member of the axis syllabus community and is currently an Axis Syllabus Teacher Candidate. For Marcus, teaching is not just about transmitting information. It's also about creating a safe space for participants to explore, take risks and collaborate. When it comes to teaching contact improvisation, Marcus specializes in merging the technical information of bio-mechanics with play, humor and ritual to create engaging learning experiences that aim to serve the whole person, not just the dancer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ─ Past Events: vertical videos ──────────────── -->
+    <section class="rr-videos" id="videos" aria-label="Past events">
+      <h2 class="rr-videos__heading">Past Events Videos</h2>
+      <div class="rr-videos__grid">
+        <div class="rr-videos__item">
+          <video
+            src="../assets/videos/RR-1.mp4"
+            loop
+            controls
+            playsinline></video>
+          <button class="rr-videos__play-btn" type="button" aria-label="Play video">
+            <svg class="rr-videos__play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <polygon points="6,4 20,12 6,20"/>
+            </svg>
+          </button>
+        </div>
+        <div class="rr-videos__item">
+          <video
+            src="../assets/videos/RR-2.mp4"
+            loop
+            controls
+            playsinline></video>
+          <button class="rr-videos__play-btn" type="button" aria-label="Play video">
+            <svg class="rr-videos__play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <polygon points="6,4 20,12 6,20"/>
+            </svg>
+          </button>
+        </div>
+        <div class="rr-videos__item">
+          <video
+            src="../assets/videos/RR-3.mp4"
+            loop
+            controls
+            playsinline></video>
+          <button class="rr-videos__play-btn" type="button" aria-label="Play video">
+            <svg class="rr-videos__play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <polygon points="6,4 20,12 6,20"/>
+            </svg>
+          </button>
+        </div>
+        <div class="rr-videos__item">
+          <video
+            src="../assets/videos/RR-4.mp4"
+            loop
+            controls
+            playsinline></video>
+          <button class="rr-videos__play-btn" type="button" aria-label="Play video">
+            <svg class="rr-videos__play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <polygon points="6,4 20,12 6,20"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─ Register: Google Form embed ───────────────── -->
+    <section class="rr-register" id="registration">
+      <h2 class="rr-register__heading">Register</h2>
+      <div class="rr-register__frame-wrap">
+        <iframe
+          class="rr-register__form"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSd_Clobp-3vVvusTCs7aBqlxovuBturL7MEx0HMfwK1XXKGAA/viewform?embedded=true"
+          title="Resonance and Response registration form"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0">
+          Loading…
+        </iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../rr-nav.js" defer></script>
+  <script src="../rr-carousel.js" defer></script>
+  <script src="../rr-videos.js" defer></script>
+  <script src="../rr-accordion.js" defer></script>
+
+</body>
+</html>
