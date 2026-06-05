@@ -432,3 +432,75 @@ Marcus van Duren is a dancer, teacher and musician based in the San Francisco Ba
 
 ### Emily Bio
 Emily Jones is a dancer, choreographer, movement educator, and bodyworker based in Portland, Oregon. Her interdisciplinary practice centers intuition, embodied learning, and movement-based research, with particular attention to community care, relational ethics, and communication within spaces of learning and collaboration. She has performed with numerous artists in Portland and the Bay Area and is engaged in a long-term artistic collaboration with Hannah Krafcik. Their interdisciplinary work has been presented nationally. Emily facilitates contact improvisation jams, organizes events, teaches and performs with the Queer Contact Improvisation Cohort based in Portland. She is a certified Axis Syllabus teacher and offers classes and workshops informed by this lens both locally and beyond. Website: emilyannejones.com
+
+---
+
+## How to Add Events
+
+Events are stored in `events.json` as a JSON array. `calendar.js` reads this file, splits events into upcoming and past based on today's date, and renders them as cards on any page that includes the calendar section.
+
+### Field reference
+
+```json
+{
+  "date":        "YYYY-MM-DD",
+  "title":       "Event name",
+  "location":    "Short display string shown on the card",
+  "locationMap": "Full address for Google Maps pin",
+  "link":        "https://specific-registration-or-detail-page-url",
+  "category":    "class",
+  "description": "Short plain-text description (not currently shown in the UI)"
+}
+```
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `date` | **Required** | ISO 8601 date: `YYYY-MM-DD`. Determines whether the event is upcoming or past, and sets the month/day displayed on the card. For multi-day events, use the first day. |
+| `title` | **Required** | The event name displayed on the card. |
+| `location` | **Required** | Short human-readable string shown as the clickable location label (e.g. `"Portland, OR"` or `"FLOCK — Portland, OR"`). |
+| `locationMap` | Optional | Full address passed to Google Maps when the user clicks the location. Falls back to `location` if omitted. Use this when `location` is a venue name that Maps won't find on its own (e.g. set `location` to `"FLOCK"` for display but `locationMap` to `"3520 SE Powell Blvd, Portland, OR"` for the pin). |
+| `link` | **Required** | The URL for the "Learn More" button. Must point to the specific event registration or detail page — not the homepage. |
+| `category` | **Required for filtering** | Controls which filter tab shows the event. Must exactly match a `data-category` value on the toggle buttons. Current valid values: `"class"`, `"workshop"`. If omitted, the event only shows under "All" — it will be invisible when either filter tab is active. |
+| `description` | Optional | Plain-text description. Not currently rendered in the calendar UI but kept for future use. Safe to include. |
+
+### Date formatting
+
+- Always use `YYYY-MM-DD`: year first, then two-digit month, then two-digit day.
+- Pad single-digit months and days with a leading zero: `"2026-08-07"`, not `"2026-8-7"`.
+- Do not use slashes, commas, or spelled-out month names — `calendar.js` parses dates as `new Date(e.date + 'T00:00:00')` and non-standard formats will produce wrong results or `NaN`.
+
+| Wrong | Right |
+|-------|-------|
+| `"Aug 7, 2026"` | `"2026-08-07"` |
+| `"8/7/2026"` | `"2026-08-07"` |
+| `"2026-8-7"` | `"2026-08-07"` |
+
+### Example — a real event
+
+```json
+{
+  "date":        "2026-10-03",
+  "title":       "Sensing Ground: Contact Improvisation Lab",
+  "location":    "Shawl-Anderson Dance Center — Berkeley",
+  "locationMap": "2704 Alcatraz Ave, Berkeley, CA 94705",
+  "link":        "https://www.feltsensemovement.com/offerings/sensing-ground",
+  "category":    "class",
+  "description": "A drop-in lab exploring weight-sharing, momentum, and floor work through Contact Improvisation."
+}
+```
+
+### Adding an event step by step
+
+1. Open `events.json`.
+2. Add a new object inside the `[...]` array. Separate objects with commas — a comma after every object except the last one.
+3. Fill in all required fields. Double-check the date format.
+4. Save the file.
+5. If testing locally with `calendar.js` active, use a local server (`python3 -m http.server 8080`) — `fetch('events.json')` is blocked by the browser on `file://` URLs.
+
+### Common mistakes to avoid
+
+- **Linking to the homepage.** `"link": "https://feltsensemovement.com"` is a placeholder — always replace it with the actual event URL.
+- **Wrong category casing.** `"Workshop"` will not match the `"workshop"` filter. Category values are case-sensitive and must be lowercase.
+- **Multi-day events.** The calendar displays a single day number. For a three-day workshop, set `date` to the opening day and include the full date range in the title (e.g. `"Resonance & Response — Aug 7–9"`).
+- **Trailing comma on the last item.** Standard JSON does not allow a trailing comma after the final object in the array. It will silently break the calendar in some browsers.
+- **Past events don't disappear — they move.** An event whose date has passed is not hidden; it moves to the Past Events section. Only delete an entry if you want it gone from the site entirely.
