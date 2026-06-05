@@ -1784,6 +1784,14 @@ body {
   text-align: center;
 }
 
+.rr-description__date {
+  margin-top: calc(var(--space-6) * -0.5);
+}
+
+.rr-description__date-text {
+  font-size: 1rem;   /* 16px — 2px up from the 14px body default */
+}
+
 .rr-schedule__divider {
   border: none;
   border-top: var(--border-width) solid var(--color-border);
