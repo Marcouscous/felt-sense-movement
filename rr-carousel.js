@@ -7,57 +7,36 @@
   if (!track || dots.length === 0) return;
 
   let current = 0;
-
-  function isDesktop() {
-    return window.innerWidth >= 768;
-  }
-
-  function getTotal() {
-    return isDesktop() ? 2 : 5;
-  }
-
-  function getStep() {
-    return isDesktop() ? 2 : 1;
-  }
-
-  function getActiveDots() {
-    return Array.from(dots).slice(0, getTotal());
-  }
-
-  function setActive(index) {
-    getActiveDots().forEach(function (d, i) {
-      var active = i === index;
-      d.classList.toggle('rr-carousel__dot--active', active);
-      d.setAttribute('aria-pressed', String(active));
-    });
-  }
+  const total = dots.length;
+  let timer;
 
   function goTo(index) {
-    var t = getTotal();
-    current = (index + t) % t;
-    var slideWidth = track.children[0].offsetWidth;
-    track.style.transform = 'translateX(-' + (current * getStep() * slideWidth) + 'px)';
-    setActive(current);
+    dots[current].classList.remove('rr-carousel__dot--active');
+    dots[current].setAttribute('aria-pressed', 'false');
+
+    current = (index + total) % total;
+
+    track.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    dots[current].classList.add('rr-carousel__dot--active');
+    dots[current].setAttribute('aria-pressed', 'true');
   }
 
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function () {
-      current = 0;
-      track.style.transform = 'translateX(0)';
-      setActive(0);
-    }, 100);
-  });
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () { goTo(current + 1); }, 15000);
+  }
 
-  prev.addEventListener('click', function () { goTo(current - 1); });
-  next.addEventListener('click', function () { goTo(current + 1); });
+  function navigate(index) {
+    goTo(index);
+    startTimer();
+  }
+
+  prev.addEventListener('click', function () { navigate(current - 1); });
+  next.addEventListener('click', function () { navigate(current + 1); });
 
   dots.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
-      var active = getActiveDots();
-      var idx = active.indexOf(dot);
-      if (idx !== -1) goTo(idx);
-    });
+    dot.addEventListener('click', function () { navigate(i); });
   });
+
+  startTimer();
 }());
