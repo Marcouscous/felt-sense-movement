@@ -2059,7 +2059,7 @@ body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: var(--nav-padding);
+  padding: var(--space-5) var(--nav-padding);
 }
 
 .rr-nav__title {
