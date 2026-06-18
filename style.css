@@ -909,6 +909,10 @@ body {
   line-height: 1;
 }
 
+.event-date__day--single {
+  font-size: var(--font-size-base);
+}
+
 /* ── Text block: title + location + save ────────────── */
 
 .event-text {

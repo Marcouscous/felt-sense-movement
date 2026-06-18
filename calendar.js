@@ -76,7 +76,7 @@ function renderCard(event, isPast = false) {
       <div class="event-date">
         <span class="event-date__month">${month}</span>
         <div class="event-date__day-box">
-          <span class="event-date__day">${day}</span>
+          <span class="event-date__day${event.dateRange ? '' : ' event-date__day--single'}">${day}</span>
         </div>
       </div>
       <div class="event-text">
