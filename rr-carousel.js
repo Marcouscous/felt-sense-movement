@@ -23,7 +23,7 @@
 
   function startTimer() {
     clearInterval(timer);
-    timer = setInterval(function () { goTo(current + 1); }, 15000);
+    timer = setInterval(function () { goTo(current + 1); }, 10000);
   }
 
   function navigate(index) {
