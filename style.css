@@ -1971,7 +1971,7 @@ body {
   }
 
   .rr-videos {
-    max-width: 60rem;
+    max-width: 48rem;
     margin: 0 auto;
     padding: var(--space-8);
   }
