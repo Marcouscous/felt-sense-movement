@@ -68,7 +68,7 @@ async function loadCalendar() {
 function renderCard(event, isPast = false) {
   const date     = new Date(event.date + 'T00:00:00');
   const month    = date.toLocaleString('default', { month: 'short' });
-  const day      = date.getDate();
+  const day      = event.dateRange || date.getDate();
   const mapsHref = `https://maps.google.com/?q=${encodeURIComponent(event.locationMap || event.location)}`;
 
   return `
