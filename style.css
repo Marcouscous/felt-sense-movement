@@ -2154,7 +2154,7 @@ body {
 .kw-hero {
   position: relative;
   width: 100%;
-  aspect-ratio: 1438 / 800;
+  height: 100vh;
   background-image: url('assets/vectors/KW-vector-words.svg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
