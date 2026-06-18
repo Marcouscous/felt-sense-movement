@@ -1921,8 +1921,16 @@ body {
     padding: 0;
   }
 
+  .rr-carousel__slide {
+    width: 33.333vw;
+  }
+
   .rr-carousel__img {
-    height: 30rem;   /* 480px */
+    height: 22rem;
+  }
+
+  .rr-carousel__dot:nth-child(n+3) {
+    display: none;
   }
 
   .rr-description {
