@@ -2137,3 +2137,37 @@ body {
   text-underline-offset: var(--nav-underline-offset);
   text-decoration-thickness: var(--nav-underline-width);
 }
+
+
+/* ═══════════════════════════════════════════════════════
+   KINETIC WAVES PAGE
+   ═══════════════════════════════════════════════════════ */
+
+.kw-body {
+  overflow-x: hidden;
+}
+
+.kw-page {
+  min-height: 100vh;
+}
+
+.kw-hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('assets/vectors/KW-vector-words.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kw-hero__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
