@@ -1957,6 +1957,10 @@ body {
     aspect-ratio: 3 / 4;
   }
 
+  .rr-bio--reverse .rr-bio__photo {
+    object-position: right top;
+  }
+
   .rr-videos {
     max-width: 60rem;
     margin: 0 auto;
