@@ -28,4 +28,9 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
   });
+
+  // Close dropdown when resizing back to desktop width
+  mq.addEventListener('change', (e) => {
+    if (!e.matches) close();
+  });
 }());
