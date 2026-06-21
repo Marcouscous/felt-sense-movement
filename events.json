@@ -8,5 +8,38 @@
     "link":        "offerings/resonance-response.html",
     "category":    "workshop",
     "description": "An Axis Syllabus and Contact Improvisation Workshop with Marcus van Duren and Emily Jones"
+  },
+  {
+    "date":        "2026-07-17",
+    "title":       "Kinetic Waves",
+    "location":    "Berkeley, CA",
+    "locationMap": "Berkeley Finnish Hall, 1970 Chestnut St, Berkeley, CA 94702",
+    "link":        "offerings/kinetic-waves.html",
+    "category":    "class",
+    "offering":    "kinetic-waves",
+    "theme":       "Elastic Recoil",
+    "description": "Friday morning dance class rooted in the Axis Syllabus"
+  },
+  {
+    "date":        "2026-07-24",
+    "title":       "Kinetic Waves",
+    "location":    "Berkeley, CA",
+    "locationMap": "Berkeley Finnish Hall, 1970 Chestnut St, Berkeley, CA 94702",
+    "link":        "offerings/kinetic-waves.html",
+    "category":    "class",
+    "offering":    "kinetic-waves",
+    "theme":       "Spinal Cascades",
+    "description": "Friday morning dance class rooted in the Axis Syllabus"
+  },
+  {
+    "date":        "2026-07-31",
+    "title":       "Kinetic Waves",
+    "location":    "Berkeley, CA",
+    "locationMap": "Berkeley Finnish Hall, 1970 Chestnut St, Berkeley, CA 94702",
+    "link":        "offerings/kinetic-waves.html",
+    "category":    "class",
+    "offering":    "kinetic-waves",
+    "theme":       "Gravity Surfing",
+    "description": "Friday morning dance class rooted in the Axis Syllabus"
   }
 ]
