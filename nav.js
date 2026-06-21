@@ -5,7 +5,7 @@
   if (!trigger) return;
 
   const navItem = trigger.closest('.nav__item--has-dropdown');
-  const mq = window.matchMedia('(max-width: 767px) and (pointer: coarse)');
+  const mq = window.matchMedia('(max-width: 767px)');
 
   function close() {
     trigger.setAttribute('aria-expanded', 'false');
