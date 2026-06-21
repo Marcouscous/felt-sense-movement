@@ -2195,23 +2195,26 @@ body {
 .kw-hero__waves {
   position: relative;
   margin-top: calc(var(--space-4) + 0.3125rem);
+  overflow: hidden;
 }
 
 .kw-hero__bg {
   display: block;
   width: 100%;
   height: auto;
+  transform-origin: left top;
+  transform: scale(1.15) scaleY(0.95) translateX(-0.3125rem);
 }
 
 .kw-hero__bubble {
   position: absolute;
-  right: calc(var(--space-4) + 1.5625rem);
-  top: calc(30% - 5.3125rem);
+  right: calc(var(--space-4) + 0.9375rem);
+  top: calc(30% - 4.6875rem);
 }
 
 .kw-hero__bubble-svg {
   display: block;
-  width: 7.345rem;
+  width: 6.978rem;
   height: auto;
 }
 
@@ -2230,16 +2233,17 @@ body {
 }
 
 .kw-hero__dancers {
-  position: absolute;
-  bottom: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16rem;
+  position: relative;
+  z-index: var(--z-content);
+  display: block;
+  width: 14.28rem;
   height: auto;
+  margin: -4.6875rem auto 0;
+  transform: translateX(1.25rem);
 }
 
 .kw-hero + .kw-bg-wrap {
-  margin-top: calc(var(--space-8) + 0.3125rem);
+  margin-top: 0.25rem;
 }
 
 /* ── Kinetic Waves Calendar ────────────────────────── */
