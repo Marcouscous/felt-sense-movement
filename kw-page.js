@@ -56,7 +56,7 @@
              rel="noopener noreferrer">${event.location}</a>
           <button class="event-save-btn" type="button">Save Event</button>
         </div>
-        ${event.theme ? '<span class="kw-event-theme">' + event.theme + '</span>' : ''}
+        ${event.theme ? '<span class="kw-event-theme"><span class="kw-event-theme__label">Theme:</span>' + event.theme + '</span>' : ''}
       </li>`;
   }
 }());
