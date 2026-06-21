@@ -526,15 +526,7 @@ body {
     font-size: var(--font-size-base);   /* 16px */
   }
 
-  /* ── Dropdown — CSS hover/focus-within suppressed;
-        only aria-expanded="true" (set by nav.js tap) opens it ── */
-
-  .nav__item--has-dropdown:hover .nav__dropdown,
-  .nav__item--has-dropdown:focus-within .nav__dropdown {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-  }
+  /* ── Dropdown — hover and focus-within work at all widths ── */
 
   .nav__dropdown {
     left: calc(-1 * var(--space-5));   /* shifts container left so inner 20px padding lands under "O" of Offerings */
