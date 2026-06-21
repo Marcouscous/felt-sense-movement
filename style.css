@@ -2320,6 +2320,16 @@ body {
   font-size: var(--font-size-base);
 }
 
+.kw-about .rr-accordion__toggle:hover {
+  background-color: transparent;
+}
+
+@media (hover: hover) {
+  .kw-about .rr-accordion__toggle:hover {
+    background-color: var(--color-accent-light);
+  }
+}
+
 .kw-about__body {
   font-family: var(--font-mono);
   font-size: var(--font-size-base);
@@ -2394,4 +2404,23 @@ body {
     font-size: var(--font-size-lg);
   }
 
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   COMING SOON PAGE
+═══════════════════════════════════════════════════════ */
+
+.coming-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.coming-soon__text {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
