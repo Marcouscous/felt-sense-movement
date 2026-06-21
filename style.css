@@ -2253,7 +2253,7 @@ body {
 }
 
 .kw-calendar__container {
-  height: 22.5rem;
+  height: 25.5rem;
   overflow-y: auto;
   overflow-x: hidden;
   border: var(--border-width-thick) solid var(--color-border);
