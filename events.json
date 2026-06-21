@@ -41,5 +41,27 @@
     "offering":    "kinetic-waves",
     "theme":       "Gravity Surfing",
     "description": "Friday morning dance class rooted in the Axis Syllabus"
+  },
+  {
+    "date":        "2026-08-14",
+    "title":       "Kinetic Waves",
+    "location":    "The Berkeley Finnish Hall",
+    "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
+    "link":        "offerings/kinetic-waves.html",
+    "category":    "class",
+    "offering":    "kinetic-waves",
+    "theme":       "Fascial Glide",
+    "description": "Friday morning dance class rooted in the Axis Syllabus"
+  },
+  {
+    "date":        "2026-08-21",
+    "title":       "Kinetic Waves",
+    "location":    "The Berkeley Finnish Hall",
+    "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
+    "link":        "offerings/kinetic-waves.html",
+    "category":    "class",
+    "offering":    "kinetic-waves",
+    "theme":       "Joint Spirals",
+    "description": "Friday morning dance class rooted in the Axis Syllabus"
   }
 ]

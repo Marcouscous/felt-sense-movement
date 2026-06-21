@@ -2194,7 +2194,7 @@ body {
 
 .kw-hero__waves {
   position: relative;
-  margin-top: var(--space-4);
+  margin-top: calc(var(--space-4) + 0.3125rem);
 }
 
 .kw-hero__bg {
@@ -2211,7 +2211,7 @@ body {
 
 .kw-hero__bubble-svg {
   display: block;
-  width: 6.72rem;
+  width: 7.345rem;
   height: auto;
 }
 
@@ -2221,7 +2221,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-mono);
-  font-size: 0.5625rem;
+  font-size: 0.625rem;
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
   text-align: center;
@@ -2238,14 +2238,45 @@ body {
   height: auto;
 }
 
-.kw-hero + .kw-calendar {
-  margin-top: var(--space-8);
+.kw-hero + .kw-bg-wrap {
+  margin-top: calc(var(--space-8) + 0.3125rem);
 }
 
 /* ── Kinetic Waves Calendar ────────────────────────── */
 
 .kw-calendar {
-  padding: var(--space-4) var(--space-2-5);
+  padding: var(--space-4) var(--space-3);
+}
+
+.kw-calendar__frame {
+  border: var(--border-width-thick) solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 22.5rem;
+}
+
+.kw-calendar__scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: var(--color-border) transparent;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+.kw-calendar__scroll::-webkit-scrollbar {
+  width: var(--calendar-scrollbar);
+}
+
+.kw-calendar__scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.kw-calendar__scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-xl);
+  border: 5.5px solid transparent;
+  background-clip: padding-box;
 }
 
 .kw-calendar .calendar-heading {
