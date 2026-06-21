@@ -2162,9 +2162,16 @@ body {
   min-height: 100vh;
 }
 
+.kw-bg-wrap {
+  background-image: url('assets/vectors/background-mobile-3.svg');
+  background-size: 100% 100%;
+  background-position: 0 3.125rem;
+  background-repeat: no-repeat;
+}
+
 .kw-hero {
   text-align: center;
-  padding-top: var(--space-4);
+  padding-top: 1.625rem;
 }
 
 .kw-hero__title {
@@ -2198,20 +2205,20 @@ body {
 
 .kw-hero__bubble {
   position: absolute;
-  right: var(--space-4);
-  top: 30%;
+  right: calc(var(--space-4) + 1.5625rem);
+  top: calc(30% - 5.3125rem);
 }
 
 .kw-hero__bubble-svg {
   display: block;
-  width: 8.5rem;
+  width: 6.72rem;
   height: auto;
 }
 
 .kw-hero__bubble-text {
   position: absolute;
-  top: 40%;
-  left: 45%;
+  top: 42%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-mono);
   font-size: 0.5625rem;
@@ -2219,7 +2226,7 @@ body {
   color: var(--color-text);
   text-align: center;
   line-height: 1.3;
-  width: 70%;
+  white-space: nowrap;
 }
 
 .kw-hero__dancers {
@@ -2248,13 +2255,17 @@ body {
 
 .kw-event-theme {
   flex-shrink: 0;
-  max-width: 4.5rem;
+  max-width: 5rem;
   font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-medium);
   color: var(--color-text);
-  text-align: right;
+  text-align: center;
   line-height: 1.3;
-  overflow-wrap: break-word;
+  background-color: var(--color-accent-light);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) 0.875rem;
 }
 
 .kw-event-theme__label {
@@ -2292,6 +2303,10 @@ body {
 /* ── Kinetic Waves — desktop ──────────────────────── */
 
 @media (min-width: 768px) {
+  .kw-bg-wrap {
+    background-image: none;
+  }
+
   .kw-calendar {
     padding: var(--space-8) 0;
     max-width: 34rem;
@@ -2315,4 +2330,5 @@ body {
   .kw-about .rr-accordion__toggle {
     font-size: var(--font-size-lg);
   }
+
 }

@@ -25,7 +25,7 @@
 
         <div class="kw-hero__bubble">
           <img src="../assets/vectors/speech-bubble-vector.svg" alt="" class="kw-hero__bubble-svg">
-          <p class="kw-hero__bubble-text">Summer Session starts July 17!</p>
+          <p class="kw-hero__bubble-text">Summer Session<br>Starts July 17!</p>
         </div>
 
         <img
@@ -34,6 +34,9 @@
           class="kw-hero__dancers">
       </div>
     </section>
+
+    <!-- ─ Background wrap: calendar + about ──────────── -->
+    <div class="kw-bg-wrap">
 
     <!-- ─ Upcoming Classes ─────────────────────────── -->
     <section class="kw-calendar" aria-label="Upcoming Kinetic Waves classes">
@@ -86,6 +89,74 @@
       </div>
 
     </section>
+
+    </div><!-- close .kw-bg-wrap -->
+
+    <!-- ─ Contact ──────────────────────────────────── -->
+    <div class="kw-contact-wrap">
+      <section class="mobile-contact-section" aria-label="Contact">
+
+        <div class="mobile-contact__newsletter">
+          <p class="mobile-contact__newsletter-label">Join the Newsletter</p>
+          <form class="mobile-contact__form" action="https://formspree.io/f/mzdqdeap" method="POST">
+            <input type="hidden" name="_subject" value="New Felt Sense Movement Newsletter Signup">
+            <input
+              class="mobile-contact__input"
+              type="email"
+              name="email"
+              aria-label="Email address"
+              required>
+            <button class="mobile-contact__submit" type="submit">Submit</button>
+          </form>
+        </div>
+
+        <div class="mobile-contact__telegram">
+          <span class="mobile-contact__telegram-label">Bay Area Axis<br>Syllabus Telegram<br>Group</span>
+          <a
+            class="mobile-contact__btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer">Join Here</a>
+        </div>
+
+        <div class="mobile-contact__row">
+          <span class="mobile-contact__row-label">Email Marcus</span>
+          <a class="contact-icon-link" href="mailto:marcus.jpvanduren@gmail.com">
+            <svg
+              class="contact-icon contact-icon--email"
+              viewBox="0 0 33 27"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="0.5" y="0.5" width="32" height="26" rx="5" stroke="currentColor" stroke-width="2"/>
+              <path d="M0.5 2L16.5 15L32.5 2" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="mobile-contact__row">
+          <span class="mobile-contact__row-label">Instagram</span>
+          <a
+            class="contact-icon-link"
+            href="https://instagram.com/marcusvanduren"
+            target="_blank"
+            rel="noopener noreferrer">
+            <svg
+              class="contact-icon contact-icon--instagram"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="1" y="1" width="28" height="28" rx="7" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="15" cy="15" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="22" cy="8" r="1.5" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+
+      </section>
+    </div>
+
   </main>
 
   <script src="../rr-accordion.js" defer></script>

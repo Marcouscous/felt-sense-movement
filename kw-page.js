@@ -38,7 +38,9 @@
     var date  = new Date(event.date + 'T00:00:00');
     var month = date.toLocaleString('default', { month: 'short' });
     var day   = event.dateRange || date.getDate();
-    var mapsHref = 'https://maps.google.com/?q=' + encodeURIComponent(event.locationMap || event.location);
+    var mapsHref = event.locationMap && event.locationMap.startsWith('http')
+      ? event.locationMap
+      : 'https://maps.google.com/?q=' + encodeURIComponent(event.locationMap || event.location);
 
     return `
       <li class="event-card">
