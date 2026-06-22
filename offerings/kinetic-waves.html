@@ -12,19 +12,15 @@
 <body class="kw-body">
 
   <main class="kw-page">
-    <img
-      src="../assets/vectors/KW-vector-words.svg"
-      alt=""
-      class="kw-desktop-bg"
-      aria-hidden="true">
-
     <section class="kw-hero" aria-label="Kinetic Waves">
-      <h1 class="kw-hero__title">Kinetic Waves</h1>
+      <div class="kw-hero__text">
+        <h1 class="kw-hero__title">Kinetic Waves</h1>
 
-      <p class="kw-hero__details">
-        Fridays 9:30–11:30am<br>
-        @ The Berkeley Finnish Hall
-      </p>
+        <p class="kw-hero__details">
+          Fridays 9:30–11:30am<br>
+          @ The Berkeley Finnish Hall
+        </p>
+      </div>
 
       <div class="kw-hero__waves">
         <img src="../assets/vectors/KW-vector-mobile-1.svg" alt="" class="kw-hero__bg">
@@ -34,6 +30,19 @@
           <p class="kw-hero__bubble-text">Summer Session<br>Starts July 17!</p>
         </div>
 
+      </div>
+
+      <div class="kw-hero__desktop-bg-wrap">
+        <img
+          src="../assets/vectors/KW-vector-words.svg"
+          alt=""
+          class="kw-desktop-bg"
+          aria-hidden="true">
+
+        <div class="kw-hero__bubble kw-hero__bubble--desktop">
+          <img src="../assets/vectors/speech-bubble-vector.svg" alt="" class="kw-hero__bubble-svg">
+          <p class="kw-hero__bubble-text">Summer Session<br>Starts July 17!</p>
+        </div>
       </div>
 
       <img
@@ -163,6 +172,75 @@
 
       </section>
     </div>
+
+    <footer class="site-footer kw-desktop-contact">
+      <div class="contact-inner">
+
+        <form
+          class="contact-newsletter"
+          action="https://formspree.io/f/mzdqdeap"
+          method="POST">
+          <input type="hidden" name="_subject" value="New Felt Sense Movement Newsletter Signup">
+          <p class="contact-newsletter__label">Join the Newsletter</p>
+          <div class="contact-newsletter__fields">
+            <input
+              class="contact-newsletter__input"
+              type="email"
+              name="email"
+              aria-label="Email address"
+              required>
+            <button class="contact-btn" type="submit">Submit</button>
+          </div>
+        </form>
+
+        <div class="contact-row">
+          <span class="contact-row__label">Bay Area Axis<br>Syllabus Telegram<br>Group</span>
+          <a
+            class="contact-btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer">
+            Join Here
+          </a>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-row__label">Email Marcus</span>
+          <a class="contact-icon-link" href="mailto:marcus.jpvanduren@gmail.com">
+            <svg
+              class="contact-icon contact-icon--email"
+              viewBox="0 0 33 27"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="0.5" y="0.5" width="32" height="26" rx="5" stroke="currentColor" stroke-width="2"/>
+              <path d="M0.5 2L16.5 15L32.5 2" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-row__label">Instagram</span>
+          <a
+            class="contact-icon-link"
+            href="https://instagram.com/marcusvanduren"
+            target="_blank"
+            rel="noopener noreferrer">
+            <svg
+              class="contact-icon contact-icon--instagram"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="1" y="1" width="28" height="28" rx="7" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="15" cy="15" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="22" cy="8" r="1.5" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </footer>
 
     <div class="kw-return-home">
       <a href="../index.html" class="kw-return-home__link">

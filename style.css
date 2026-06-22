@@ -124,7 +124,7 @@
 
 /* ── Mobile font-size overrides (+1px each) ──────────── */
 
-@media (max-width: 767px) {
+@media (max-width: 649px) {
   :root {
     --font-size-xs:      0.8125rem;   /* 13px — was 12px */
     --font-size-sm:      0.9375rem;   /* 15px — was 14px */
@@ -440,7 +440,7 @@ body {
    MOBILE OVERRIDES  ·  under 768px
 ═══════════════════════════════════════════════════════ */
 
-@media (max-width: 767px) {
+@media (max-width: 649px) {
 
   /* ── Background SVGs ──────────────────────────────── */
 
@@ -982,7 +982,7 @@ body {
 }
 
 /* Desktop: Learn More transparent with hover fill */
-@media (min-width: 768px) {
+@media (min-width: 650px) {
   .calendar-toggle {
     border-width: 2px;
   }
@@ -1008,7 +1008,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
   .learn-more-btn {
     background-color: transparent;
     transition: background-color var(--transition-fast);
@@ -1043,7 +1043,7 @@ body {
    declarations win the cascade at equal specificity.
 ═══════════════════════════════════════════════════════ */
 
-@media (max-width: 767px) {
+@media (max-width: 649px) {
 
   .calendar-section {
     display: block;
@@ -1156,11 +1156,11 @@ body {
   height: 93.125rem;   /* 1490px */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
   .events-desktop-bg { display: block; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 649px) {
   .events-desktop-bg { display: none; }
 }
 
@@ -1190,7 +1190,7 @@ body {
   pointer-events: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 649px) {
   .events-bg-wrap {
     display: block;
     /* Cancel the 16px horizontal padding from .events-page so the wrap
@@ -1250,7 +1250,7 @@ body {
   max-height: 60vh;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 649px) {
   .events-page__heading {
     font-size: 1.3125rem;   /* 21px — was 20px */
   }
@@ -1406,7 +1406,7 @@ body {
   margin-top: -2.1875rem;   /* 35px up */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
   .mobile-carousel-section { display: none; }
 }
 
@@ -1636,7 +1636,7 @@ body {
   color: var(--color-text);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
   .mobile-contact-section { display: none; }
 }
 
@@ -1893,15 +1893,16 @@ body {
 }
 
 .rr-register__frame-wrap {
-  overflow-x: hidden;
-  padding: 0 var(--space-2);   /* side padding on mobile so form doesn't sit edge-to-edge */
+  overflow: visible;
+  padding: 0 var(--space-2);
 }
 
 .rr-register__form {
   display: block;
   width: 100%;
-  height: 175.5rem;   /* 2808px */
+  height: 200rem;
   border: none;
+  overflow: hidden;
 }
 
 
@@ -1922,9 +1923,7 @@ body {
 
 .rr-bio__photo {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: top;
+  height: auto;
 }
 
 .rr-bio__text {
@@ -1951,7 +1950,7 @@ body {
 
 /* ── Desktop overrides  ·  min-width: 768px ─────────── */
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
 
   .rr-hero {
     padding: 0;
@@ -2237,20 +2236,19 @@ body {
 .kw-hero__bg {
   display: block;
   width: 100%;
-  height: auto;
-  transform-origin: left top;
-  transform: scale(1.15) scaleY(0.95) translateX(-0.3125rem);
+  height: 18rem;
+  object-fit: fill;
 }
 
 .kw-hero__bubble {
   position: absolute;
   right: calc(var(--space-4) + 0.9375rem);
-  top: calc(30% - 4.6875rem);
+  top: calc(30% - 5rem);
 }
 
 .kw-hero__bubble-svg {
   display: block;
-  width: 6.978rem;
+  width: 6.665rem;
   height: auto;
 }
 
@@ -2380,7 +2378,15 @@ body {
 
 /* ── Kinetic Waves — desktop background ──────────── */
 
-.kw-desktop-bg {
+.kw-desktop-contact {
+  display: none;
+}
+
+.kw-hero__desktop-bg-wrap {
+  display: none;
+}
+
+.kw-hero__bubble--desktop {
   display: none;
 }
 
@@ -2414,76 +2420,78 @@ body {
   height: 2rem;
 }
 
-@media (min-width: 768px) {
-  .kw-page {
+@media (min-width: 650px) {
+  .kw-hero {
     position: relative;
-    isolation: isolate;
+    padding-top: 0;
+  }
+
+  .kw-hero__text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1.25rem;
+    text-align: center;
+    z-index: var(--z-content);
+  }
+
+  .kw-hero__title {
+    font-size: 3.1875rem;
+  }
+
+  .kw-hero__details {
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-4);
+  }
+
+  .kw-hero__waves {
+    display: none;
+  }
+
+  .kw-hero__desktop-bg-wrap {
+    display: block;
+    position: relative;
+    margin-top: 2.875rem;
   }
 
   .kw-desktop-bg {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: auto;
-    z-index: var(--z-background);
-    pointer-events: none;
+    height: 27.5625rem;
+    object-fit: fill;
   }
 
-  .kw-hero {
-    position: relative;
-    z-index: var(--z-content);
-    padding-top: var(--space-16);
-  }
-
-  .kw-hero__title {
-    font-size: 4rem;
-  }
-
-  .kw-hero__details {
-    font-size: var(--font-size-base);
-    margin-top: var(--space-4);
-  }
-
-  .kw-hero__bg {
-    display: none;
-  }
-
-  .kw-hero__waves {
-    overflow: visible;
-    margin-top: 0;
-  }
-
-  .kw-hero__bubble {
+  .kw-hero__bubble--desktop {
+    display: block;
     position: absolute;
-    right: 10%;
-    top: var(--space-8);
+    right: 8%;
+    top: 15%;
   }
 
-  .kw-hero__bubble-svg {
+  .kw-hero__bubble--desktop .kw-hero__bubble-svg {
     width: 10rem;
   }
 
-  .kw-hero__bubble-text {
+  .kw-hero__bubble--desktop .kw-hero__bubble-text {
     font-size: 0.8125rem;
   }
 
   .kw-hero__dancers {
-    width: 22rem;
-    margin: var(--space-8) auto 0;
+    display: block;
+    width: 19.855rem;
+    margin: -6rem auto 0;
     transform: none;
-  }
-
-  .kw-bg-wrap {
-    background-image: none;
     position: relative;
     z-index: var(--z-content);
   }
 
+  .kw-bg-wrap {
+    background-image: none;
+  }
+
   .kw-calendar {
-    padding: var(--space-8) 0;
-    max-width: 40rem;
+    padding: 0.75rem 0;
+    max-width: 32rem;
     margin-left: auto;
     margin-right: auto;
   }
@@ -2502,7 +2510,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: var(--space-16) var(--space-4);
-    gap: 5.25rem;
+    gap: 2.625rem;
   }
 
   .kw-about .rr-accordion__toggle {
@@ -2515,11 +2523,10 @@ body {
   }
 
   .kw-contact-wrap {
-    position: relative;
-    z-index: var(--z-content);
+    display: none;
   }
 
-  .kw-contact-wrap .mobile-contact-section {
+  .kw-desktop-contact {
     display: block;
   }
 
