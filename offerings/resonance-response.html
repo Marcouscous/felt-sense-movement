@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <script type="module">
+    import { atcb_action } from 'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2/+esm';
+    window.atcb_action = atcb_action;
+  </script>
 </head>
 <body class="rr-body">
 
@@ -92,7 +96,7 @@
 
     <!-- ─ Description ────────────────────────────────── -->
     <section class="rr-description" id="about">
-      <p class="rr-description__body rr-description__body--centered"><em>An Axis Syllabus and Contact Improvisation Workshop with Marcus van Duren and Emily Jones</em></p>
+      <p class="rr-description__body rr-description__body--centered"><em>An Axis Syllabus and Contact Improvisation Workshop<br class="rr-desktop-br"> with Marcus van Duren and Emily Jones</em></p>
       <p class="rr-description__body rr-description__date"><strong class="rr-description__date-text">Aug 7–9</strong><span class="rr-event-location">Portland, OR @ FLOCK</span></p>
 
       <div class="rr-accordion">
@@ -268,6 +272,13 @@
     </section>
 
   </main>
+
+  <footer class="rr-footer">
+    <a href="../index.html" class="rr-footer__link">
+      <img src="../assets/images/FSM-logo.png" alt="Felt Sense Movement logo" class="rr-footer__logo">
+      Felt Sense Movement
+    </a>
+  </footer>
 
   <script src="../rr-nav.js" defer></script>
   <script src="../rr-carousel.js" defer></script>

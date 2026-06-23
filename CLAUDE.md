@@ -8,6 +8,8 @@ A plain HTML/CSS business landing page for a somatic movement practice. No build
 
 **Source of truth — mobile layout:** `index.html` (with its mobile CSS in `style.css`) is the visual reference for mobile patterns, spacing, and component style. Any page without a Figma node (see Page Inventory) should match the look and feel of `index.html` at `≤ 767px`.
 
+**Source of truth — Resonance & Response page:** `offerings/resonance-response.html` is the visual reference for both desktop (`≥ 650px`) and mobile (`< 650px`). It has its own standalone navbar (`.rr-nav`), hero carousel, accordion sections, bio layout, video gallery, and Google Form embed. No Figma node — built from prompts and iteration.
+
 **No Figma source for `events.html`:** The all-events page is designed from prompts. Use `index.html` mobile layout as the visual reference for typography, spacing, card style, button style, and background SVGs.
 
 ---

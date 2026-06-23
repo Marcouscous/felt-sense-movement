@@ -1,7 +1,9 @@
 [
   {
     "date":        "2026-08-07",
+    "endDate":     "2026-08-09",
     "dateRange":   "7-9",
+    "allDay":      true,
     "title":       "Resonance & Response",
     "location":    "Portland, OR",
     "locationMap": "3520 SE Powell Blvd, Portland, OR",
@@ -12,56 +14,85 @@
   {
     "date":        "2026-07-17",
     "title":       "Kinetic Waves",
-    "location":    "The Berkeley Finnish Hall",
+    "location":    "The Finnish Hall",
     "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
     "link":        "offerings/kinetic-waves.html",
     "category":    "class",
     "offering":    "kinetic-waves",
-    "theme":       "Elastic Recoil",
-    "description": "Friday morning dance class rooted in the Axis Syllabus"
+    "startTime":   "09:30",
+    "endTime":     "11:30",
+    "timeZone":    "America/Los_Angeles",
+    "theme":       "Dancing is Walking, Feet and Spine",
+    "description": "Friday Morning Dance Class rooted in the study and application of The Axis Syllabus©\n\nFacilitated by AS Teacher Candidate, Marcus van Duren\n\n$20 drop in / Notaflof\n\nA typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music."
   },
   {
     "date":        "2026-07-24",
     "title":       "Kinetic Waves",
-    "location":    "The Berkeley Finnish Hall",
+    "location":    "The Finnish Hall",
     "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
     "link":        "offerings/kinetic-waves.html",
     "category":    "class",
     "offering":    "kinetic-waves",
-    "theme":       "Spinal Cascades",
-    "description": "Friday morning dance class rooted in the Axis Syllabus"
+    "startTime":   "09:30",
+    "endTime":     "11:30",
+    "timeZone":    "America/Los_Angeles",
+    "theme":       "Motoric Masses, Kinetic Waves",
+    "description": "Friday Morning Dance Class rooted in the study and application of The Axis Syllabus©\n\nFacilitated by AS Teacher Candidate, Marcus van Duren\n\n$20 drop in / Notaflof\n\nA typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music."
   },
   {
     "date":        "2026-07-31",
     "title":       "Kinetic Waves",
-    "location":    "The Berkeley Finnish Hall",
+    "location":    "The Finnish Hall",
     "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
     "link":        "offerings/kinetic-waves.html",
     "category":    "class",
     "offering":    "kinetic-waves",
-    "theme":       "Gravity Surfing",
-    "description": "Friday morning dance class rooted in the Axis Syllabus"
+    "startTime":   "09:30",
+    "endTime":     "11:30",
+    "timeZone":    "America/Los_Angeles",
+    "theme":       "Hip & Shoulder, Spherical Pathways",
+    "description": "Friday Morning Dance Class rooted in the study and application of The Axis Syllabus©\n\nFacilitated by AS Teacher Candidate, Marcus van Duren\n\n$20 drop in / Notaflof\n\nA typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music."
+  },
+  {
+    "date":        "2026-08-07",
+    "title":       "Kinetic Waves",
+    "location":    "The Finnish Hall",
+    "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
+    "link":        "offerings/kinetic-waves.html",
+    "category":    "class",
+    "offering":    "kinetic-waves",
+    "startTime":   "09:30",
+    "endTime":     "11:30",
+    "timeZone":    "America/Los_Angeles",
+    "theme":       "Guest Teacher!",
+    "description": "Friday Morning Dance Class rooted in the study and application of The Axis Syllabus©\n\nFacilitated by AS Teacher Candidate, Marcus van Duren\n\n$20 drop in / Notaflof\n\nA typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music."
   },
   {
     "date":        "2026-08-14",
     "title":       "Kinetic Waves",
-    "location":    "The Berkeley Finnish Hall",
+    "location":    "The Finnish Hall",
     "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
     "link":        "offerings/kinetic-waves.html",
     "category":    "class",
     "offering":    "kinetic-waves",
-    "theme":       "Fascial Glide",
-    "description": "Friday morning dance class rooted in the Axis Syllabus"
+    "startTime":   "09:30",
+    "endTime":     "11:30",
+    "timeZone":    "America/Los_Angeles",
+    "theme":       "Spine Mechanics & Ramps",
+    "description": "Friday Morning Dance Class rooted in the study and application of The Axis Syllabus©\n\nFacilitated by AS Teacher Candidate, Marcus van Duren\n\n$20 drop in / Notaflof\n\nA typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music."
   },
   {
     "date":        "2026-08-21",
     "title":       "Kinetic Waves",
-    "location":    "The Berkeley Finnish Hall",
+    "location":    "The Finnish Hall",
     "locationMap": "https://maps.app.goo.gl/ifuizXpKYZezpM6p8",
     "link":        "offerings/kinetic-waves.html",
     "category":    "class",
     "offering":    "kinetic-waves",
-    "theme":       "Joint Spirals",
-    "description": "Friday morning dance class rooted in the Axis Syllabus"
+    "startTime":   "09:30",
+    "endTime":     "11:30",
+    "timeZone":    "America/Los_Angeles",
+    "theme":       "Elasticity, Jumping, Tone & Timing",
+    "description": "Friday Morning Dance Class rooted in the study and application of The Axis Syllabus©\n\nFacilitated by AS Teacher Candidate, Marcus van Duren\n\n$20 drop in / Notaflof\n\nA typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music."
   }
 ]

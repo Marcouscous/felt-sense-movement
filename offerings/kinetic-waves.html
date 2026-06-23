@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <script type="module">
+    import { atcb_action } from 'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2/+esm';
+    window.atcb_action = atcb_action;
+  </script>
 </head>
 <body class="kw-body">
 
@@ -67,8 +71,8 @@
     <!-- ─ About ────────────────────────────────────── -->
     <section class="kw-about" aria-label="About Kinetic Waves">
 
-      <div class="rr-accordion rr-accordion--open">
-        <button class="rr-accordion__toggle" type="button" aria-expanded="true">
+      <div class="rr-accordion">
+        <button class="rr-accordion__toggle" type="button" aria-expanded="false">
           About Kinetic Waves
           <span class="rr-accordion__indicator" aria-hidden="true">+</span>
         </button>
@@ -84,14 +88,20 @@
               $20 drop in / Notaflof
             </p>
             <p class="kw-about__body">
-              A typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music.
+              We begin by zooming in on a particular anatomical relationship, body part, or concept. We then explore it through solo movement and/or hands-on partner work.
+            </p>
+            <p class="kw-about__body">
+              At some point a movement motif or phrase is suggested and we take some time to learn the proposed pattern together. We focus on phrase work for two reasons: to explore new movement pathways, and more importantly, to make deeper contact with the principles at hand. Some things are more easily felt at speed, or in causal relationship with what comes before and after. Often the phrase corresponds to a rhythmic motif of the music, helping us to feel moments of suspense, bounce, or recoil as we ride the waves of gravity.
+            </p>
+            <p class="kw-about__body">
+              Lastly, we use what we have explored as a jumping off point for improvisation and research. Ultimately, this class is about opening a space for people to conduct research with their own bodies. A place to practice the discipline of moving in good respect to your functional anatomy and unearth the joyous potentials of moving in concert with thousands of years of evolution. This class is an invitation for you to come into closer relationship with yourself and the world around you. A space to listen to, and harmonize with, the nature that you are.
             </p>
           </div>
         </div>
       </div>
 
-      <div class="rr-accordion rr-accordion--open">
-        <button class="rr-accordion__toggle" type="button" aria-expanded="true">
+      <div class="rr-accordion">
+        <button class="rr-accordion__toggle" type="button" aria-expanded="false">
           What is The Axis Syllabus?
           <span class="rr-accordion__indicator" aria-hidden="true">+</span>
         </button>
@@ -105,8 +115,6 @@
       </div>
 
     </section>
-
-    </div><!-- close .kw-bg-wrap -->
 
     <!-- ─ Contact ──────────────────────────────────── -->
     <div class="kw-contact-wrap">
@@ -241,6 +249,8 @@
 
       </div>
     </footer>
+
+    </div><!-- close .kw-bg-wrap -->
 
     <div class="kw-return-home">
       <a href="../index.html" class="kw-return-home__link">
