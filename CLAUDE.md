@@ -506,3 +506,58 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 - **Multi-day events.** The calendar displays a single day number. For a three-day workshop, set `date` to the opening day and include the full date range in the title (e.g. `"Resonance & Response — Aug 7–9"`).
 - **Trailing comma on the last item.** Standard JSON does not allow a trailing comma after the final object in the array. It will silently break the calendar in some browsers.
 - **Past events don't disappear — they move.** An event whose date has passed is not hidden; it moves to the Past Events section. Only delete an entry if you want it gone from the site entirely.
+
+---
+
+## Work Log
+
+### Session — 2026-06-22 → 2026-06-23 (commit 283a3af)
+
+**Save Event Button Integration**
+- Replaced static `.event-save-btn` buttons with functional `atcb_action()` from the `add-to-calendar-button` v2 CDN library
+- CDN loaded via ESM import in `<head>` of index.html, events.html, kinetic-waves.html, resonance-response.html
+- `calendar.js`: added `buildAtcbConfig()`, `wireSaveButtons()` — wires click handlers after innerHTML render
+- `kw-page.js`: same pattern with `renderKwSaveButton()` replaced by `wireSaveButtons()`
+- Restored `.event-save-btn` CSS rule (had been prematurely deleted)
+- Diagnosed: `dist/bundle.js` (web component bundle) does not expose `atcb_action` as a global — switched to ESM `+esm` import
+
+**events.json Updates**
+- Added Aug 7 KW entry ("Guest Teacher!")
+- Added `startTime: "09:30"`, `endTime: "11:30"`, `timeZone: "America/Los_Angeles"` to all 6 KW entries
+- Updated all KW themes: Dancing is Walking, Motoric Masses, Hip & Shoulder, Guest Teacher!, Spine Mechanics & Ramps, Elasticity Jumping Tone & Timing
+- Updated KW description to full class description with session breakdown
+- Added `endDate: "2026-08-09"` and `allDay: true` to R&R event
+- Changed KW location from "The Berkeley Finnish Hall" to "The Finnish Hall"
+
+**Resonance & Response Page**
+- Fixed page not scrolling to bottom — iframe height tuned to `222rem`
+- Added return-to-home footer with FSM logo below the registration form
+- Reduced `.rr-register` bottom padding
+- Split subtitle into two lines on desktop ("Workshop" / "with Marcus van Duren and Emily Jones")
+- Increased "Resonance & Response" nav title to 24px desktop / 19px mobile
+- Increased "Register" heading by 2px
+- Reduced desktop carousel image height to 29.7rem, controls 20% smaller
+- Reduced mobile carousel controls by 20% (two rounds of 10%)
+- Added 10px padding above/below subtitle, set subtitle font to 13px
+- Desktop bio photos: removed forced aspect-ratio, set `height: auto` (no crop, full photo)
+- Added R&R page as source of truth in CLAUDE.md
+
+**Kinetic Waves Page**
+- Swapped R&R and Overscore in offerings dropdown (index.html, events.html)
+- Expanded KW calendar: `max-height` removed, JS controls scroll (only scrollable with 7+ events)
+- Fixed calendar container not wrapping last card — added `padding-bottom: var(--space-2)`
+- Fixed page not scrolling when cursor over non-scrollable calendar (`overflow-x: clip`, event-count-based overflow-y)
+- KW calendar 30% wider on desktop (41.6rem)
+- Added `background-mobile-3.svg` to desktop KW page, positioned overlapping calendar and contact
+- Extended `.kw-bg-wrap` to include contact section and desktop footer
+- Mobile SVG: `background-size: 100% 110%`, `background-position: 0 100%`
+- Desktop SVG: `background-size: 100% 85%`, `background-position: center calc(100% - 8.5625rem)`
+- Added date box fill color `#E2F5FF` on all event cards
+- Theme containers 20% bigger (font 12px, max-width 108px)
+- Removed "Theme:" label from event cards
+- Accordions collapsed by default
+- Updated About KW copy: new session description, class philosophy paragraph
+
+**Styles**
+- Desktop breakpoint line break hidden on mobile via `.rr-desktop-br`
+- Added `--btn-background`, `--btn-border`, `--btn-font-family`, `--btn-text` CSS variables for add-to-calendar-button
