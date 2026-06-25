@@ -17,7 +17,7 @@ async function loadCalendar() {
 
     const calendarList = document.getElementById('calendar-list');
     const pastList     = document.getElementById('past-events-list');
-    const toggleBtns   = document.querySelectorAll('.calendar-toggle__btn');
+    const toggleBtns   = document.querySelectorAll('.calendar-toggle:not(#past-toggle) .calendar-toggle__btn');
 
     function renderUpcoming(category) {
       if (!calendarList) return;
@@ -28,6 +28,7 @@ async function loadCalendar() {
         ? filtered.map(renderCard).join('')
         : '<li class="calendar-empty">No upcoming events.</li>';
       wireSaveButtons(calendarList, filtered);
+      updateCalendarOverflow(calendarList.closest('.calendar-container'));
     }
 
     if (toggleBtns.length) {
@@ -57,11 +58,47 @@ async function loadCalendar() {
     }
 
     if (pastList) {
-      pastList.innerHTML = past.length
-        ? past.map(e => renderCard(e, true)).join('')
-        : '<li class="calendar-empty">No past events.</li>';
-      wireSaveButtons(pastList, past);
+      const pastToggle = document.getElementById('past-toggle');
+      const pastToggleBtns = pastToggle ? [...pastToggle.querySelectorAll('.calendar-toggle__btn')] : [];
+      let pastCategory = 'class';
+
+      function renderPast(category) {
+        const filtered = category
+          ? past.filter(e => e.category === category)
+          : past;
+        pastList.innerHTML = filtered.length
+          ? filtered.map(e => renderCard(e, true)).join('')
+          : '<li class="calendar-empty">No past events.</li>';
+        wireSaveButtons(pastList, filtered);
+      }
+
+      if (pastToggle && pastToggleBtns.length) {
+        function setPastSlider(btn) {
+          const index = pastToggleBtns.indexOf(btn);
+          pastToggle.style.setProperty('--_active', index);
+        }
+
+        setPastSlider(pastToggleBtns[0]);
+        renderPast(pastCategory);
+
+        pastToggleBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            pastToggleBtns.forEach(b => b.classList.remove('calendar-toggle__btn--active'));
+            btn.classList.add('calendar-toggle__btn--active');
+            pastCategory = btn.dataset.category;
+            setPastSlider(btn);
+            renderPast(pastCategory);
+          });
+        });
+      } else {
+        renderPast(null);
+      }
     }
+
+    window.addEventListener('resize', function () {
+      updateCalendarOverflow(calendarList && calendarList.closest('.calendar-container'));
+      updateCalendarOverflow(pastList && pastList.closest('.calendar-container'));
+    });
   } catch (err) {
     console.error('Calendar failed to load:', err);
   }
@@ -87,6 +124,11 @@ function buildAtcbConfig(event) {
   }
 
   return config;
+}
+
+function updateCalendarOverflow(container) {
+  if (!container) return;
+  container.style.overflowY = container.scrollHeight > container.clientHeight ? 'auto' : 'visible';
 }
 
 function wireSaveButtons(container, events) {

@@ -561,3 +561,61 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 **Styles**
 - Desktop breakpoint line break hidden on mobile via `.rr-desktop-br`
 - Added `--btn-background`, `--btn-border`, `--btn-font-family`, `--btn-text` CSS variables for add-to-calendar-button
+
+---
+
+## Kinetic Waves Page (`offerings/kinetic-waves.html`)
+
+**Source of truth** for the KW offering page on both desktop (`≥ 650px`) and mobile (`< 650px`). No Figma node — built from prompts and iteration.
+
+### Page Structure
+
+| Section | Wrapper / Selector | Notes |
+|---|---|---|
+| Hero | `.kw-hero` | Title (`.kw-hero__title`, Norwester font), details, mobile wave SVG (`.kw-hero__waves`), desktop SVG (`.kw-hero__desktop-bg-wrap`), speech bubble, dancer image |
+| Background wrap | `.kw-bg-wrap` | Wraps calendar, about, mobile contact, and desktop contact footer. Carries `background-mobile-3.svg` on both mobile and desktop |
+| Calendar | `.kw-calendar` → `.kw-calendar__container` → `#kw-calendar-list` | Rendered by `kw-page.js` |
+| About | `.kw-about` | Two `.rr-accordion` blocks: "About Kinetic Waves" and "What is The Axis Syllabus?" — collapsed by default |
+| Mobile contact | `.kw-contact-wrap` → `.mobile-contact-section` | Hidden on desktop (`display: none` at `≥ 650px`) |
+| Desktop contact | `footer.site-footer.kw-desktop-contact` | Hidden on mobile, shown at `≥ 650px` |
+| Return to Home | `.kw-return-home` | Link + FSM logo, sits outside `.kw-bg-wrap` |
+
+### Files
+
+| File | Role |
+|---|---|
+| `style.css` | All KW styles live in the main stylesheet under `.kw-*` selectors (lines ~2267–2621). Desktop overrides at `@media (min-width: 650px)` |
+| `kw-page.js` | KW-specific JS: accordion collapse on mobile, calendar fetch/render, save-event button wiring, overflow toggle |
+| `rr-accordion.js` | Shared accordion toggle — used by both KW and RR pages |
+
+### Calendar Container Overflow Pattern
+
+`.kw-calendar__container` uses the **established pattern** for calendar containers that should not capture scroll events when content fits:
+
+- **CSS:** `overflow-x: clip` (not `hidden` — avoids the CSS spec rule that promotes `overflow-y: visible` to `auto`)
+- **JS (kw-page.js):** After render, checks event count:
+  - `≤ 6` events → `maxHeight: 'none'`, `overflowY: 'visible'` — no scroll container, page scrolls normally
+  - `> 6` events → `maxHeight` set (responsive), `overflowY: 'auto'` — container scrolls internally
+
+This same pattern is applied to `.calendar-container` on the home page via `calendar.js` → `updateCalendarOverflow()`.
+
+### events.json — Offering Filter
+
+KW events use `"offering": "kinetic-waves"` in `events.json`. `kw-page.js` filters by this field:
+```js
+allEvents.filter(e => e.offering === 'kinetic-waves' && new Date(e.date + 'T00:00:00') >= today)
+```
+
+KW entries also carry extra fields not used by other events:
+- `"theme"` — rendered as a `.kw-event-theme` badge on each card (no "Theme:" label)
+- `"startTime"`, `"endTime"`, `"timeZone"` — used by `atcb_action()` for Save Event calendar integration
+
+### KW-Specific CSS Selectors
+
+- **Body/page:** `.kw-body`, `.kw-page`
+- **Hero:** `.kw-hero`, `.kw-hero__title`, `.kw-hero__details`, `.kw-hero__waves`, `.kw-hero__bg`, `.kw-hero__bubble`, `.kw-hero__bubble-svg`, `.kw-hero__bubble-text`, `.kw-hero__dancers`, `.kw-hero__desktop-bg-wrap`, `.kw-desktop-bg`, `.kw-hero__bubble--desktop`
+- **Calendar:** `.kw-calendar`, `.kw-calendar__container`, `.kw-event-theme`
+- **About:** `.kw-about`, `.kw-about__body`
+- **Contact/footer:** `.kw-contact-wrap`, `.kw-desktop-contact`
+- **Return home:** `.kw-return-home`, `.kw-return-home__link`, `.kw-return-home__logo`
+- **Background:** `.kw-bg-wrap` — mobile: `background-size: 100% 110%`, `background-position: 0 100%`; desktop: `background-size: 100% 85%`, `background-position: center calc(100% - 8.5625rem)`

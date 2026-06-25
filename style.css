@@ -612,6 +612,8 @@ body {
   flex-direction: row;
   align-items: stretch;
   gap: var(--carousel-slide-gap);
+  padding-left: calc(var(--carousel-slide-gap) / 2);
+  padding-right: calc(var(--carousel-slide-gap) / 2);
   transform: translateX(0);
   transition: transform var(--carousel-transition);
   will-change: transform;
@@ -827,7 +829,7 @@ body {
   width: var(--calendar-col-w);
   height: var(--calendar-box-h);
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: clip;
   border: var(--border-width-thick) solid var(--color-border);
   border-radius: var(--radius-xl);
   /* Firefox scrollbar color; width left to browser default so
@@ -893,7 +895,7 @@ body {
 
 .event-date__month {
   font-family: var(--font-mono);
-  font-size: var(--font-size-base);
+  font-size: 1.0625rem;
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
   line-height: 1;
@@ -908,7 +910,7 @@ body {
   justify-content: center;
   border: var(--border-width-thick) solid var(--color-border);
   border-radius: var(--radius-lg);
-  background-color: #E2F5FF;
+  background-color: #F0FAFF;
 }
 
 .event-date__day {
@@ -1150,17 +1152,18 @@ body {
 .events-desktop-bg {
   display: none;
   position: absolute;
-  top: -3.125rem;   /* -50px */
-  left: -25rem;   /* -400px — extends off left edge */
-  width: calc(100% + 43.75rem);
+  top: 21.875rem;   /* 350px */
+  left: -12.5rem;   /* -200px */
+  right: -21.875rem;  /* -350px — extends off right edge */
   pointer-events: none;
   z-index: var(--z-background);
 }
 
-.events-desktop-bg svg {
+.events-desktop-bg img {
   display: block;
   width: 100%;
-  height: 93.125rem;   /* 1490px */
+  height: 61.875rem;   /* 990px */
+  object-fit: fill;
 }
 
 @media (min-width: 650px) {
@@ -1249,12 +1252,13 @@ body {
 .events-page__calendar--upcoming {
   height: auto;
   max-height: none;
-  overflow-y: visible;   /* expands to fit all events — no scroll */
+  overflow: visible;
 }
 
 .events-page__calendar--past {
-  height: 60vh;          /* fixed height with scroll on desktop */
+  height: 60vh;
   max-height: 60vh;
+  overscroll-behavior-y: auto;
 }
 
 @media (max-width: 649px) {

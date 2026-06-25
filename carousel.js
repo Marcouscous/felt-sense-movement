@@ -28,7 +28,8 @@
                       + (groupSlides.length - 1) * trackGap;
 
     const sideSpace   = (viewportW - activeW) / 2;
-    return Math.max(0, slide.offsetLeft - sideSpace);
+    const maxOffset   = track.scrollWidth - viewportW;
+    return Math.min(Math.max(0, slide.offsetLeft - sideSpace), maxOffset);
   }
 
   function goTo(index) {
