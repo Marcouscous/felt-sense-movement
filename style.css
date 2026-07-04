@@ -28,6 +28,7 @@
   --font-display:        'Norwester', sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium:  500;
+  --font-weight-bold:    700;
   --font-size-xs:        0.75rem;    /* 12px — location, save event label */
   --font-size-sm:        0.875rem;   /* 14px — day number, learn more */
   --font-size-base:      1rem;       /* 16px — event title, buttons, mobile nav */
@@ -2265,6 +2266,80 @@ body {
   text-decoration: underline;
   text-underline-offset: var(--nav-underline-offset);
   text-decoration-thickness: var(--nav-underline-width);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   OFFERING PAGE — THE OVERSCORE
+   ═══════════════════════════════════════════════════════ */
+
+.ov-body {
+  overflow-x: hidden;
+}
+
+/* ── Hero: title + video ─────────────────────────────── */
+
+.ov-hero {
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  text-align: center;
+}
+
+.ov-hero__title {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.ov-hero__tagline {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+.ov-hero__video-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-top: var(--space-6);
+  background-color: var(--color-carousel-placeholder);
+}
+
+.ov-hero__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Desktop overrides  ·  min-width: 650px ──────────── */
+
+@media (min-width: 650px) {
+
+  .ov-hero {
+    padding: var(--space-10) var(--space-8) var(--space-6);
+  }
+
+  .ov-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .ov-hero__tagline {
+    font-size: var(--font-size-base);
+    margin-top: var(--space-3);
+  }
+
+  .ov-hero__video-wrap {
+    max-width: 60rem;
+    margin-top: var(--space-8);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 
