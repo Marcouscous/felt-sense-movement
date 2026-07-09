@@ -1928,14 +1928,14 @@ body {
 .rr-register__form {
   display: block;
   width: 100%;
-  height: 222rem;
+  height: 222rem;   /* 710px net cut from bottom, per request (+40px) */
   border: none;
   overflow: hidden;
 }
 
 @media (max-width: 767px) {
   .rr-register__form {
-    height: 420rem;   /* measured Google Form content: 6051px at 320px viewport (worst case); +10% buffer */
+    height: 303.8125rem;   /* = 4861px, 1190px total cut from measured content height */
   }
 }
 
