@@ -29,6 +29,21 @@
           playsinline
           preload="metadata">
         </video>
+
+        <button
+          class="ov-hero__sound-btn"
+          type="button"
+          aria-pressed="false"
+          aria-label="Unmute video">
+          <svg class="ov-hero__sound-icon ov-hero__sound-icon--muted" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <svg class="ov-hero__sound-icon ov-hero__sound-icon--unmuted" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
     </section>
 
@@ -177,5 +192,6 @@
 
   </main>
 
+  <script src="../ov-video.js" defer></script>
 </body>
 </html>
