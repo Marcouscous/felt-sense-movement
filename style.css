@@ -1933,6 +1933,12 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  .rr-register__form {
+    height: 420rem;   /* measured Google Form content: 6051px at 320px viewport (worst case); +10% buffer */
+  }
+}
+
 
 /* ── RR Footer ───────────────────────────────────────── */
 
