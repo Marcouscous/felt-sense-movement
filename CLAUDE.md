@@ -511,6 +511,132 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 
 ## Work Log
 
+### Session — 2026-07-09 (commit eb5f82c)
+
+**R&R registration iframe: iterative height tuning + `scrolling="no"` restored**
+- Follow-up to the previous session's fix (commit ccf6ccf, see below).
+  Through a long series of incremental height adjustments (both
+  desktop base rule and the `max-width: 767px` mobile override),
+  ended this session at:
+  - Desktop (`.rr-register__form` base rule): back to `222rem` (3552px)
+    — the original pre-fix value
+  - Mobile (`@media (max-width: 767px)`): `303.8125rem` (4861px) — well
+    below the 6051px measured worst-case mobile content height from
+    last session
+  - `scrolling="no"` **re-added** to the `<iframe>` in
+    resonance-response.html — reverses the previous session's fix
+- **Tradeoff, flagged explicitly at the time:** `scrolling="no"` is a
+  single HTML attribute on one `<iframe>` — it cannot be scoped to
+  desktop or mobile independently via CSS/media query. Re-adding it
+  removes the scrollbar/internal-scroll fallback on **both**
+  breakpoints, not just the one being discussed. With current heights
+  shorter than measured content on both breakpoints, this means: no
+  scrollbar appears, but any form content below the set height
+  (potentially including the submit button) is silently unreachable —
+  this is the same failure mode the ccf6ccf fix was written to solve.
+- Also measured (new data point, not previously documented): actual
+  Google Form content height across the **desktop** breakpoint's
+  effective iframe-width range (`.rr-register` capped at
+  `max-width: 60rem`, border-box), same CDP methodology as the mobile
+  measurement:
+  | Effective iframe width | Content height |
+  |---|---|
+  | 570px (narrowest, right at 650px breakpoint) | 3867px |
+  | 650px | 3699px |
+  | 750px | 3495px |
+  | 880px+ (plateaus) | 3603px |
+
+  Worst case is 3867px — i.e. the original `222rem` (3552px) baseline
+  was already ~315px short on desktop too, not just on mobile.
+- **If revisited:** current heights on both breakpoints are
+  intentionally short of measured content, by explicit request in this
+  session. If the goal shifts back to "never lose access to the
+  submit button," the fix is the same shape as ccf6ccf: remove
+  `scrolling="no"` again and set both heights to their respective
+  measured-worst-case + buffer (mobile: 6051px+buffer; desktop: 3867px+buffer).
+
+---
+
+### Session — 2026-07-08 (commit ccf6ccf, + diagnostic-only follow-up)
+
+**BUG FIXED: R&R registration form cutoff on mobile (commit ccf6ccf)**
+- Root cause (confirmed via diagnostic audit before any code changed):
+  `.rr-register__form`'s hardcoded `height: 222rem` didn't account for how
+  much taller Google Forms reflows at narrow/mobile widths, and the
+  iframe's `scrolling="no"` attribute removed the one fallback that would
+  otherwise let users scroll to the clipped content internally
+- Measured the actual fix value rather than guessing: loaded the live
+  Google Form directly (same-origin, so `scrollHeight` is readable —
+  not possible through the cross-origin iframe on our own page) via
+  headless Chrome + `chrome-remote-interface` (CDP) at the effective
+  iframe width (viewport minus `.rr-register__frame-wrap`'s padding).
+  Height increases as width narrows; worst case at the narrowest
+  supported viewport (320px → 304px effective width) measured 6051px
+  tall, stable across repeated checks (not mid-load)
+- Fix: added `@media (max-width: 767px) { .rr-register__form { height: 420rem; } }`
+  (6051px + ~10% buffer → 378rem measured, rounded up to 420rem),
+  desktop `222rem`/`650px` block untouched; removed `scrolling="no"`
+  from the `<iframe>` in resonance-response.html so any future overflow
+  (e.g. Google changes field layout again) is scrollable instead of
+  silently clipped
+- Diff was shown and confirmed before either edit was applied, per
+  standing instruction to audit-first on bug reports
+
+**BUG UNDER INVESTIGATION — diagnostic only, no code changed: native video
+controls squished on mobile in the R&R video gallery**
+- Reported: in `.rr-videos` (the 4-slide vertical-video carousel,
+  `RR-1.mp4`–`RR-4.mp4`), native browser video controls (play, timestamp,
+  mute, fullscreen, overflow menu) don't span the full width of the
+  video element on mobile — the icon row stops well before the right
+  edge, even though the visible video content fills the full width.
+  Screenshot was taken in Chrome DevTools mobile emulation (Blink), not
+  Safari/WebKit.
+- First pass wrongly suspected a WebKit-only quirk (the video sits
+  inside `.rr-videos__grid`, a `-webkit-overflow-scrolling: touch` +
+  `scroll-snap-type: x mandatory` horizontal carousel) — ruled out once
+  told the repro was in plain Chrome/Blink, same engine as this
+  project's own headless-Chrome testing setup.
+- Re-tested properly with actual screenshots (not just
+  `getBoundingClientRect`, which only confirmed box size, not what the
+  native shadow-DOM control bar itself renders) via headless Chrome +
+  CDP, using `Page.captureScreenshot`:
+  - Reproduced immediately at real mobile widths (device presets:
+    iPhone SE, iPhone 12 Pro dimensions) — box itself measures
+    correctly (e.g. 343px, matching its container exactly; ruled out
+    the flexbox `min-width: auto` replaced-element bug initially
+    suspected)
+  - Not caused by unloaded metadata: froze `readyState: 0`
+    (`preload="none"`, un-interacted) and screenshotted, then forced
+    `video.load()` with `preload="metadata"` (no playback needed, so
+    not blocked by autoplay policy) to reach `readyState: 4` — icon
+    cluster position is pixel-identical before and after
+  - Not a stale first-paint issue: forcing a reflow after load (toggle
+    viewport width off/on) doesn't "snap" the control bar to the
+    correct width
+  - **Actual cause, isolated by binary search on box width alone**
+    (same 720×1280 portrait video throughout, forced to different
+    widths via a temporary inline style override, never touching any
+    file): icon cluster reaches the true right edge at ≥ ~390px
+    rendered width; below ~370–375px, it stops short with a visible
+    gap. This is a Blink/Chromium engine limitation in native
+    `<video controls>` — the right-aligned icon cluster (mute,
+    fullscreen, overflow) doesn't stretch to the box edge below that
+    threshold. Not a bug in this codebase's CSS/HTML: no object-fit,
+    no transform, no per-slide dimension mismatch (all 4 videos
+    verified byte-identical 720×1280 via ffprobe)
+  - Every common mobile viewport (320–414px) minus this section's
+    `1rem` side padding (`.rr-videos { padding: var(--space-4) ... }`)
+    lands the video box at 288–382px — squarely in the broken zone —
+    so this reproduces consistently on real phones across all 4 slides
+- **Not yet fixed — awaiting a decision on approach**, since native
+  controls can't be restyled via CSS. Options on the table: render the
+  video visually wider than its container (letting CSS crop it) so the
+  underlying box clears the ~390px threshold, or replace native
+  `controls` with a custom control bar. Revisit this before touching
+  `.rr-videos*` again.
+
+---
+
 ### Session — 2026-07-04 → 2026-07-08 (commit a9e9a7c)
 
 **Blocked mid-session:** macOS revoked Desktop folder read/write access for
