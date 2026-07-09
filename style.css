@@ -1935,7 +1935,7 @@ body {
 
 @media (max-width: 767px) {
   .rr-register__form {
-    height: 303.8125rem;   /* = 4861px, 1190px total cut from measured content height */
+    height: 420rem;   /* reverted to measured Blink content (6051px) + 10% buffer, to cover suspected WebKit gap on iOS Safari/Chrome */
   }
 }
 
