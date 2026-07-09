@@ -511,6 +511,73 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 
 ## Work Log
 
+### Session — 2026-07-04 → 2026-07-08 (commit a9e9a7c)
+
+**Blocked mid-session:** macOS revoked Desktop folder read/write access for
+the active terminal session (`ls ~/Desktop` failed with "Operation not
+permitted" while `~` and `/tmp` were fine — a Privacy & Security / Files
+and Folders permission issue, not a code problem). All file tools were
+blocked until access was restored at the start of the 2026-07-08 session.
+
+**New page: offerings/the-overscore.html (commit de97c90)**
+- Mobile-first landing page for "The Overscore" (monthly CI event,
+  Berkeley), styled to match resonance-response.html conventions
+- Hero: title above video (not overlaid), tagline "a dance improvisation
+  group-score ritual with live music", autoplay/muted/loop background video
+- Source asset `the-overscore--1min.mov` was 74MB HEVC (unplayable via
+  autoplay in Chrome/Firefox) — transcoded to H.264 `assets/videos/
+  the-overscore.mp4` + poster jpg
+- Contact/footer: reused Kinetic Waves' contact block verbatim (mobile
+  section + desktop footer + return-home), only the newsletter label copy
+  changed ("submit your email for more info"); footer link text changed
+  to "Felt Sense Movement"
+- New `.ov-hero*` classes + `--font-weight-bold: 700` token in style.css
+
+**Audio bug fixed (commit a9e9a7c)**
+- Root cause: the original transcode used `-an`, stripping the audio
+  track entirely (seemed harmless since the tag is `muted` for autoplay,
+  but that also killed sound for anyone who unmutes)
+- Fix: re-transcoded from the original `.mov` with `-c:a copy` (source
+  AAC was already web-compatible) → `the-overscore.mp4` now has audio,
+  verified via ffprobe (H.264 video + AAC-LC 44.1kHz stereo)
+- Old silent file kept locally at `assets/videos/the-overscore-silent-
+  backup.mp4` (untracked, not pushed) as a revert path if ever needed
+
+**Tap-to-unmute sound button (commit a9e9a7c)**
+- `<button class="ov-hero__sound-btn">` in `.ov-hero__video-wrap`,
+  bottom-right, 44×44px circular icon button (matches `.rr-carousel__btn`
+  convention, opaque white bg instead of transparent since it overlays video)
+- Two inline SVG icons (muted/unmuted), swapped via `[aria-pressed]`
+  attribute selector — same pattern as `.rr-carousel__dot--active`
+- New file `ov-video.js`: direct (non-delegated) click handler toggling
+  `video.muted` + syncing `aria-pressed`/`aria-label` — satisfies iOS
+  Safari's synchronous-user-gesture requirement
+- CSS added: `.ov-hero__sound-btn`, `.ov-hero__sound-icon*`,
+  `position: relative` added to `.ov-hero__video-wrap`
+
+**Theater mode — reverted, not built this session**
+- Design had been approved (Option A: taller 4:3 aspect-ratio on mobile
+  only, no width change) but only orphaned HTML (`<button
+  class="ov-hero__theater-btn">` with no CSS or JS) had landed before the
+  permission block hit. That stray markup was removed from
+  offerings/the-overscore.html at the start of this session before
+  committing — nothing theater-related shipped.
+- If resumed later: the last-given spec asked for `max-width: 767px` for
+  the mobile aspect-ratio override, a *different* breakpoint than the
+  650px this page otherwise uses everywhere else (`.ov-hero`,
+  `.ov-hero__video-wrap`, etc.) — worth reconciling rather than
+  introducing a second breakpoint on one page. Build CSS + JS together
+  in one pass rather than landing HTML first.
+
+**Known open bug — not yet fixed**
+- Reported: horizontal overflow on the Overscore mobile page at 366px
+  (text/image/button cut off on the right edge). Ruled out so far:
+  missing `box-sizing: border-box` (global reset already covers it), any
+  unscoped `min-width` rule on body/html. Root cause not yet found —
+  worth a fresh look, now that the orphaned theater markup is gone.
+
+---
+
 ### Session — 2026-06-22 → 2026-06-23 (commit 283a3af)
 
 **Save Event Button Integration**
