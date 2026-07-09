@@ -2361,6 +2361,33 @@ body {
   display: block;
 }
 
+/* ── Register: Google Form embed ─────────────────────── */
+
+.ov-register {
+  padding: var(--space-8) var(--space-4) var(--space-4);
+}
+
+.ov-register__heading {
+  font-family: var(--font-mono);
+  font-size: 1.3125rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.ov-register__frame-wrap {
+  overflow: visible;
+  padding: 0 var(--space-2);
+}
+
+.ov-register__form {
+  display: block;
+  width: 100%;
+  height: 56rem;   /* 50% of 112rem (measured 1607px + buffer), per request */
+  border: none;
+}
+
 /* ── Desktop overrides  ·  min-width: 650px ──────────── */
 
 @media (min-width: 650px) {
@@ -2383,6 +2410,16 @@ body {
     margin-top: var(--space-8);
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .ov-register {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-8) var(--space-6);
+  }
+
+  .ov-register__form {
+    height: 50rem;   /* 50% of 100rem (measured 1457px + buffer), per request */
   }
 
 }
