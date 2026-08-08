@@ -1809,6 +1809,10 @@ body {
   font-size: 0.8125rem;
 }
 
+.rr-description__body--lead-in {
+  margin-top: var(--space-4);
+}
+
 .rr-description__list {
   display: flex;
   flex-direction: column;
