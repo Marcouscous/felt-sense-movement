@@ -426,7 +426,7 @@ In this workshop, we surf between solo improvisational explorations, set movemen
   - `rr-accordion.js` — handles all accordion toggles (About, Schedule, Read Bio)
   - `rr-videos.js` — handles custom play/pause overlay on the video gallery
 - **Carousel images:** `assets/images/carousel-RR-1.jpg` through `carousel-RR-5.jpg`
-- **Videos:** `assets/videos/RR-1.mp4` through `RR-4.mp4` — vertical format (9:16), muted, loop, custom play button overlay
+- **Videos:** `assets/videos/RR-1.mp4`, `RR-5.mp4`, `RR-2.mp4`, `RR-3.mp4`, `RR-4.mp4` (gallery order — RR-5 sits at position 2) — vertical format (9:16), muted, loop, custom play button overlay
 - **Google Form embed:** `https://docs.google.com/forms/d/e/1FAIpQLSd_Clobp-3vVvusTCs7aBqlxovuBturL7MEx0HMfwK1XXKGAA/viewform?embedded=true` — height 2808px, wrapped in `overflow-x: hidden` container
 
 ### Marcus Bio
@@ -512,6 +512,23 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 ## Work Log
 
 ### Session — 2026-08-06 → 2026-08-07 (commits 9567c1d, c1a6180, 2a13b9a)
+
+**R&R video gallery: added 5th video (RR-5) at position 2**
+- Source was `assets/videos/RR-5.mov` (H.264/AAC already, 720×1280,
+  matching the other RR videos' dimensions) but at ~10.8Mbps — 8–10x
+  the bitrate of `RR-1.mp4`–`RR-4.mp4` (~850kbps–1.57Mbps). Transcoded
+  to `RR-5.mp4` at ~1.3Mbps (`libx264`, `-preset slow`, AAC 128k,
+  `+faststart`) to match sibling file sizes (9MB vs. the source's
+  69MB) rather than shipping the raw export.
+- Generated `RR-5-poster.jpg` (720×1280, 1s-in frame) matching the
+  existing poster convention.
+- Inserted as the 2nd `.rr-videos__item`/`<video>` in
+  `offerings/resonance-response.html` (order: RR-1, RR-5, RR-2, RR-3,
+  RR-4) and added a 5th `.rr-videos__dot`. No JS changes needed —
+  `rr-videos.js` matches dots to items by position dynamically. No CSS
+  changes needed — `.rr-videos__dots` is an unconstrained flex row.
+- Updated the video file list in this doc's R&R Page Implementation
+  Notes section to reflect gallery order.
 
 **Kinetic Waves Aug 7 class cancelled, then entry removed entirely**
 - Initial request: change the Aug 7 KW event's `theme` field from
