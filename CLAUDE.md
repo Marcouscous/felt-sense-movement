@@ -511,6 +511,109 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 
 ## Work Log
 
+### Session — 2026-08-06 → 2026-08-07 (commits 9567c1d, c1a6180, 2a13b9a)
+
+**Kinetic Waves Aug 7 class cancelled, then entry removed entirely**
+- Initial request: change the Aug 7 KW event's `theme` field from
+  `"Guest Teacher!"` to `"NO CLASS"` (commit 9567c1d)
+- Follow-up request: remove the Aug 7 KW entry from `events.json`
+  entirely rather than showing a "NO CLASS" card (commit c1a6180).
+  The Aug 7 **Resonance & Response** entry (separate object, same
+  date) was left untouched — it's the unrelated multi-day workshop.
+- First attempt at the removal used a Python `json.load`/`json.dump`
+  round-trip, which reformatted the *entire* file from the padded/
+  aligned key style (`"date":        "..."`) to standard 2-space
+  `json.dumps` indentation — a 140-line diff for a 1-entry removal.
+  Caught before committing; reverted with `git checkout -- events.json`
+  and redid the removal as a targeted `Edit` deleting just the one
+  object, preserving formatting for everything else (14-line diff).
+  **Lesson:** never round-trip this file through a JSON
+  parser/serializer for small edits — edit the object literal
+  directly.
+
+**R&R mobile registration form height reduced by 500px (commit 2a13b9a)**
+- `.rr-register__form` under `@media (max-width: 767px)`: `420rem`
+  (6720px) → `388.75rem` (6220px), i.e. exactly 500px (31.25rem) less.
+- `420rem` was previously set (2026-07-08 session, commit ccf6ccf) to
+  cover measured worst-case mobile Google Form content height (6051px)
+  + 10% buffer, with `scrolling="no"` on the iframe meaning any
+  shortfall is silently unreachable, not scrollable. `388.75rem`
+  (6220px) still clears the measured 6051px, so the submit button
+  should remain reachable, but the safety margin is now much thinner
+  (~170px vs. the original ~600px buffer). **If mobile content ever
+  grows** (Google Form field changes, etc.) or a shorter/no-longer-
+  visible submit button is reported, revisit this height first.
+
+**GitHub Pages deploy investigation — transient infra failure, not a code issue**
+- User reported the live site (feltsensemovement.com, GitHub Pages via
+  custom domain, `CNAME` → `feltsensemovement.com`, no `.github/
+  workflows` — classic branch-deploy Pages, `.nojekyll` present) still
+  showed old content after `git push`.
+- Confirmed via GitHub REST API (unauthenticated, public repo) that
+  commits were landing on `origin/main` correctly every time — the
+  push side was never the problem.
+- Root cause found via `GET /repos/{owner}/{repo}/actions/runs`: the
+  Pages build workflow run for commit 9567c1d failed after the
+  **build** job hung for 45 minutes, then **report-build-status** was
+  cancelled and **deploy** was skipped. The live site was still
+  serving commit `eb5f82c` (last successful deploy, 2026-07-09) even
+  though four+ commits had landed on `main` since then with no
+  rebuild attempted until this session's push.
+- User pulled the actual job log from the GitHub UI (not accessible
+  via API without owner/admin auth — job-logs endpoint 403'd for an
+  unauthenticated request even on this public repo): *"The hosted
+  runner lost communication with the server... Internal server
+  error."* — a GitHub-side runner infra fault, unrelated to repo
+  content or file sizes (no large committed assets were the cause).
+- Fix: re-run the failed workflow from the Actions run page
+  ("Re-run jobs" → "Re-run all jobs"). Not yet confirmed successful
+  as of this log entry — check Actions tab / live site on next
+  session if this recurs.
+- **If this happens again:** check `origin/main` via `git log` and the
+  GitHub commits API first to rule out a push problem, then check
+  `/actions/runs` for the Pages workflow before assuming a build
+  script or content issue — this codebase has no custom Pages workflow
+  to misconfigure, so failures here are almost always transient
+  GitHub infra, not something to debug in-repo.
+
+**Desktop folder permission block recurred mid-session — same issue as
+2026-07-04 → 07-08 session**
+- All file tools (`Read`, `Bash` `cat`/`ls`/`grep`) started failing
+  with `EPERM: operation not permitted` against every file under
+  `~/Desktop/felt-sense-movement/`, including a bare `ls ~/Desktop` —
+  while `~` itself and other paths were unaffected. Same signature as
+  the previously-documented incident: macOS silently revoked the
+  terminal/host app's **Privacy & Security → Files and Folders**
+  Desktop access mid-session.
+- Not caused by anything in this session's edits — first surfaced
+  while trying to read `offerings/resonance-response.html` for an
+  unrelated About-section copy update (see below).
+- Resolved by the user re-toggling Desktop folder access for the app
+  in System Settings; confirmed restored via a plain `cat CLAUDE.md`
+  check before resuming.
+
+**DONE — R&R About section copy replacement**
+- Replaced the three body paragraphs inside the "About" accordion
+  (`.rr-description` → `.rr-accordion` → `.rr-accordion__inner`, id
+  `about`, in `offerings/resonance-response.html`) with the new copy
+  supplied by the user. Note: the actual accordion body class is
+  `.rr-accordion__inner` holding `.rr-description__body` paragraphs —
+  there is no `.rr-about` class in this file (the earlier log entry's
+  name for it was wrong).
+- Added the "The weekend will include:" bullet list (7 items) as a new
+  `<ul class="rr-description__list">` after the body paragraphs, with
+  matching CSS added to `style.css` (`.rr-description__list`,
+  `.rr-description__list-item` — same typography as
+  `.rr-description__body`, disc markers, `space-6` left padding,
+  `space-2` gap between items).
+- Corrected two apparent typos from the pasted copy while inserting:
+  "vocabularry" → "vocabulary", "Resonace" → "Resonance". Flag to the
+  user if either was intentional.
+- Not visually verified in-browser this session (user checks the site
+  directly per standing preference).
+
+---
+
 ### Session — 2026-07-09 (commit eb5f82c)
 
 **R&R registration iframe: iterative height tuning + `scrolling="no"` restored**
