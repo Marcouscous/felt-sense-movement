@@ -427,7 +427,7 @@ In this workshop, we surf between solo improvisational explorations, set movemen
   - `rr-videos.js` — handles custom play/pause overlay on the video gallery
 - **Carousel images:** `assets/images/carousel-RR-1.jpg` through `carousel-RR-5.jpg`
 - **Videos:** `assets/videos/RR-1.mp4`, `RR-5.mp4`, `RR-2.mp4`, `RR-3.mp4`, `RR-4.mp4` (gallery order — RR-5 sits at position 2) — vertical format (9:16), muted, loop, custom play button overlay
-- **Google Form embed:** `https://docs.google.com/forms/d/e/1FAIpQLSd_Clobp-3vVvusTCs7aBqlxovuBturL7MEx0HMfwK1XXKGAA/viewform?embedded=true` — height 2808px, wrapped in `overflow-x: hidden` container
+- **Google Form embed:** `https://docs.google.com/forms/d/e/1FAIpQLSdzv-_yiEeaLMTfu0EnSkapBd7CClJXz4Io3UzPXsL7iyy-VA/viewform?embedded=true` (updated 2026-08-10 — new registration form, replaces the old `1FAIpQLSd_Clobp-3vVvusTCs7aBqlxovuBturL7MEx0HMfwK1XXKGAA` form), wrapped in `overflow-x: hidden` container. **Iframe height not yet re-measured for this form** — `.rr-register__form` heights (`222rem` desktop / `388.75rem` mobile, see Work Log sessions 2026-07-08/07-09/08-07) were tuned against the *old* form's content height and may cut off or leave excess space on the new one.
 
 ### Marcus Bio
 Marcus van Duren is a dancer, teacher and musician based in the San Francisco Bay Area. Marcus has intensively studied movement and dance since his discovery of contact improvisation in 2012. He has been teaching CI locally and internationally for more than 10 years. Marcus is an active member of the axis syllabus community and is currently an Axis Syllabus Teacher Candidate. For Marcus, teaching is not just about transmitting information. It's also about creating a safe space for participants to explore, take risks and collaborate. When it comes to teaching contact improvisation, Marcus specializes in merging the technical information of bio-mechanics with play, humor and ritual to create engaging learning experiences that aim to serve the whole person, not just the dancer.
@@ -510,6 +510,65 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 ---
 
 ## Work Log
+
+### Session — 2026-08-10 (commit 2d1fb84, + uncommitted work below)
+
+**R&R page: new event details update — IN PROGRESS**
+- User is walking through a batch of updates to
+  `offerings/resonance-response.html` for new event details. Step 1 of
+  this batch:
+
+**DONE — Google Form registration link swapped**
+- Replaced the `<iframe>` `src` in `.rr-register__form`
+  (`offerings/resonance-response.html`) from the old form
+  (`1FAIpQLSd_Clobp-3vVvusTCs7aBqlxovuBturL7MEx0HMfwK1XXKGAA`) to the
+  new one (`1FAIpQLSdzv-_yiEeaLMTfu0EnSkapBd7CClJXz4Io3UzPXsL7iyy-VA`).
+  Only the `src` was changed — kept the project's existing iframe
+  attributes (`class`, `title`, `frameborder`, `marginheight`,
+  `marginwidth`, `scrolling="no"`) rather than using Google's raw
+  embed snippet (which has its own irrelevant inline `width`/`height`
+  that this project overrides via CSS).
+- Updated the Google Form reference note in this doc's R&R Page
+  Implementation Notes section (below) with the new URL and a flag
+  that the iframe height has not been re-measured for this form yet
+  — **not yet committed at time of this log entry**.
+
+**PENDING — not yet applied: make registration iframe scrollable**
+- User asked to remove `scrolling="no"` from the `<iframe>` in
+  `offerings/resonance-response.html` as a stopgap (same fix shape as
+  commit `ccf6ccf`), rather than re-measuring the exact content height
+  for the new form right now. Rationale: current heights (`222rem`
+  desktop / `388.75rem` mobile) were tuned to the *old* form and are
+  unverified against the new one — scrollable is a safe fallback so a
+  height mismatch is reachable instead of silently clipped.
+- **Blocked before the edit could be made**: Desktop folder permission
+  block recurred (see below) — same signature as prior sessions.
+  **Not started.** Next session: read
+  `offerings/resonance-response.html`, find the `<iframe
+  class="rr-register__form">` in the Register section (~line 275),
+  remove the `scrolling="no"` attribute, verify the diff, then apply.
+
+**Desktop folder permission block recurred again — same recurring
+issue as 2026-07-04→07-08 and 2026-08-06→08-07 sessions**
+- All file tools started failing with `EPERM: operation not
+  permitted` on `~/Desktop/felt-sense-movement/` mid-session, same
+  signature as before.
+- **New wrinkle this time:** after the user first re-toggled Desktop
+  access, the state was inconsistent rather than fully broken or fully
+  fixed — `cat CLAUDE.md` succeeded repeatedly, but `ls` on the
+  project folder, `cat style.css`, and reading
+  `offerings/resonance-response.html` all still failed. One file
+  readable while sibling files and the directory listing weren't
+  suggests the toggle alone didn't fully re-grant access (or a stale
+  per-file TCC grant vs. a folder-level one).
+- User opted to restart the terminal/host app rather than keep
+  re-toggling, since a fresh process picking up the permission grant
+  is the more likely fix (TCC grants can be scoped to the process,
+  not just re-read live on toggle). **Not yet confirmed working as of
+  this log entry** — check access at the start of next session before
+  resuming the scrollable-iframe edit above.
+
+---
 
 ### Session — 2026-08-06 → 2026-08-07 (commits 9567c1d, c1a6180, 2a13b9a)
 
