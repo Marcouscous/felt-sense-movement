@@ -1866,6 +1866,14 @@ body {
   margin: var(--space-4) 0;
 }
 
+.rr-schedule__day {
+  font-size: 1.15em;
+}
+
+.rr-schedule__time {
+  margin-top: var(--space-4);
+}
+
 
 /* ── Past events: vertical videos ────────────────────── */
 
