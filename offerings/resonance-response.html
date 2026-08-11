@@ -8,6 +8,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .rr-sched{font-family:'JetBrains Mono',monospace;width:100%;max-width:390px;margin:0 auto;background:transparent}
+    .rr-sched__top{display:grid;grid-template-columns:28px repeat(3,1fr);gap:3px;margin-bottom:3px}
+    .rr-sched__hdr{border:1px solid #000;text-align:center;padding:5px 0;font-size:10px;font-weight:500;letter-spacing:.1em}
+    .rr-sched__body{display:grid;grid-template-columns:28px repeat(3,1fr);gap:3px}
+    .rr-sched__axis{position:relative;height:432px}
+    .rr-sched__tick{position:absolute;right:2px;font-size:6.5px;color:#999;transform:translateY(-50%);line-height:1;text-align:right;white-space:nowrap}
+    .rr-sched__col{position:relative;height:432px;background-image:repeating-linear-gradient(to bottom,#ccc 0,#ccc 0.5px,transparent 0.5px,transparent 48px)}
+    .rr-sched__blk{position:absolute;left:0;right:0;border:1px solid #000;padding:4px 5px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden;background:transparent}
+    .rr-sched__time{font-size:7px;color:#555;margin-bottom:3px;white-space:nowrap}
+    .rr-sched__rule{width:18px;border:none;border-top:0.5px solid #aaa;margin:0 auto 3px}
+    .rr-sched__title{font-size:8px;font-weight:500;line-height:1.35;margin-bottom:2px}
+    .rr-sched__desc{font-size:6.5px;color:#555;line-height:1.45;margin-bottom:2px}
+    .rr-sched__loc{font-size:6px;color:#888;margin-top:auto}
+  </style>
   <script type="module">
     import { atcb_action } from 'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2/+esm';
     window.atcb_action = atcb_action;
@@ -97,7 +112,7 @@
     <!-- ─ Description ────────────────────────────────── -->
     <section class="rr-description" id="about">
       <p class="rr-description__body rr-description__body--centered"><em>An Axis Syllabus and Contact Improvisation Workshop<br class="rr-desktop-br"> with Marcus van Duren and Emily Jones</em></p>
-      <p class="rr-description__body rr-description__date"><strong class="rr-description__date-text">Sep 25–27</strong><span class="rr-event-location">Santa Barbara, CA @ Dance Hub</span></p>
+      <p class="rr-description__body rr-description__date"><strong class="rr-description__date-text">Sept 25–27</strong><span class="rr-event-location">Santa Barbara, CA @ Dance Hub</span></p>
 
       <div class="rr-accordion">
         <button class="rr-accordion__toggle" type="button" aria-expanded="false">
@@ -145,11 +160,82 @@
         <div class="rr-accordion__body">
           <div class="rr-accordion__inner">
 
+            <div class="rr-sched">
+              <div class="rr-sched__top">
+                <div></div>
+                <div class="rr-sched__hdr">Fri</div>
+                <div class="rr-sched__hdr">Sat</div>
+                <div class="rr-sched__hdr">Sun</div>
+              </div>
+              <div class="rr-sched__body">
+                <div class="rr-sched__axis">
+                  <span class="rr-sched__tick" style="top:0">10a</span>
+                  <span class="rr-sched__tick" style="top:48px">11</span>
+                  <span class="rr-sched__tick" style="top:96px">12p</span>
+                  <span class="rr-sched__tick" style="top:144px">1</span>
+                  <span class="rr-sched__tick" style="top:192px">2</span>
+                  <span class="rr-sched__tick" style="top:240px">3</span>
+                  <span class="rr-sched__tick" style="top:288px">4</span>
+                  <span class="rr-sched__tick" style="top:336px">5</span>
+                  <span class="rr-sched__tick" style="top:384px">6</span>
+                  <span class="rr-sched__tick" style="top:432px">7p</span>
+                </div>
+                <div class="rr-sched__col">
+                  <div class="rr-sched__blk" style="top:192px;height:240px">
+                    <div class="rr-sched__time">2:00–7:00pm</div>
+                    <hr class="rr-sched__rule">
+                    <div class="rr-sched__title">Surfacing Routes</div>
+                    <div class="rr-sched__desc">sequential descents & departures, solo & contact dancing</div>
+                    <div class="rr-sched__loc">Dance Hub, Large Studio</div>
+                  </div>
+                </div>
+                <div class="rr-sched__col">
+                  <div class="rr-sched__blk" style="top:0;height:72px">
+                    <div class="rr-sched__time">10:00–11:30am</div>
+                    <hr class="rr-sched__rule">
+                    <div class="rr-sched__title">Maps of Motion</div>
+                    <div class="rr-sched__desc">fascia, spinal mechanics + Anatomy Social</div>
+                    <div class="rr-sched__loc">Park (TBD)</div>
+                  </div>
+                  <div class="rr-sched__blk" style="top:120px;height:120px">
+                    <div class="rr-sched__time">12:30–3:00pm</div>
+                    <hr class="rr-sched__rule">
+                    <div class="rr-sched__title">The Conversational Nature of Contact</div>
+                    <div class="rr-sched__desc">CI as physical dialog</div>
+                    <div class="rr-sched__loc">Dance Hub, Large Studio</div>
+                  </div>
+                  <div class="rr-sched__blk" style="top:288px;height:96px">
+                    <div class="rr-sched__time">4:00–6:00pm</div>
+                    <hr class="rr-sched__rule">
+                    <div class="rr-sched__title">Guided by the Curve</div>
+                    <div class="rr-sched__desc">rolling, crawling, walking, jumping</div>
+                    <div class="rr-sched__loc">Dance Hub, Large Studio</div>
+                  </div>
+                </div>
+                <div class="rr-sched__col">
+                  <div class="rr-sched__blk" style="top:0;height:120px">
+                    <div class="rr-sched__time">10:00am–12:30pm</div>
+                    <hr class="rr-sched__rule">
+                    <div class="rr-sched__title">Earth to Flight Continuum</div>
+                    <div class="rr-sched__desc">revisiting & expanding themes, part solo, part CI</div>
+                    <div class="rr-sched__loc">Dance Hub, Large Studio</div>
+                  </div>
+                  <div class="rr-sched__blk" style="top:192px;height:96px">
+                    <div class="rr-sched__time">2:00–4:00pm</div>
+                    <hr class="rr-sched__rule">
+                    <div class="rr-sched__title">Closing Group Score: Overscore</div>
+                    <div class="rr-sched__desc">group score ritual, live musician</div>
+                    <div class="rr-sched__loc">Dance Hub, Large Studio</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <p class="rr-description__body"><strong class="rr-schedule__day">Friday</strong></p>
             <p class="rr-description__body rr-schedule__time">
               2:00–7:00pm<br>
-              <strong>Surfacing Routes</strong> — sequential descents and departures<br>
-              Dance Hub, Large Studio
+              <strong>Surfacing Routes</strong> — sequential descents and departures, solo and contact dancing.<br>
+              @ Dance Hub, Large Studio
             </p>
 
             <hr class="rr-schedule__divider">
@@ -158,17 +244,17 @@
             <p class="rr-description__body rr-schedule__time">
               10:00–11:30am<br>
               <strong>Maps of Motion</strong> — presentation and group discussion of fascia, interstitium, spinal mechanics, and more!<br>
-              Anatomy Social — coffee &amp; pastries in the park
+              Anatomy Social — coffee &amp; pastries in the park (location TBD)
             </p>
             <p class="rr-description__body rr-schedule__time">
               12:30–3:00pm<br>
               <strong>The Conversational Nature of Contact</strong> — Contact Improvisation as physical dialog: exchanges informed by noticing potentials, following impulse, making invitations, releasing expectations in support of genuine exchange.<br>
-              Dance Hub, Large Studio
+              @ Dance Hub, Large Studio
             </p>
             <p class="rr-description__body rr-schedule__time">
               4:00–6:00pm<br>
               <strong>Guided by the Curve</strong> — Exploring rolling, crawling, walking, jumping, and all the movement in between while following the nuances of our hips and shoulders.<br>
-              Dance Hub, Large Studio
+              @ Dance Hub, Large Studio
             </p>
 
             <hr class="rr-schedule__divider">
@@ -177,12 +263,12 @@
             <p class="rr-description__body rr-schedule__time">
               10:00am–12:30pm<br>
               <strong>Earth to Flight Continuum</strong> — revisiting, further developing and expanding themes, movement patterns and scores from previous classes. Part solo dancing, part CI.<br>
-              Dance Hub, Large Studio
+              @ Dance Hub, Large Studio
             </p>
             <p class="rr-description__body rr-schedule__time">
               2:00–4:00pm<br>
               <strong>Closing Group Score: Overscore</strong> — group score ritual, improvise through a structure, accompanied by a live musician.<br>
-              Dance Hub, Large Studio
+              @ Dance Hub, Large Studio
             </p>
 
           </div>
