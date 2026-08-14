@@ -9,19 +9,26 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <style>
-    .rr-sched{font-family:'JetBrains Mono',monospace;width:100%;max-width:390px;margin:0 auto;background:transparent}
+    .rr-sched{font-family:'JetBrains Mono',monospace;box-sizing:border-box;width:calc(100% - 12px);max-width:calc(100% - 12px);margin:0 auto 50px;padding-right:20px;background:transparent}
     .rr-sched__top{display:grid;grid-template-columns:28px repeat(3,1fr);gap:3px;margin-bottom:3px}
-    .rr-sched__hdr{border:1px solid #000;text-align:center;padding:5px 0;font-size:10px;font-weight:500;letter-spacing:.1em}
+    .rr-sched__hdr{border:1px solid #000;text-align:center;padding:5px 0;font-size:13px;font-weight:500;letter-spacing:.1em}
     .rr-sched__body{display:grid;grid-template-columns:28px repeat(3,1fr);gap:3px}
-    .rr-sched__axis{position:relative;height:432px}
-    .rr-sched__tick{position:absolute;right:2px;font-size:6.5px;color:#999;transform:translateY(-50%);line-height:1;text-align:right;white-space:nowrap}
-    .rr-sched__col{position:relative;height:432px;background-image:repeating-linear-gradient(to bottom,#ccc 0,#ccc 0.5px,transparent 0.5px,transparent 48px)}
+    .rr-sched__axis{position:relative;height:345.6px}
+    .rr-sched__tick{position:absolute;right:2px;font-size:9.5px;color:#999;transform:translateY(-50%);line-height:1;text-align:right;white-space:nowrap}
+    .rr-sched__col{position:relative;height:345.6px;background-image:repeating-linear-gradient(to bottom,#ccc 0,#ccc 0.5px,transparent 0.5px,transparent 38.4px)}
     .rr-sched__blk{position:absolute;left:0;right:0;border:1px solid #000;padding:4px 5px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden;background:transparent}
-    .rr-sched__time{font-size:7px;color:#555;margin-bottom:3px;white-space:nowrap}
+    .rr-sched__time{font-size:10px;color:#555;margin-bottom:3px;white-space:nowrap}
     .rr-sched__rule{width:18px;border:none;border-top:0.5px solid #aaa;margin:0 auto 3px}
-    .rr-sched__title{font-size:8px;font-weight:500;line-height:1.35;margin-bottom:2px}
-    .rr-sched__desc{font-size:6.5px;color:#555;line-height:1.45;margin-bottom:2px}
-    .rr-sched__loc{font-size:6px;color:#888;margin-top:auto}
+    .rr-sched__title{font-size:11px;font-weight:500;line-height:1.35;margin-bottom:2px}
+    .rr-sched__desc{font-size:9.5px;color:#555;line-height:1.45;margin:auto 0}
+    .rr-sched__loc{font-size:9px;color:#888;margin-top:auto}
+    @media (max-width:649px){
+      .rr-sched__top,.rr-sched__body{grid-template-columns:repeat(3,1fr)}
+      .rr-sched__top>:first-child,.rr-sched__axis{display:none}
+      .rr-sched__col{height:auto;background-image:none;display:flex;flex-direction:column;gap:6px}
+      .rr-sched__blk{position:static;height:auto !important;padding:6px 5px}
+      .rr-sched__loc{margin-top:4px}
+    }
   </style>
   <script type="module">
     import { atcb_action } from 'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2/+esm';
@@ -170,19 +177,19 @@
               <div class="rr-sched__body">
                 <div class="rr-sched__axis">
                   <span class="rr-sched__tick" style="top:0">10a</span>
-                  <span class="rr-sched__tick" style="top:48px">11</span>
-                  <span class="rr-sched__tick" style="top:96px">12p</span>
-                  <span class="rr-sched__tick" style="top:144px">1</span>
-                  <span class="rr-sched__tick" style="top:192px">2</span>
-                  <span class="rr-sched__tick" style="top:240px">3</span>
-                  <span class="rr-sched__tick" style="top:288px">4</span>
-                  <span class="rr-sched__tick" style="top:336px">5</span>
-                  <span class="rr-sched__tick" style="top:384px">6</span>
-                  <span class="rr-sched__tick" style="top:432px">7p</span>
+                  <span class="rr-sched__tick" style="top:38.4px">11</span>
+                  <span class="rr-sched__tick" style="top:76.8px">12p</span>
+                  <span class="rr-sched__tick" style="top:115.2px">1</span>
+                  <span class="rr-sched__tick" style="top:153.6px">2</span>
+                  <span class="rr-sched__tick" style="top:192px">3</span>
+                  <span class="rr-sched__tick" style="top:230.4px">4</span>
+                  <span class="rr-sched__tick" style="top:268.8px">5</span>
+                  <span class="rr-sched__tick" style="top:307.2px">6</span>
+                  <span class="rr-sched__tick" style="top:345.6px">7p</span>
                 </div>
                 <div class="rr-sched__col">
-                  <div class="rr-sched__blk" style="top:192px;height:240px">
-                    <div class="rr-sched__time">2:00–7:00pm</div>
+                  <div class="rr-sched__blk" style="top:153.6px;height:192px">
+                    <div class="rr-sched__time">2:00 — 7:00pm</div>
                     <hr class="rr-sched__rule">
                     <div class="rr-sched__title">Surfacing Routes</div>
                     <div class="rr-sched__desc">sequential descents & departures, solo & contact dancing</div>
@@ -190,22 +197,22 @@
                   </div>
                 </div>
                 <div class="rr-sched__col">
-                  <div class="rr-sched__blk" style="top:0;height:72px">
-                    <div class="rr-sched__time">10:00–11:30am</div>
+                  <div class="rr-sched__blk" style="top:0;height:57.6px">
+                    <div class="rr-sched__time">10:00 — 11:30am</div>
                     <hr class="rr-sched__rule">
                     <div class="rr-sched__title">Maps of Motion</div>
-                    <div class="rr-sched__desc">fascia, spinal mechanics + Anatomy Social</div>
+                    <div class="rr-sched__desc">Anatomy & Coffee in the park</div>
                     <div class="rr-sched__loc">Park (TBD)</div>
                   </div>
-                  <div class="rr-sched__blk" style="top:120px;height:120px">
-                    <div class="rr-sched__time">12:30–3:00pm</div>
+                  <div class="rr-sched__blk" style="top:96px;height:96px">
+                    <div class="rr-sched__time">12:30 — 3:00pm</div>
                     <hr class="rr-sched__rule">
                     <div class="rr-sched__title">The Conversational Nature of Contact</div>
                     <div class="rr-sched__desc">CI as physical dialog</div>
                     <div class="rr-sched__loc">Dance Hub, Large Studio</div>
                   </div>
-                  <div class="rr-sched__blk" style="top:288px;height:96px">
-                    <div class="rr-sched__time">4:00–6:00pm</div>
+                  <div class="rr-sched__blk" style="top:230.4px;height:76.8px">
+                    <div class="rr-sched__time">4:00 — 6:00pm</div>
                     <hr class="rr-sched__rule">
                     <div class="rr-sched__title">Guided by the Curve</div>
                     <div class="rr-sched__desc">rolling, crawling, walking, jumping</div>
@@ -213,15 +220,15 @@
                   </div>
                 </div>
                 <div class="rr-sched__col">
-                  <div class="rr-sched__blk" style="top:0;height:120px">
-                    <div class="rr-sched__time">10:00am–12:30pm</div>
+                  <div class="rr-sched__blk" style="top:0;height:96px">
+                    <div class="rr-sched__time">10:00am — 12:30pm</div>
                     <hr class="rr-sched__rule">
                     <div class="rr-sched__title">Earth to Flight Continuum</div>
                     <div class="rr-sched__desc">revisiting & expanding themes, part solo, part CI</div>
                     <div class="rr-sched__loc">Dance Hub, Large Studio</div>
                   </div>
-                  <div class="rr-sched__blk" style="top:192px;height:96px">
-                    <div class="rr-sched__time">2:00–4:00pm</div>
+                  <div class="rr-sched__blk" style="top:153.6px;height:76.8px">
+                    <div class="rr-sched__time">2:00 — 4:00pm</div>
                     <hr class="rr-sched__rule">
                     <div class="rr-sched__title">Closing Group Score: Overscore</div>
                     <div class="rr-sched__desc">group score ritual, live musician</div>
