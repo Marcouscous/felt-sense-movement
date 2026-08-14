@@ -2197,8 +2197,22 @@ body {
   transition: transform var(--transition-base);
 }
 
-.rr-accordion--open .rr-accordion__indicator {
+.rr-accordion--open > .rr-accordion__toggle .rr-accordion__indicator {
   transform: rotate(45deg);
+}
+
+.rr-accordion--compact > .rr-accordion__toggle {
+  width: fit-content;
+  padding: 0.35rem 0.525rem;
+  font-size: 0.6125rem;
+}
+
+.rr-accordion--compact > .rr-accordion__toggle .rr-accordion__indicator {
+  font-size: 0.7rem;
+}
+
+.rr-accordion--compact .rr-accordion__inner .rr-description__body {
+  font-size: 0.6875rem;
 }
 
 .rr-accordion__body {
@@ -2209,7 +2223,7 @@ body {
   background-color: transparent !important;
 }
 
-.rr-accordion--open .rr-accordion__body {
+.rr-accordion--open > .rr-accordion__body {
   grid-template-rows: 1fr;
 }
 
@@ -2227,7 +2241,7 @@ body {
   background-color: transparent !important;
 }
 
-.rr-accordion--open .rr-accordion__inner {
+.rr-accordion--open > .rr-accordion__body > .rr-accordion__inner {
   padding-top: var(--space-4);
 }
 
