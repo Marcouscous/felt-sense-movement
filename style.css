@@ -1972,14 +1972,14 @@ body {
 .rr-register__form {
   display: block;
   width: 100%;
-  height: 222rem;   /* 710px net cut from bottom, per request (+40px) */
+  height: 243rem;   /* re-measured 2026-08-14 against the current form: worst-case desktop content 3702px (at 570px effective width) + 5% buffer = 3888px */
   border: none;
   overflow: hidden;
 }
 
 @media (max-width: 767px) {
   .rr-register__form {
-    height: 388.75rem;   /* 420rem baseline (measured Blink content 6051px + 10% buffer) minus 500px per request */
+    height: 374rem;   /* re-measured 2026-08-14 against the current form: worst-case mobile content 5689px (at 304px effective width) + 5% buffer = 5984px */
   }
 }
 
@@ -2025,6 +2025,10 @@ body {
   flex-direction: column;
   gap: var(--space-12);
   padding: var(--space-8) var(--space-4) var(--space-4);
+  background-image: url('assets/vectors/All-Events-background.svg');
+  background-size: 290% 90%;
+  background-position: -100px calc(50% + 80px);
+  background-repeat: no-repeat;
 }
 
 .rr-bio {
