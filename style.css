@@ -2203,16 +2203,18 @@ body {
 
 .rr-accordion--compact > .rr-accordion__toggle {
   width: fit-content;
-  padding: 0.35rem 0.525rem;
-  font-size: 0.6125rem;
+  margin-left: calc(2% + 22px);
+  padding: 0.42rem 0.63rem;
+  font-size: 0.735rem;
+  border-radius: 0;
 }
 
 .rr-accordion--compact > .rr-accordion__toggle .rr-accordion__indicator {
-  font-size: 0.7rem;
+  font-size: 0.84rem;
 }
 
 .rr-accordion--compact .rr-accordion__inner .rr-description__body {
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
 }
 
 .rr-accordion__body {
