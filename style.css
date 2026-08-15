@@ -1667,16 +1667,20 @@ body {
   overflow-x: hidden;
 }
 
+.rr-page {
+  position: relative;
+  background-image: url('assets/vectors/background-mobile-3.svg');
+  background-size: 100% 80rem;
+  background-position: 0 210px;
+  background-repeat: no-repeat;
+}
+
 
 /* ── Hero section ────────────────────────────────────── */
 
 .rr-hero {
   position: relative;
   padding: 0;
-  background-image: url('assets/vectors/background-mobile-3.svg');
-  background-size: 100% calc(100% - 210px);
-  background-position: 0 210px;
-  background-repeat: no-repeat;
 }
 
 
@@ -1972,14 +1976,14 @@ body {
 .rr-register__form {
   display: block;
   width: 100%;
-  height: 243rem;   /* re-measured 2026-08-14 against the current form: worst-case desktop content 3702px (at 570px effective width) + 5% buffer = 3888px */
+  height: 211.75rem;   /* 243rem (3888px) minus 500px per request, cut from bottom */
   border: none;
   overflow: hidden;
 }
 
 @media (max-width: 767px) {
   .rr-register__form {
-    height: 374rem;   /* re-measured 2026-08-14 against the current form: worst-case mobile content 5689px (at 304px effective width) + 5% buffer = 5984px */
+    height: 330.25rem;   /* 374rem (5984px) minus 700px per request, cut from bottom */
   }
 }
 
@@ -2109,6 +2113,7 @@ body {
     margin: 0 auto;
     padding: var(--space-8);
     gap: var(--space-16);
+    background-image: none;
   }
 
   .rr-bio {
@@ -2336,6 +2341,21 @@ body {
   text-decoration: underline;
   text-underline-offset: var(--nav-underline-offset);
   text-decoration-thickness: var(--nav-underline-width);
+}
+
+@media (max-width: 649px) {
+
+  .rr-page {
+    background-image: none;
+  }
+
+  .rr-hero {
+    background-image: url('assets/vectors/background-mobile-3.svg');
+    background-size: 100% calc(100% - 210px);
+    background-position: 0 210px;
+    background-repeat: no-repeat;
+  }
+
 }
 
 
