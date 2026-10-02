@@ -838,7 +838,9 @@ body {
   scrollbar-color: var(--color-border) transparent;
   /* Elastic/momentum scroll — bounces at top/bottom on macOS + iOS */
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
+  /* auto (not contain) — lets scroll chain to the page once this
+     container hits its top/bottom edge, instead of trapping it */
+  overscroll-behavior-y: auto;
 }
 
 /* WebKit custom scrollbar — 17px track */
@@ -2714,7 +2716,9 @@ body {
   border-radius: var(--radius-xl);
   scrollbar-color: var(--color-border) transparent;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
+  /* auto (not contain) — lets scroll chain to the page once this
+     container hits its top/bottom edge, instead of trapping it */
+  overscroll-behavior-y: auto;
 }
 
 .kw-calendar__container::-webkit-scrollbar {
