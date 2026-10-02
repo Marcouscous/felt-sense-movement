@@ -1090,7 +1090,7 @@ body {
     margin-left: 0.625rem;
     margin-right: 0.625rem;
     flex-wrap: nowrap;
-    gap: 1.75rem;    /* 28px between heading and toggle */
+    gap: var(--space-5);    /* 20px between heading and toggle */
   }
 
   .calendar-heading {
@@ -1147,6 +1147,22 @@ body {
 
   .learn-more-btn span {
     display: block;
+  }
+
+}
+
+/* Very narrow phones (< 360px): heading + toggle no longer fit side by
+   side, so the toggle wraps below a single-line heading instead of
+   sliding over it. */
+@media (max-width: 359px) {
+
+  .calendar-header {
+    flex-wrap: wrap;
+    row-gap: var(--space-3);   /* 12px between heading and wrapped toggle */
+  }
+
+  .calendar-heading {
+    white-space: nowrap;
   }
 
 }
