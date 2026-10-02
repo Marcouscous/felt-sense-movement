@@ -24,9 +24,14 @@ async function loadCalendar() {
       const filtered = category
         ? upcoming.filter(e => e.category === category)
         : upcoming;
+      const emptyText = category === 'workshop'
+        ? 'No upcoming workshops. Check classes.'
+        : category === 'class'
+          ? 'No upcoming classes. Check workshops.'
+          : 'No upcoming events.';
       calendarList.innerHTML = filtered.length
         ? filtered.map(renderCard).join('')
-        : '<li class="calendar-empty">No upcoming events.</li>';
+        : `<li class="calendar-empty">${emptyText}</li>`;
       wireSaveButtons(calendarList, filtered);
       updateCalendarOverflow(calendarList.closest('.calendar-container'));
     }

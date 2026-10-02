@@ -1412,6 +1412,63 @@ body {
   flex-shrink: 0;
 }
 
+/* ── Email provider dropdown ─────────────────────────── */
+
+.contact-email-trigger {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-email-trigger[aria-expanded="true"] {
+  text-decoration: underline;
+}
+
+.contact-email-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.contact-email-menu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: var(--z-dropdown);
+  display: none;
+  flex-direction: column;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.contact-email-menu a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.contact-email-menu a:hover {
+  text-decoration: underline;
+}
+
+.contact-email-menu:not([hidden]) {
+  display: flex;
+}
+
 
 /* ═══════════════════════════════════════════════════════
    MOBILE CAROUSEL  ·  visible only below 768px
@@ -2369,6 +2426,18 @@ body {
   text-decoration: underline;
   text-underline-offset: var(--nav-underline-offset);
   text-decoration-thickness: var(--nav-underline-width);
+}
+
+.rr-nav__dropdown-link--home {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.rr-nav__dropdown-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
 }
 
 @media (max-width: 649px) {

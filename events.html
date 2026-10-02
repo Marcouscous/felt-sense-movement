@@ -205,18 +205,26 @@
       </div>
 
       <div class="contact-row">
-        <span class="contact-row__label">Email Marcus</span>
-        <a class="contact-icon-link" href="mailto:PLACEHOLDER_EMAIL">
-          <svg
-            class="contact-icon contact-icon--email"
-            viewBox="0 0 33 27"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <rect x="0.5" y="0.5" width="32" height="26" rx="5" stroke="currentColor" stroke-width="2"/>
-            <path d="M0.5 2L16.5 15L32.5 2" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </a>
+        <button type="button" class="contact-row__label contact-email-trigger" aria-haspopup="true" aria-expanded="false">Email Marcus</button>
+        <span class="contact-email-wrap">
+          <button type="button" class="contact-icon-link contact-email-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Email Marcus">
+            <svg
+              class="contact-icon contact-icon--email"
+              viewBox="0 0 33 27"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="0.5" y="0.5" width="32" height="26" rx="5" stroke="currentColor" stroke-width="2"/>
+              <path d="M0.5 2L16.5 15L32.5 2" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+          <ul class="contact-email-menu" hidden>
+            <li><a href="mailto:marcus.jpvanduren@gmail.com">Default Mail App</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=marcus.jpvanduren@gmail.com" target="_blank" rel="noopener noreferrer">Gmail</a></li>
+            <li><a href="https://outlook.live.com/mail/0/deeplink/compose?to=marcus.jpvanduren@gmail.com" target="_blank" rel="noopener noreferrer">Outlook</a></li>
+            <li><a href="https://compose.mail.yahoo.com/?to=marcus.jpvanduren@gmail.com" target="_blank" rel="noopener noreferrer">Yahoo Mail</a></li>
+          </ul>
+        </span>
       </div>
 
       <div class="contact-row">
@@ -244,6 +252,7 @@
 
   <script src="nav.js" defer></script>
   <script src="calendar.js" defer></script>
+  <script src="contact-email-menu.js" defer></script>
 
 </body>
 </html>
