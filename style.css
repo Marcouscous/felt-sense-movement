@@ -2109,7 +2109,7 @@ body {
   gap: var(--space-12);
   padding: var(--space-8) var(--space-4) var(--space-4);
   background-image: url('assets/vectors/All-Events-background.svg');
-  background-size: 290% 90%;
+  background-size: 348% 90%;
   background-position: -100px calc(50% + 80px);
   background-repeat: no-repeat;
 }

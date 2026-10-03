@@ -511,6 +511,71 @@ Events are stored in `events.json` as a JSON array. `calendar.js` reads this fil
 
 ## Work Log
 
+### Session — 2026-08-15 (commit 1a28f9d, + uncommitted work below)
+
+**DONE — R&R hero/bio SVG background reorganized (commit 1a28f9d, pushed)**
+- Split `background-mobile-3.svg` out of `.rr-hero` and into a new
+  page-level `.rr-page` rule (`background-size: 100% 80rem;
+  background-position: 0 210px;`) so the desktop background isn't
+  clipped at `.rr-hero`'s own 806px height when `.rr-bios` and
+  `.rr-videos` sit as siblings below it.
+- Mobile (`@media (max-width: 649px)`): `.rr-page` background disabled
+  (`background-image: none`), `.rr-hero` gets its original background
+  back (`100% calc(100% - 210px)` at `0 210px`) — unchanged from
+  before this reorg.
+- `All-Events-background.svg` restored on the base (mobile) `.rr-bios`
+  rule at its original framing (`290% 90%` / `-100px calc(50% + 80px)`
+  offset), then hidden on desktop via `background-image: none` inside
+  the `@media (min-width: 650px)` block — desktop relies on `.rr-page`
+  instead. No `.rr-bios::before` pseudo-element (an earlier full-bleed
+  attempt this session was tried and explicitly reverted before this
+  commit).
+- **Caveat:** `.rr-page` only takes effect if the page wrapper in
+  `offerings/resonance-response.html` actually carries
+  `class="rr-page"` — this was not verified this session (file access
+  was blocked before it could be checked). Confirm this first if the
+  desktop background isn't showing.
+- Also cut the registration iframe height per explicit request, not
+  re-measured against real content: desktop `243rem` → `211.75rem`
+  (−500px, 3888px→3388px), mobile `374rem` → `330.25rem` (−700px,
+  5984px→5284px). Both are now shorter than the 2026-08-14
+  worst-case-content measurements (desktop 3702px, mobile 5689px), so
+  the submit button is likely unreachable again — same failure mode as
+  the ccf6ccf/07-08 bug. Revisit if reported.
+
+**PENDING — not yet applied: All-Events-background.svg mobile sizing tweaks**
+- User asked to increase the mobile `.rr-bios` background width by 20%
+  (applied: `background-size: 290% 90%` → `348% 90%`, uncommitted —
+  this edit succeeded before the permission block below hit), then
+  asked for another 10% on top of that (**not applied** — blocked by
+  the permission issue) and separately asked to increase the height by
+  20% while keeping the top position (**not applied** — also blocked).
+  Next session: apply `background-size: 382.8% 90%` (348% × 1.1) for
+  the width bump, and work out the height-with-top-anchored request
+  (likely needs `background-position` kept at its current vertical
+  offset while only the height component of `background-size`
+  changes) before committing.
+
+**Desktop folder permission block recurred again — same recurring
+issue as 2026-07-04→07-08, 2026-08-06→08-07, and 2026-08-10 sessions**
+- Mid-session, all file tools (`Read`, `Edit`, `Bash` `cat`/`ls`) and
+  even `git status` started failing with `EPERM: operation not
+  permitted` / "Unable to read current working directory" against
+  `~/Desktop/felt-sense-movement/` — **except** this `CLAUDE.md` file
+  itself, which stayed both readable and writable throughout (same
+  "one file readable while siblings aren't" pattern noted on
+  2026-08-10).
+- User re-toggled Desktop folder access once; access to `style.css`
+  was retested immediately after and still failed. Per the 2026-08-10
+  lesson (TCC grants can be scoped to the running process, not
+  re-read live on toggle), the next step is a full terminal/host app
+  restart, not another toggle. **Not yet confirmed working as of this
+  log entry** — check plain file access (e.g. `cat style.css`) at the
+  start of next session before resuming the two pending SVG tweaks
+  above.
+
+---
+
 ### Session — 2026-08-10 (commit 2d1fb84, + uncommitted work below)
 
 **R&R page: new event details update — IN PROGRESS**

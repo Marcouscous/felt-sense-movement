@@ -21,7 +21,8 @@
         .filter(function (e) {
           return e.offering === 'kinetic-waves' && new Date(e.date + 'T00:00:00') >= today;
         })
-        .sort(function (a, b) { return new Date(a.date) - new Date(b.date); });
+        .sort(function (a, b) { return new Date(a.date) - new Date(b.date); })
+        .slice(0, 6);
 
       var list = document.getElementById('kw-calendar-list');
       if (!list) return;
@@ -31,17 +32,6 @@
         : '<li class="calendar-empty">No upcoming classes.</li>';
 
       wireSaveButtons(list, kwUpcoming);
-
-      var container = list.closest('.kw-calendar__container');
-      if (container) {
-        if (kwUpcoming.length > 6) {
-          container.style.maxHeight = window.innerWidth >= 650 ? '44.375rem' : '42.125rem';
-          container.style.overflowY = 'auto';
-        } else {
-          container.style.maxHeight = 'none';
-          container.style.overflowY = 'visible';
-        }
-      }
     } catch (err) {
       console.error('KW calendar failed to load:', err);
     }
