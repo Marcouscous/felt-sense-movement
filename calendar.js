@@ -38,7 +38,17 @@ async function loadCalendar() {
 
     if (toggleBtns.length) {
       const toggleContainer = toggleBtns[0].closest('.calendar-toggle');
-      const activeBtn = document.querySelector('.calendar-toggle__btn--active');
+      let activeBtn = document.querySelector('.calendar-toggle__btn--active');
+
+      // Default to Classes when there are no upcoming workshops
+      const classBtn = Array.from(toggleBtns).find(b => b.dataset.category === 'class');
+      if (activeBtn && activeBtn.dataset.category === 'workshop' && classBtn
+          && !upcoming.some(e => e.category === 'workshop')) {
+        activeBtn.classList.remove('calendar-toggle__btn--active');
+        classBtn.classList.add('calendar-toggle__btn--active');
+        activeBtn = classBtn;
+      }
+
       let activeCategory = activeBtn ? activeBtn.dataset.category : null;
 
       function setSlider(btn) {
