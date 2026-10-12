@@ -1468,9 +1468,12 @@ body {
   overflow: hidden;
 }
 
-.contact-email-menu a {
+.contact-email-menu a,
+.contact-email-menu__copy {
   display: block;
+  width: 100%;
   padding: var(--space-2) var(--space-3);
+  text-align: left;
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
@@ -1479,12 +1482,41 @@ body {
   white-space: nowrap;
 }
 
-.contact-email-menu a:hover {
+.contact-email-menu__copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-email-menu a:hover,
+.contact-email-menu__copy:hover {
   text-decoration: underline;
 }
 
 .contact-email-menu:not([hidden]) {
   display: flex;
+}
+
+/* Desktop footer: menu pops out to the right of the icon as a horizontal row */
+@media (min-width: 1280px) {
+  .contact-row .contact-email-menu {
+    top: 50%;
+    right: auto;
+    left: calc(100% + var(--space-3));
+    flex-direction: row;
+    transform: translateY(-50%);
+  }
+
+  .contact-row .contact-email-menu li + li {
+    border-left: var(--border-width) solid var(--color-border);
+  }
+}
+
+/* Gmail web compose opens in the browser (not the app) on phones — hide it on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .contact-email-menu__gmail {
+    display: none;
+  }
 }
 
 
