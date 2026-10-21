@@ -2592,6 +2592,60 @@ body {
   display: block;
 }
 
+/* ── Description: about, schedule, score map, roots ──── */
+
+.ov-about {
+  padding-top: var(--space-6);
+}
+
+.ov-section-heading {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.ov-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ov-schedule__time {
+  margin-left: var(--space-2);
+}
+
+.ov-scoremap__legend {
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-xs);
+}
+
+.ov-scoremap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-left: var(--space-2);
+  list-style: none;
+}
+
+.ov-scoremap__item {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.ov-scoremap__item--checkpoint {
+  font-weight: var(--font-weight-medium);
+}
+
+.ov-scoremap__mark {
+  display: inline-block;
+  min-width: 3.5ch;
+}
+
 /* ── Register: Google Form embed ─────────────────────── */
 
 .ov-register {
