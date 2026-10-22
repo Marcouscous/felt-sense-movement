@@ -2598,6 +2598,16 @@ body {
   padding-top: var(--space-6);
 }
 
+.rr-description__date-text.ov-date {
+  font-size: 1.75rem;   /* 28px — larger than the shared 22.8px date */
+}
+
+@media (min-width: 650px) {
+  .rr-description__date-text.ov-date {
+    font-size: 2.125rem;   /* 34px */
+  }
+}
+
 /* Mobile only: breathing room between the last accordion and the footer */
 @media (max-width: 649px) {
   .ov-about {
