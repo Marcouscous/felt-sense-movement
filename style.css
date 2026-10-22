@@ -2524,7 +2524,7 @@ body {
 .ov-bg-wrap {
   background-image: url('assets/vectors/background-mobile-3.svg');
   background-size: 300% calc((100% - 120px) * 1.2);   /* mobile: +20% height */
-  background-position: 8% 90px;                        /* mobile: 30px higher */
+  background-position: 8% 100%;   /* mobile: bottom-anchored so the curve ends at the menus, not in the footer */
   background-repeat: no-repeat;
 }
 
