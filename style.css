@@ -2613,6 +2613,10 @@ body {
   }
 }
 
+.ov-whatis .rr-description__body + .rr-description__body {
+  margin-top: var(--space-4);
+}
+
 /* Mobile only: breathing room between the last accordion and the footer */
 @media (max-width: 649px) {
   .ov-about {
