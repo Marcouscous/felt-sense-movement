@@ -2623,11 +2623,6 @@ body {
   margin-left: var(--space-2);
 }
 
-.ov-scoremap__legend {
-  margin-bottom: var(--space-3);
-  font-size: var(--font-size-xs);
-}
-
 .ov-scoremap {
   display: flex;
   flex-direction: column;
