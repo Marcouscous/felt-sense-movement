@@ -2523,8 +2523,8 @@ body {
 
 .ov-bg-wrap {
   background-image: url('assets/vectors/background-mobile-3.svg');
-  background-size: 300% calc(100% - 120px);
-  background-position: 8% 120px;
+  background-size: 300% calc((100% - 120px) * 1.2);   /* mobile: +20% height */
+  background-position: 8% 90px;                        /* mobile: 30px higher */
   background-repeat: no-repeat;
 }
 
