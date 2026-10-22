@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=20261021k">
+  <link rel="stylesheet" href="../style.css?v=20261022a">
 </head>
 <body class="ov-body">
 
@@ -164,6 +164,31 @@
                 </p>
               </li>
             </ol>
+
+            <form class="ov-ask" action="https://formspree.io/f/mzdqdeap" method="POST">
+              <input type="hidden" name="_subject" value="Overscore question from the website">
+              <input type="text" name="_gotcha" class="ov-ask__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <label class="ov-ask__label" for="ov-ask-question">Have a question?</label>
+              <textarea
+                class="mobile-contact__input ov-ask__question"
+                id="ov-ask-question"
+                name="message"
+                rows="3"
+                placeholder="Type your question here"
+                required></textarea>
+              <div class="ov-ask__row">
+                <input
+                  class="mobile-contact__input"
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  aria-label="Your email, so Marcus can reply"
+                  autocomplete="email"
+                  required>
+                <button class="mobile-contact__submit" type="submit">Send</button>
+              </div>
+              <p class="ov-ask__status" role="status" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </div>
@@ -332,7 +357,7 @@
 
   <script src="../ov-video.js" defer></script>
   <script src="../rr-accordion.js" defer></script>
-  <script src="../ov-page.js" defer></script>
+  <script src="../ov-page.js?v=20261022a" defer></script>
   <script src="../contact-email-menu.js" defer></script>
 </body>
 </html>

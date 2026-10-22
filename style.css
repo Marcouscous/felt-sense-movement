@@ -2671,6 +2671,51 @@ body {
   margin-top: var(--space-1);
 }
 
+/* FAQ "Have a question?" form — reuses the newsletter input/button styles */
+.ov-ask {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.ov-ask__label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.ov-ask__question {
+  height: auto;
+  min-height: 5.5rem;
+  padding: var(--space-2) var(--space-3);
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.ov-ask__row {
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;   /* matches .mobile-contact__form */
+}
+
+.ov-ask__row .mobile-contact__input {
+  min-width: 0;
+}
+
+.ov-ask__status {
+  min-height: 1.2em;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+}
+
+.ov-ask__honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
 /* Mobile only: breathing room between the last accordion and the footer */
 @media (max-width: 649px) {
   .ov-about {
