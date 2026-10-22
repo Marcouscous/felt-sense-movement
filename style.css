@@ -2617,6 +2617,21 @@ body {
   margin-top: var(--space-4);
 }
 
+.ov-faq {
+  padding-left: var(--space-8);
+  list-style: decimal;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+}
+
+.ov-faq__item + .ov-faq__item {
+  margin-top: var(--space-5);
+}
+
+.ov-faq__item .rr-description__body + .rr-description__body {
+  margin-top: var(--space-1);
+}
+
 /* Mobile only: breathing room between the last accordion and the footer */
 @media (max-width: 649px) {
   .ov-about {
