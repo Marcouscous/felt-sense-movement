@@ -15,6 +15,7 @@
 :root {
   /* ── Colors ───────────────────────────────────────── */
   --color-bg:                   #ffffff;   /* page background — html element; SVG provides decorative layer on top */
+  --color-bg-cream:             #fef8ec;   /* warm cream page background — The Overscore page */
   --color-surface:              #ffffff;   /* dropdown bg, card bg */
   --color-text:                 #000000;
   --color-border:               #000000;
@@ -2510,8 +2511,20 @@ body {
    OFFERING PAGE — THE OVERSCORE
    ═══════════════════════════════════════════════════════ */
 
+html:has(.ov-body) {
+  background-color: var(--color-bg-cream);
+}
+
 .ov-body {
   overflow-x: hidden;
+  background-color: var(--color-bg-cream);
+}
+
+/* The shared wave SVG has a white panel baked in — multiply it onto the
+   cream so white reads as cream and the colored waves stay intact. */
+.ov-body .rr-page {
+  background-color: var(--color-bg-cream);
+  background-blend-mode: multiply;
 }
 
 /* ── Hero: title + video ─────────────────────────────── */
