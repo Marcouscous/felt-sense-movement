@@ -2527,6 +2527,17 @@ html:has(.ov-body) {
   background-blend-mode: multiply;
 }
 
+/* Mobile: bring the waves back (the shared R&R rule turns them off < 650px),
+   scaled wider than the screen so the curves read at phone size. */
+@media (max-width: 649px) {
+  .ov-body .rr-page {
+    background-image: url('assets/vectors/background-mobile-3.svg');
+    background-size: 300% 75rem;
+    background-position: 8% 120px;
+    background-repeat: no-repeat;
+  }
+}
+
 /* ── Hero: title + video ─────────────────────────────── */
 
 .ov-hero {
