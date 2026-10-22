@@ -2598,6 +2598,13 @@ body {
   padding-top: var(--space-6);
 }
 
+/* Mobile only: breathing room between the last accordion and the footer */
+@media (max-width: 649px) {
+  .ov-about {
+    padding-bottom: var(--space-10);
+  }
+}
+
 .ov-section-heading {
   margin-bottom: var(--space-3);
   font-family: var(--font-mono);
