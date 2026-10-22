@@ -2603,6 +2603,24 @@ body {
   gap: var(--space-2);
 }
 
+.ov-musician {
+  margin-top: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  text-align: center;
+}
+
+.ov-musician__link {
+  white-space: nowrap;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ov-musician__link:hover {
+  background-color: var(--color-accent-light);
+}
+
 .rr-description__date-text.ov-date {
   font-size: 1.75rem;   /* 28px — larger than the shared 22.8px date */
 }
