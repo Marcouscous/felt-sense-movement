@@ -2514,14 +2514,24 @@ body {
   overflow-x: hidden;
 }
 
-/* Mobile: bring the waves back (the shared R&R rule turns them off < 650px),
-   scaled wider than the screen so the curves read at phone size. */
-@media (max-width: 649px) {
-  .ov-body .rr-page {
-    background-image: url('assets/vectors/background-mobile-3.svg');
-    background-size: 300% 75rem;
-    background-position: 8% 120px;
-    background-repeat: no-repeat;
+/* Waves live on .ov-bg-wrap (hero + description) instead of the shared
+   .rr-page rule. Height is a percentage of the wrapper, so the waves stretch
+   when accordions open — same approach as .kw-bg-wrap / .rr-hero. */
+.ov-body .rr-page {
+  background-image: none;
+}
+
+.ov-bg-wrap {
+  background-image: url('assets/vectors/background-mobile-3.svg');
+  background-size: 300% calc(100% - 120px);
+  background-position: 8% 120px;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 650px) {
+  .ov-bg-wrap {
+    background-size: 100% calc(100% - 210px);
+    background-position: 0 210px;
   }
 }
 
