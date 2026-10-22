@@ -2605,14 +2605,6 @@ body {
   }
 }
 
-.ov-section-heading {
-  margin-bottom: var(--space-3);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-}
-
 .ov-schedule {
   display: flex;
   flex-direction: column;
