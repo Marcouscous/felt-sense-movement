@@ -2707,7 +2707,7 @@ body {
   display: block;
   width: 100%;
   max-width: 37.5rem;   /* 600px — Luma's suggested embed width */
-  height: 28.125rem;    /* 450px — Luma's suggested embed height */
+  height: 75rem;        /* 1200px — mobile stacks image, details and tickets */
   margin: 0 auto;
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -2723,6 +2723,7 @@ body {
 
   .ov-register__luma {
     max-width: none;
+    height: 50rem;   /* 800px — fits the ticket list in Luma's two-column layout */
   }
 }
 
