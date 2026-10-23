@@ -2670,6 +2670,7 @@ body {
   background-color: var(--color-save-event-bg);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-sm);
+  white-space: nowrap;   /* keep the full label on one line */
   cursor: pointer;
 }
 
