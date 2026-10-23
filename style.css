@@ -2713,6 +2713,19 @@ body {
   border-radius: var(--radius-lg);
 }
 
+@media (min-width: 650px) {
+  /* Desktop: match the hero video's width */
+  .ov-register {
+    max-width: 60rem;
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  .ov-register__luma {
+    max-width: none;
+  }
+}
+
 /* FAQ "Have a question?" form — reuses the newsletter input/button styles */
 .ov-ask {
   display: flex;
