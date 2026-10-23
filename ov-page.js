@@ -1,15 +1,7 @@
 // The Overscore page.
 (function () {
-  // Score-map, roots and FAQ accordions start open on desktop (≥ 650px, this
-  // page's breakpoint) and closed on mobile. Toggling is handled by
-  // rr-accordion.js.
-  if (window.matchMedia('(min-width: 650px)').matches) {
-    document.querySelectorAll('.ov-about .rr-accordion').forEach(function (accordion) {
-      accordion.classList.add('rr-accordion--open');
-      var toggle = accordion.querySelector('.rr-accordion__toggle');
-      if (toggle) toggle.setAttribute('aria-expanded', 'true');
-    });
-  }
+  // All accordions start closed on every screen size (default markup);
+  // toggling is handled by rr-accordion.js.
 
   // FAQ "Have a question?" form: send to Formspree in the background and show
   // a thank-you in place, instead of navigating to Formspree's page. Without
