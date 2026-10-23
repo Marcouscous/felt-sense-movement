@@ -2691,11 +2691,11 @@ body {
 .ov-register {
   max-width: 40rem;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-4) var(--space-4);
+  padding: 0 var(--space-4) var(--space-4);
 }
 
 .ov-register__heading {
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   font-family: var(--font-mono);
   font-size: 1.3125rem;
   font-weight: var(--font-weight-medium);
