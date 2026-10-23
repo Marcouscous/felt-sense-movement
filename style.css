@@ -2660,8 +2660,8 @@ body {
 
 /* "Save to your calendar" — same cream fill as the site's Save Event buttons */
 .ov-save-btn {
-  align-self: center;
-  margin-top: calc(var(--space-2) * -1);   /* sit closer to the date block above */
+  display: block;
+  margin: var(--space-4) auto 0;   /* centered under the Register button */
   padding: var(--space-1) var(--space-3);
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
