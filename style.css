@@ -2716,7 +2716,7 @@ body {
 @media (min-width: 650px) {
   /* Desktop: match the hero video's width */
   .ov-register {
-    max-width: 72rem;   /* wide enough for Luma's side-by-side layout (image left, tickets right) */
+    max-width: 52rem;   /* ~800px frame: just wide enough for Luma's side-by-side layout (image left, tickets right) */
     padding-left: var(--space-4);
     padding-right: var(--space-4);
   }
