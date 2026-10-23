@@ -2658,6 +2658,21 @@ body {
   background-color: var(--color-accent-light);
 }
 
+/* "Save to your calendar" — same cream fill as the site's Save Event buttons */
+.ov-save-btn {
+  align-self: center;
+  margin-top: calc(var(--space-2) * -1);   /* sit closer to the date block above */
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  background-color: var(--color-save-event-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
 .rr-description__date-text.ov-date {
   font-size: 1.75rem;   /* 28px — larger than the shared 22.8px date */
 }
