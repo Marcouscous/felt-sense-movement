@@ -2687,6 +2687,32 @@ body {
   margin-top: var(--space-1);
 }
 
+/* Register: Luma event embed */
+.ov-register {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-4);
+}
+
+.ov-register__heading {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 1.3125rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.ov-register__luma {
+  display: block;
+  width: 100%;
+  max-width: 37.5rem;   /* 600px — Luma's suggested embed width */
+  height: 28.125rem;    /* 450px — Luma's suggested embed height */
+  margin: 0 auto;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
 /* FAQ "Have a question?" form — reuses the newsletter input/button styles */
 .ov-ask {
   display: flex;
