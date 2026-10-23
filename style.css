@@ -2694,22 +2694,13 @@ body {
   padding: 0 var(--space-4) var(--space-10);
 }
 
-.ov-register__heading {
-  margin-bottom: var(--space-6);
-  font-family: var(--font-mono);
-  font-size: 1.3125rem;
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-  text-align: center;
-}
-
 .ov-register__btn {
   display: block;
   width: fit-content;
   margin: 0 auto;
   padding: var(--space-3) var(--space-8);
   font-family: var(--font-mono);
-  font-size: var(--font-size-base);
+  font-size: 1.3125rem;   /* 21px — the size the Register heading was */
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
   text-align: center;
