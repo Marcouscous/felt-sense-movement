@@ -73,19 +73,16 @@
     return lines.join('\r\n') + '\r\n';
   }
 
-  function googleUrl(ev) {
+  // One Google link per session (Google's "repeat" option isn't honoured
+  // everywhere, e.g. the phone app), or one link for an all-day event.
+  function googleUrl(ev, session) {
     var tz = ev.timeZone || 'America/Los_Angeles';
-    var p = { action: 'TEMPLATE', text: ev.title, location: ev.location || '',
+    var p = { action: 'TEMPLATE', text: (session && session.title) || ev.title, location: ev.location || '',
       details: (ev.description || '') + (ev.url ? '\n\n' + ev.url : '') };
-    if (ev.sessions) {
-      var s = ev.sessions[0];
-      p.dates = compactDate(s.date) + 'T' + s.start.replace(':', '') + '00/' + compactDate(s.date) + 'T' + s.end.replace(':', '') + '00';
+    if (session) {
+      var d = compactDate(session.date);
+      p.dates = d + 'T' + session.start.replace(':', '') + '00/' + d + 'T' + session.end.replace(':', '') + '00';
       p.ctz = tz;
-      // Same time on consecutive days → one event that repeats daily
-      var consecutive = ev.sessions.every(function (x, i) {
-        return i === 0 || (x.date === addDays(ev.sessions[i - 1].date, 1) && x.start === s.start && x.end === s.end);
-      });
-      if (ev.sessions.length > 1 && consecutive) p.recur = 'RRULE:FREQ=DAILY;COUNT=' + ev.sessions.length;
     } else {
       p.dates = compactDate(ev.date) + '/' + compactDate(addDays(ev.endDate || ev.date, 1));
     }
@@ -93,6 +90,10 @@
       return k + '=' + encodeURIComponent(p[k]);
     }).join('&');
   }
+
+  var dayName = function (ymd) {
+    return new Date(ymd + 'T12:00:00Z').toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' });
+  };
 
   // ── the menu ───────────────────────────────────────────────────
   function close() {
@@ -111,9 +112,16 @@
     var fileName = ev.title.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '') + '.ics';
     var items = [
       { label: 'Apple Calendar', href: 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics) },
-      { label: 'Google Calendar', href: googleUrl(ev), external: true },
       { label: 'Outlook / other (.ics)', href: URL.createObjectURL(new Blob([ics], { type: 'text/calendar' })), download: fileName }
     ];
+
+    // Google: one item, or one per session ("Google Calendar — Sat", "— Sun")
+    var googleItems = (ev.sessions && ev.sessions.length > 1)
+      ? ev.sessions.map(function (sess) {
+          return { label: 'Google Calendar — ' + dayName(sess.date), href: googleUrl(ev, sess), external: true };
+        })
+      : [{ label: 'Google Calendar', href: googleUrl(ev, ev.sessions && ev.sessions[0]), external: true }];
+    items.splice.apply(items, [1, 0].concat(googleItems));
 
     var menu = document.createElement('ul');
     menu.className = 'cal-menu';
