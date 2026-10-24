@@ -2661,10 +2661,6 @@ body {
   text-align: center;
 }
 
-.ov-musician--tight {
-  margin-top: 0;   /* second credit line sits right under the first */
-}
-
 .ov-musician__link {
   white-space: nowrap;
   color: var(--color-text);
