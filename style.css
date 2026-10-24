@@ -2727,7 +2727,7 @@ body {
 .ov-register__btn {
   display: block;
   width: fit-content;
-  margin: var(--space-4) auto 0;   /* a little buffer below the menus */
+  margin: var(--space-8) auto 0;   /* buffer below the FAQ menu */
   padding: var(--space-3) var(--space-8);
   font-family: var(--font-mono);
   font-size: 1.3125rem;   /* 21px — same as the site's section headings */
