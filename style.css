@@ -2724,6 +2724,15 @@ body {
   padding: 0 var(--space-4) var(--space-10);
 }
 
+.ov-register__heading {
+  margin-bottom: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 1.3125rem;   /* 21px — same as the site's other section headings */
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  text-align: center;
+}
+
 .ov-register__luma {
   display: block;
   width: 100%;
