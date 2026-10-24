@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=20261023n">
+  <link rel="stylesheet" href="../style.css?v=20261023o">
   <script type="module">
     import { atcb_action } from 'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2/+esm';
     window.atcb_action = atcb_action;
@@ -204,13 +204,15 @@
 
     <!-- ─ Register: Luma event embed (handles tickets + payment) ─ -->
     <section class="ov-register" aria-label="Register" id="register">
-      <!-- Luma checkout button: opens ticket selection + payment in a pop-up.
-           Falls back to the Luma event page if the script doesn't load. -->
-      <a
-        class="ov-register__btn"
-        href="https://luma.com/event/evt-aQIFx7Ivu25gTTN"
-        data-luma-action="checkout"
-        data-luma-event-id="evt-aQIFx7Ivu25gTTN">Register</a>
+      <!-- Luma event embed (tickets + payment). On desktop the frame is wide
+           enough for Luma's side-by-side layout: image left, tickets right. -->
+      <iframe
+        class="ov-register__luma"
+        src="https://luma.com/embed/event/evt-aQIFx7Ivu25gTTN/simple"
+        title="The Overscore registration on Luma"
+        frameborder="0"
+        allow="fullscreen; payment"
+        tabindex="0"></iframe>
       <button class="ov-save-btn" type="button">Save event to your calendar</button>
     </section>
 
@@ -375,7 +377,6 @@
 
   <script src="../ov-video.js" defer></script>
   <script src="../rr-accordion.js" defer></script>
-  <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" defer></script>
   <script src="../ov-page.js?v=20261023b" defer></script>
   <script src="../contact-email-menu.js" defer></script>
 </body>

@@ -2710,26 +2710,24 @@ body {
   padding: 0 var(--space-4) var(--space-10);
 }
 
-.ov-register__btn {
+.ov-register__luma {
   display: block;
-  width: fit-content;
+  width: 100%;
+  height: 75rem;   /* 1200px — on phones Luma stacks image, details and tickets */
   margin: 0 auto;
-  padding: var(--space-3) var(--space-8);
-  font-family: var(--font-mono);
-  font-size: 1.3125rem;   /* 21px — the size the Register heading was */
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-  text-align: center;
-  text-decoration: none;
-  background-color: var(--color-accent-light);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: background-color var(--transition-fast);
 }
 
-.ov-register__btn:hover {
-  background-color: var(--color-learn-more-hover);
+@media (min-width: 650px) {
+  /* ~800px frame: wide enough for Luma's side-by-side (landscape) layout */
+  .ov-register {
+    max-width: 52rem;
+  }
+
+  .ov-register__luma {
+    height: 50rem;   /* 800px — fits the ticket list beside the image */
+  }
 }
 
 /* FAQ "Have a question?" form — reuses the newsletter input/button styles */
