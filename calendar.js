@@ -191,3 +191,77 @@ function renderCard(event, isPast = false) {
 }
 
 document.addEventListener('DOMContentLoaded', loadCalendar);
+
+// ── Slideable Classes / Workshops toggles ─────────────────────────────
+// Lets every .calendar-toggle be dragged/swiped as well as tapped: the
+// highlight follows the pointer, and releasing on a side selects it by
+// clicking that button (so the existing click handlers do the filtering).
+// Arrow keys also switch sides.
+function makeToggleSlideable(toggle) {
+  const btns = [...toggle.querySelectorAll('.calendar-toggle__btn')];
+  if (btns.length !== 2) return;
+
+  let startX = 0;
+  let startPos = 0;
+  let dragging = false;
+  let moved = false;
+
+  const activeIndex = () => Math.max(0, btns.findIndex(b => b.classList.contains('calendar-toggle__btn--active')));
+
+  toggle.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    dragging = true;
+    moved = false;
+    startX = e.clientX;
+    startPos = activeIndex();
+  });
+
+  toggle.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (!moved && Math.abs(dx) < 6) return;   // small wiggle = still a tap
+    if (!moved) {
+      moved = true;
+      toggle.setPointerCapture(e.pointerId);
+      toggle.classList.add('calendar-toggle--dragging');
+    }
+    const half = toggle.getBoundingClientRect().width / 2;
+    const pos = Math.min(1, Math.max(0, startPos + dx / half));
+    toggle.style.setProperty('--_pos', pos);
+  });
+
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    if (!moved) return;   // plain tap: the button's own click handles it
+    toggle.classList.remove('calendar-toggle--dragging');
+    const pos = parseFloat(toggle.style.getPropertyValue('--_pos')) || 0;
+    toggle.style.removeProperty('--_pos');
+    const target = btns[pos >= 0.5 ? 1 : 0];
+    if (e && toggle.hasPointerCapture(e.pointerId)) toggle.releasePointerCapture(e.pointerId);
+    if (!target.classList.contains('calendar-toggle__btn--active')) target.click();
+    // ignore the stray click some browsers fire right after a drag
+    suppressClick = true;
+    setTimeout(() => { suppressClick = false; }, 300);
+  }
+
+  let suppressClick = false;
+  toggle.addEventListener('click', ev => {
+    if (suppressClick && ev.isTrusted) { ev.stopPropagation(); ev.preventDefault(); }
+  }, true);
+
+  toggle.addEventListener('pointerup', endDrag);
+  toggle.addEventListener('pointercancel', endDrag);
+
+  toggle.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    const target = btns[e.key === 'ArrowRight' ? 1 : 0];
+    target.click();
+    target.focus();
+    e.preventDefault();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.calendar-toggle').forEach(makeToggleSlideable);
+});

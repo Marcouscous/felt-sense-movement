@@ -768,6 +768,8 @@ body {
   border: var(--border-width) solid var(--color-border);
   border-radius: 999px;
   overflow: hidden;
+  touch-action: pan-y;   /* horizontal swipes drive the toggle, vertical still scrolls */
+  user-select: none;
 }
 
 /* sliding fill — moves left (index 0) or right (index 1) */
@@ -780,9 +782,17 @@ body {
   height: 100%;
   background-color: var(--color-accent-light);
   border-radius: 999px;
-  transform: translateX(calc(var(--_active, 0) * 100%));
+  transform: translateX(calc(var(--_pos, var(--_active, 0)) * 100%));   /* --_pos follows a drag */
   transition: transform var(--transition-base);
   pointer-events: none;
+}
+
+.calendar-toggle--dragging::before {
+  transition: none;   /* track the finger exactly while dragging */
+}
+
+.calendar-toggle--dragging {
+  cursor: grabbing;
 }
 
 .calendar-toggle__btn {
