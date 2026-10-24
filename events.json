@@ -1,5 +1,17 @@
 [
   {
+    "date":        "2026-11-28",
+    "endDate":     "2026-11-29",
+    "dateRange":   "28-29",
+    "allDay":      true,
+    "title":       "The Overscore",
+    "location":    "The Finnish Hall",
+    "locationMap": "1970 Chestnut St, Berkeley, CA 94702",
+    "link":        "offerings/the-overscore.html",
+    "category":    "workshop",
+    "description": "An improvised ritual of movement, voice, and live music.\n\nSaturday 2:30–5:30pm: World building and mapping the landscape. Facilitation by Marcus van Duren.\nSunday 2:30–5:30pm: The Overscore.\n\nLive music by Ian Erickson."
+  },
+  {
     "date":        "2026-09-25",
     "endDate":     "2026-09-27",
     "dateRange":   "25-27",
