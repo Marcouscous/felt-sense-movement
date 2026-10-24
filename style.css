@@ -2567,6 +2567,20 @@ body {
   margin: 0;
 }
 
+/* Title artwork cut from the Overscore flyer (striped red lettering) */
+.ov-hero__title-img {
+  display: block;
+  width: min(100%, 22rem);
+  height: auto;
+  margin: 0 auto var(--space-2);
+}
+
+@media (min-width: 650px) {
+  .ov-hero__title-img {
+    width: min(100%, 36rem);
+  }
+}
+
 .ov-hero__tagline {
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
