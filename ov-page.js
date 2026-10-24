@@ -3,24 +3,23 @@
   // All accordions start closed on every screen size (default markup);
   // toggling is handled by rr-accordion.js.
 
-  // "Save to your calendar": two sessions (Sat + Sun) as separate calendar
-  // entries, via the add-to-calendar-button library loaded in <head>.
+  // "Save event to your calendar": the site-wide pop-up menu (cal-menu.js),
+  // with Saturday and Sunday as two sessions.
   var saveBtn = document.querySelector('.ov-save-btn');
   if (saveBtn) {
     saveBtn.addEventListener('click', function () {
-      if (typeof window.atcb_action !== 'function') return;
-      window.atcb_action({
-        name: 'The Overscore',
-        description: 'An improvised ritual of movement, voice, and live music.\n\nhttps://feltsensemovement.com/offerings/the-overscore.html',
+      if (!window.FSMCalMenu) return;
+      window.FSMCalMenu.open(saveBtn, {
+        title: 'The Overscore',
+        description: 'An improvised ritual of movement, voice, and live music. Sat & Sun 2:30–5:30pm.',
+        url: 'https://feltsensemovement.com/offerings/the-overscore.html',
         location: 'The Finnish Hall, 1970 Chestnut St, Berkeley, CA 94702',
         timeZone: 'America/Los_Angeles',
-        options: ['Google', 'Apple', 'iCal', 'Outlook.com'],
-        iCalFileName: 'The-Overscore',
-        dates: [
-          { name: 'The Overscore — Day 1: World building', startDate: '2026-11-28', startTime: '14:30', endTime: '17:30' },
-          { name: 'The Overscore — Day 2', startDate: '2026-11-29', startTime: '14:30', endTime: '17:30' }
+        sessions: [
+          { date: '2026-11-28', start: '14:30', end: '17:30', title: 'The Overscore — Day 1: World building' },
+          { date: '2026-11-29', start: '14:30', end: '17:30', title: 'The Overscore — Day 2' }
         ]
-      }, saveBtn);
+      });
     });
   }
 

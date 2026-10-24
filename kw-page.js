@@ -37,39 +37,12 @@
     }
   }
 
-  function buildAtcbConfig(event) {
-    var config = {
-      name: event.title,
-      startDate: event.date,
-      options: ['Google', 'Apple', 'iCal', 'Outlook.com'],
-      timeZone: event.timeZone || 'America/Los_Angeles',
-      location: event.locationMap || event.location || '',
-      description: event.description || '',
-      iCalFileName: event.title.replace(/\s+/g, '-')
-    };
-
-    if (event.startTime && event.endTime && !event.allDay) {
-      config.endDate = event.date;
-      config.startTime = event.startTime;
-      config.endTime = event.endTime;
-    } else {
-      config.endDate = event.endDate || event.date;
-    }
-
-    return config;
-  }
-
   function wireSaveButtons(container, events) {
     var buttons = container.querySelectorAll('.event-save-btn');
     buttons.forEach(function (btn, i) {
       if (!events[i]) return;
       btn.addEventListener('click', function () {
-        console.log('kw save btn clicked', i, events[i].title, 'atcb_action available:', typeof atcb_action === 'function');
-        if (typeof atcb_action === 'function') {
-          atcb_action(buildAtcbConfig(events[i]), btn);
-        } else {
-          console.error('atcb_action not loaded yet');
-        }
+        if (window.FSMCalMenu) window.FSMCalMenu.open(btn, window.FSMCalMenu.fromEvent(events[i], new URL('../', location.href).href));
       });
     });
   }
