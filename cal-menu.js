@@ -167,12 +167,14 @@
   // events.json entry → menu event (used by the site's event calendars)
   function fromEvent(event, siteRoot) {
     var url = event.link ? new URL(event.link, siteRoot || location.href).href : '';
+    // Optional calendar-only overrides in events.json: calendarTitle,
+    // calendarLocation, calendarDescription (the card keeps title/location).
     var ev = {
-      title: event.title,
-      location: event.locationMap && !/^https?:/.test(event.locationMap)
+      title: event.calendarTitle || event.title,
+      location: event.calendarLocation || (event.locationMap && !/^https?:/.test(event.locationMap)
         ? event.location + ', ' + event.locationMap
-        : (event.location || ''),
-      description: event.description || '',
+        : (event.location || '')),
+      description: event.calendarDescription || event.description || '',
       url: url,
       timeZone: event.timeZone || 'America/Los_Angeles'
     };

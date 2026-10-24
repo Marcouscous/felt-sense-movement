@@ -4,21 +4,21 @@
   // toggling is handled by rr-accordion.js.
 
   // "Save event to your calendar": the site-wide pop-up menu (cal-menu.js),
-  // with Saturday and Sunday as two sessions.
+  // as one all-day event over Sat + Sun.
   var saveBtn = document.querySelector('.ov-save-btn');
   if (saveBtn) {
     saveBtn.addEventListener('click', function () {
       if (!window.FSMCalMenu) return;
+      // Same all-day event as the Overscore card on the home/events pages
       window.FSMCalMenu.open(saveBtn, {
-        title: 'The Overscore',
-        description: 'An improvised ritual of movement, voice, and live music. Sat & Sun 2:30–5:30pm.',
+        title: 'The Overscore (2:30–5:30pm)',
+        description: 'Saturday 2:30–5:30pm\nSunday 2:30–5:30pm\nBerkeley Finnish Hall',
         url: 'https://feltsensemovement.com/offerings/the-overscore.html',
-        location: 'The Finnish Hall, 1970 Chestnut St, Berkeley, CA 94702',
+        location: 'Berkeley Finnish Hall, 1970 Chestnut St, Berkeley, CA 94702',
         timeZone: 'America/Los_Angeles',
-        sessions: [
-          { date: '2026-11-28', start: '14:30', end: '17:30', title: 'The Overscore — Day 1: World building' },
-          { date: '2026-11-29', start: '14:30', end: '17:30', title: 'The Overscore — Day 2' }
-        ]
+        date: '2026-11-28',
+        endDate: '2026-11-29',
+        allDay: true
       });
     });
   }
