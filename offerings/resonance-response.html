@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=20261024b">
+  <link rel="stylesheet" href="../style.css?v=20261029a">
   <style>
     .rr-sched{font-family:'JetBrains Mono',monospace;box-sizing:border-box;width:92%;max-width:92%;margin:0 auto 25px;background:transparent;display:grid;grid-template-columns:28px repeat(3,1fr);grid-template-rows:auto auto;gap:3px}
     .rr-sched__hdr{border:1px solid #000;text-align:center;padding:5px 0;font-size:13px;font-weight:500;letter-spacing:.1em}
@@ -50,7 +50,7 @@
           <li><a href="#about" class="rr-nav__dropdown-link">About</a></li>
           <li><a href="#schedule" class="rr-nav__dropdown-link">Schedule</a></li>
           <li><a href="#videos" class="rr-nav__dropdown-link">Videos</a></li>
-          <li><a href="#registration" class="rr-nav__dropdown-link">Registration</a></li>
+          <li><a href="#save-the-date" class="rr-nav__dropdown-link">Save the Date</a></li>
           <li>
             <a href="../index.html" class="rr-nav__dropdown-link rr-nav__dropdown-link--home">
               <img src="../assets/images/FSM-logo.png" alt="" class="rr-nav__dropdown-logo">
@@ -277,7 +277,6 @@
 
           </div>
         </div>
-        <a class="rr-schedule__partiful-btn" href="https://partiful.com/e/qQnVKKxUKoEFQD4ARGsI?c=qq6v4gGe" target="_blank" rel="noopener">Link to event Partiful</a>
       </div>
     </section>
 
@@ -373,20 +372,19 @@
       </div>
     </section>
 
-    <!-- ─ Register: Google Form embed ───────────────── -->
-    <section class="rr-register" id="registration">
-      <h2 class="rr-register__heading">Register</h2>
-      <div class="rr-register__frame-wrap">
-        <iframe
-          class="rr-register__form"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdzv-_yiEeaLMTfu0EnSkapBd7CClJXz4Io3UzPXsL7iyy-VA/viewform?embedded=true"
-          title="Resonance and Response registration form"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0">
-          Loading…
-        </iframe>
-      </div>
+    <!-- ─ Save the date: pending 2027 workshop dates (same list as the
+         Overscore newsletter). Replaces the Google Form registration. ─ -->
+    <section class="rr-register rr-savedate" id="save-the-date">
+      <h2 class="rr-register__heading">Save the Date!</h2>
+      <p class="rr-savedate__lead">Pending workshop dates for 2027</p>
+      <ul class="rr-savedate__list">
+        <li class="rr-savedate__item"><strong class="rr-savedate__date">Mar 25–28</strong><span class="rr-savedate__place">Berkeley</span></li>
+        <li class="rr-savedate__item"><strong class="rr-savedate__date">Apr 3–4</strong><span class="rr-savedate__place">Portland</span></li>
+        <li class="rr-savedate__item"><strong class="rr-savedate__date">Wed Apr 7</strong><span class="rr-savedate__place">Seattle</span></li>
+        <li class="rr-savedate__item"><strong class="rr-savedate__date">Apr 9–11</strong><span class="rr-savedate__place">Bellingham</span></li>
+        <li class="rr-savedate__item"><strong class="rr-savedate__date">Nov 24–28</strong><span class="rr-savedate__place">Berkeley</span></li>
+      </ul>
+      <p class="rr-savedate__note">More details coming soon.</p>
     </section>
 
   </main>

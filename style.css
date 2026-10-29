@@ -2119,6 +2119,51 @@ body {
   text-align: center;
 }
 
+/* Save the date: pending 2027 workshop dates */
+.rr-savedate {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding-bottom: var(--space-10);
+}
+
+.rr-savedate__lead {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.rr-savedate__list {
+  list-style: none;
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.rr-savedate__item {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.rr-savedate__date {
+  font-weight: var(--font-weight-bold);
+}
+
+.rr-savedate__note {
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  color: var(--color-text);
+  text-align: center;
+}
+
 .rr-register__frame-wrap {
   overflow: visible;
   padding: 0 var(--space-2);
