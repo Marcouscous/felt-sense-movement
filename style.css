@@ -3416,12 +3416,12 @@ body {
   position: absolute;
   top: 2.625rem;        /* 42px below the top of the contact section (home is 378px above; moved down 420px) */
   left: 0;
-  width: 100%;          /* full screen width (responsive); the SVG's viewBox was widened 390 → 440.4 so the art reads at 88.55% of its original width (squished 30%, then 15% wider, then 10% wider), left edge kept, and the shapes run on to the right edge instead of ending in a hard crop */
-  height: 64.4375rem;   /* 1031px window (home's 937px, 10% taller) */
+  width: 100%;          /* full screen width (responsive); the SVG's viewBox was widened 390 → 484.5 so the art reads at 80.5% of its original width (squished 30%, then 15% wider), left edge kept, and the shapes run on to the right edge instead of ending in a hard crop */
+  height: 58.5625rem;   /* 937px window, as on home */
   z-index: -1;
-  background-image: url('assets/vectors/background-mobile-2-no-purple.svg?v=7');
-  background-size: 100% 73.375rem;   /* 1174px: home's 1067px, 10% taller */
-  background-position: 0 -13.75rem;   /* crops the top 220px (home's 200px, scaled with the height) so the top stays put */
+  background-image: url('assets/vectors/background-mobile-2-no-purple.svg?v=8');
+  background-size: 100% 66.6875rem;   /* 1067px, as on home */
+  background-position: 0 -12.5rem;    /* crops the top 200px, as on home */
   background-repeat: no-repeat;
   pointer-events: none;
 }
