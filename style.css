@@ -3319,14 +3319,17 @@ body {
    offering pages. Mobile base; side-by-side bio at 650px+.
 ═══════════════════════════════════════════════════════ */
 
+/* The top wave is painted on <body> (not .about-page) so its top can bleed
+   up behind the transparent navbar instead of being clipped where
+   .about-page starts. --about-header-h (~121px, the header's measured
+   height) is added to each vertical offset so the wave sits exactly where
+   it did when it was painted on .about-page. */
 .about-body {
+  --about-header-h: 7.5625rem;
   overflow-x: hidden;
-}
-
-.about-page {
   background-image: url('assets/vectors/background-mobile-3.svg');
   background-size: 180% 79rem;   /* mobile: 20% wider than the earlier 150%, height unchanged */
-  background-position: 5% -18rem;   /* mobile: 5% keeps the left edge where 8% put it at 150% wide (−4% of page width); raised so it starts behind the photo */
+  background-position: 5% calc(-18rem + var(--about-header-h));   /* mobile: 5% keeps the left edge where 8% put it at 150% wide (−4% of page width); raised so it starts behind the photo */
   background-repeat: no-repeat;
 }
 
@@ -3395,8 +3398,18 @@ body {
    bottom of the page. It starts at the link and fills the space below it.
    Painted on a pseudo-element so it can be faded without fading the link.
    Spans exactly the screen width (left edge kept) so the whole wave fits
-   and scales with the viewport; raised 150px (same height, shifted up).
+   and scales with the viewport; raised 230px (same height, shifted up)
+   so it sits behind the Email/Instagram rows of the contact block.
    Hidden at 650px+. */
+
+/* Keeps the contact block's links painted above the raised bottom wave
+   (the wave's stacking context comes later in the page, so it would
+   otherwise cover them). */
+.about-page .kw-contact-wrap {
+  position: relative;
+  z-index: var(--z-content);
+}
+
 .about-page .kw-return-home {
   position: relative;
   isolation: isolate;
@@ -3408,7 +3421,7 @@ body {
 .about-page .kw-return-home::before {
   content: "";
   position: absolute;
-  inset: -9.375rem 0 9.375rem 0;   /* full width; raised 150px */
+  inset: -14.375rem 0 14.375rem 0;   /* full width; raised 230px so it sits behind the Email/Instagram rows */
   z-index: -1;
   background-image: url('assets/vectors/wave-banner-clear.svg');
   background-size: 100% 100%;
@@ -3419,12 +3432,13 @@ body {
 
 @media (min-width: 650px) {
 
-  .about-page {
+  .about-body {
     /* desktop: narrower so the wave shows more curves; 10rem taller, grown
        upward (position raised by the same 10rem) so the bottom edge stays put.
-       Any higher and the wave's top tip gets clipped by the top of the page. */
+       Painted on <body>, so the top can bleed behind the navbar. */
+    --about-header-h: 7.5rem;
     background-size: 100% 70rem;
-    background-position: 30% -10rem;
+    background-position: 30% calc(-10rem + var(--about-header-h));
   }
 
   .about-intro {
