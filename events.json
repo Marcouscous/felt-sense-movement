@@ -247,5 +247,44 @@
     "timeZone":    "America/Los_Angeles",
     "theme":       "Hip & Shoulder, Spherical Pathways",
     "description": "Friday Morning Dance Class rooted in the study and application of The Axis Syllabus©\n\nFacilitated by AS Teacher Candidate, Marcus van Duren\n\n$20 drop in / Notaflof\n\nA typical session includes zooming in on anatomy, bio-mechanics, movement motifs, improvisation, and grooving to music."
+  },
+  {
+    "date":        "2026-11-19",
+    "title":       "Pre-Jam Contact Improv Class",
+    "location":    "The Finnish Hall",
+    "locationMap": "1970 Chestnut St, Berkeley, CA 94702",
+    "link":        "https://thursdayjam.org/",
+    "category":    "class",
+    "startTime":   "19:00",
+    "endTime":     "20:00",
+    "timeZone":    "America/Los_Angeles",
+    "gcalId":      "kaelubviuastjm2c8oevomc3mc",
+    "description": "Contact Improvisation class taught by Marcus van Duren before the Berkeley Thursday Jam.\n\nClass 7:00–8:00pm, jam 8:00–10:30pm."
+  },
+  {
+    "date":        "2026-12-09",
+    "title":       "Contact Improv at Ecstatic Dance Oakland",
+    "location":    "Sweets Ballroom",
+    "locationMap": "1933 Broadway, Oakland, CA",
+    "link":        "https://www.ecstaticdanceoakland.com/",
+    "category":    "class",
+    "startTime":   "19:00",
+    "endTime":     "19:45",
+    "timeZone":    "America/Los_Angeles",
+    "gcalId":      "56ijf61vktr9un1m2ofq5n5gm4",
+    "description": "Contact Improvisation class taught by Marcus van Duren before Wednesday Ecstatic Dance Oakland.\n\nClass 7pm, opening circle 7:45pm, dance 8pm.\n\n$25 drop in / $20 with a package, at the door (cash or Venmo)."
+  },
+  {
+    "date":        "2026-12-27",
+    "title":       "Contact Improv at Ecstatic Dance Oakland",
+    "location":    "Sweets Ballroom",
+    "locationMap": "1933 Broadway, Oakland, CA",
+    "link":        "https://www.ecstaticdanceoakland.com/",
+    "category":    "class",
+    "startTime":   "10:00",
+    "endTime":     "10:45",
+    "timeZone":    "America/Los_Angeles",
+    "gcalId":      "e2habrlhobt5m045dvgparkbvk",
+    "description": "Contact Improvisation class taught by Marcus van Duren before Sunday Ecstatic Dance Oakland.\n\nClass 10am, opening circle 10:45am, dance 11am.\n\n$25 drop in / $20 with a package, at the door (cash or Venmo)."
   }
 ]
