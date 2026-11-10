@@ -3410,6 +3410,11 @@ body {
   opacity: 0.45;
 }
 
+/* Keep the home link above the contact wave where the wave runs under it */
+.about-page .kw-return-home {
+  position: relative;
+}
+
 @media (min-width: 650px) {
 
   .about-page {
@@ -3429,6 +3434,11 @@ body {
   .about-intro__body,
   .about-bio__body {
     font-size: var(--font-size-base);
+  }
+
+  /* Desktop: shift the contact wave down so it sits lower behind the block */
+  .about-contact::before {
+    inset: 35% 0 -35% 0;
   }
 
   .about-bio {
