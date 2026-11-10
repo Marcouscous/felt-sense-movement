@@ -3394,40 +3394,44 @@ body {
   line-height: 1.7;
 }
 
-/* Mobile: wave banner behind the "Felt Sense Movement" home link at the
-   bottom of the page. It starts at the link and fills the space below it.
-   Painted on a pseudo-element so it can be faded without fading the link.
-   Spans exactly the screen width (left edge kept) so the whole wave fits
-   and scales with the viewport; raised 230px (same height, shifted up)
-   so it sits behind the Email/Instagram rows of the contact block.
-   Hidden at 650px+. */
+/* Mobile: footer blob behind the contact block — the same SVG and framing
+   the home page uses behind its contact section (.mobile-bg-wrap-2 /
+   .site-bg-mobile-2): a 937px window starting 378px above the contact
+   section, showing the SVG (stretched to 100% x 1067px) from 200px down.
+   background-mobile-2-clear.svg is a copy without the white backing rect,
+   so it doesn't paint over the top wave. No z-index on .kw-contact-wrap, so
+   the z-index: -1 pseudo-element sits behind all the page text.
+   .about-page clips it so it never adds scroll height. Hidden at 650px+. */
+.about-page {
+  overflow: clip;
+}
 
-/* Keeps the contact block's links painted above the raised bottom wave
-   (the wave's stacking context comes later in the page, so it would
-   otherwise cover them). */
 .about-page .kw-contact-wrap {
   position: relative;
-  z-index: var(--z-content);
+}
+
+.about-page .kw-contact-wrap::before {
+  content: "";
+  position: absolute;
+  top: -23.625rem;      /* 378px above the contact section, as on home */
+  left: 0;
+  width: 100%;
+  height: 58.5625rem;   /* 937px window, as on home */
+  z-index: -1;
+  background-image: url('assets/vectors/background-mobile-2-clear.svg');
+  background-size: 100% 66.6875rem;   /* 1067px, as on home */
+  background-position: 0 -12.5rem;    /* crops the top 200px, as on home */
+  background-repeat: no-repeat;
+  pointer-events: none;
+  /* Fade the top 200px in: the window's top is a straight crop line that
+     the carousel hides on home but would cut across the bio here. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 12.5rem);
+  mask-image: linear-gradient(to bottom, transparent, black 12.5rem);
 }
 
 .about-page .kw-return-home {
-  position: relative;
-  isolation: isolate;
-  overflow-x: clip;
   margin-top: 0;
-  padding: var(--space-4) var(--space-4) 14rem;
-}
-
-.about-page .kw-return-home::before {
-  content: "";
-  position: absolute;
-  inset: -14.375rem 0 14.375rem 0;   /* full width; raised 230px so it sits behind the Email/Instagram rows */
-  z-index: -1;
-  background-image: url('assets/vectors/wave-banner-clear.svg');
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.45;
+  padding: var(--space-4) var(--space-4) var(--space-12);
 }
 
 @media (min-width: 650px) {
@@ -3455,12 +3459,8 @@ body {
     font-size: var(--font-size-base);
   }
 
-  /* Desktop: no bottom wave (mobile only) */
-  .about-page .kw-return-home {
-    padding: var(--space-4) var(--space-4) var(--space-12);
-  }
-
-  .about-page .kw-return-home::before {
+  /* Desktop: no footer blob (mobile only) */
+  .about-page .kw-contact-wrap::before {
     display: none;
   }
 
