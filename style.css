@@ -3419,10 +3419,11 @@ body {
 @media (min-width: 650px) {
 
   .about-page {
-    /* desktop: narrower so the wave shows more curves; 15rem taller, grown
-       upward (position raised by the same 15rem) so the bottom edge stays put */
-    background-size: 100% 75rem;
-    background-position: 30% -15rem;
+    /* desktop: narrower so the wave shows more curves; 10rem taller, grown
+       upward (position raised by the same 10rem) so the bottom edge stays put.
+       Any higher and the wave's top tip gets clipped by the top of the page. */
+    background-size: 100% 70rem;
+    background-position: 30% -10rem;
   }
 
   .about-intro {
