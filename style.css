@@ -3396,7 +3396,7 @@ body {
 
 /* Mobile: footer blob behind the contact block — the same SVG and framing
    the home page uses behind its contact section (.mobile-bg-wrap-2 /
-   .site-bg-mobile-2), moved 400px lower: a 937px window starting 22px below the top of the contact
+   .site-bg-mobile-2), moved 450px lower: a 937px window starting 72px below the top of the contact
    section, showing the SVG (stretched to 100% x 1067px) from 200px down.
    background-mobile-2-no-purple.svg is a copy without the white backing or the
    two purple bands (lavender + blue-violet), so the top color is light blue,
@@ -3414,7 +3414,7 @@ body {
 .about-page .kw-contact-wrap::before {
   content: "";
   position: absolute;
-  top: 1.375rem;        /* 22px below the top of the contact section (home is 378px above; moved down 400px) */
+  top: 4.5rem;          /* 72px below the top of the contact section (home is 378px above; moved down 450px) */
   left: 0;
   width: 100%;
   height: 58.5625rem;   /* 937px window, as on home */
