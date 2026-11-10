@@ -3325,7 +3325,7 @@ body {
 
 .about-page {
   background-image: url('assets/vectors/background-mobile-3.svg');
-  background-size: 300% 79rem;   /* mobile: taller wave */
+  background-size: 150% 79rem;   /* mobile: narrower so the wave shows more curves */
   background-position: 8% -18rem;   /* mobile: raised so it starts behind the photo */
   background-repeat: no-repeat;
 }
@@ -3418,7 +3418,7 @@ body {
 @media (min-width: 650px) {
 
   .about-page {
-    background-size: 160% 60rem;   /* desktop: shorter wave */
+    background-size: 100% 60rem;   /* desktop: narrower so the wave shows more curves */
     background-position: 30% 0;
   }
 
