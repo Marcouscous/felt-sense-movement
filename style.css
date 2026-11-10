@@ -3401,7 +3401,7 @@ body {
 .about-contact::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 25% 0 -25% 0;   /* mobile: shifted down behind the contact block */
   z-index: -1;
   background-image: url('assets/vectors/wave-banner-clear.svg');
   background-size: 100% 100%;
