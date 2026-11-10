@@ -328,7 +328,7 @@ Build each section **desktop + mobile simultaneously** before moving to the next
 |------|--------|---------|
 | `index.html` | In progress | Landing page — all six sections; **mobile source of truth** |
 | `events.html` | In progress | All-events page (upcoming + past); **no Figma node — built from prompts, modelled on `index.html` mobile** |
-| `about.html` | Skeleton (empty body) | Practitioner bio, philosophy, credentials |
+| `about.html` | Built | FSM intro + Marcus bio (photo `assets/images/Marcus-about.jpg`); `.about-*` styles in the ABOUT PAGE block of `style.css`; reuses the KW/Overscore contact + return-home blocks |
 | `blog.html` | Skeleton (empty body) | Blog post listing |
 | `past-events.html` | Skeleton (empty body) | Archive of past events, driven by `calendar.js` |
 | `offerings/kinetic-waves.html` | Empty | Offering detail — Kinetic Waves |

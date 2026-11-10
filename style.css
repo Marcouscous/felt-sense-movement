@@ -3311,6 +3311,136 @@ body {
 }
 
 
+
+/* ═══════════════════════════════════════════════════════
+   ABOUT PAGE
+   Intro to Felt Sense Movement + Marcus's bio. Shares the
+   site header, contact blocks and return-home link with the
+   offering pages. Mobile base; side-by-side bio at 650px+.
+═══════════════════════════════════════════════════════ */
+
+.about-body {
+  overflow-x: hidden;
+}
+
+.about-page {
+  background-image: url('assets/vectors/background-mobile-3.svg');
+  background-size: 300% 55rem;
+  background-position: 8% 0;
+  background-repeat: no-repeat;
+}
+
+.about-intro {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-intro__title {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.about-intro__body {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.about-bio {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about-bio__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+.about-bio__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-bio__name {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.about-bio__body {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+@media (min-width: 650px) {
+
+  .about-page {
+    background-size: 160% 62rem;
+    background-position: 30% 0;
+  }
+
+  .about-intro {
+    max-width: 52rem;
+    padding: var(--space-12) var(--space-8) var(--space-8);
+  }
+
+  .about-intro__title {
+    font-size: 1.5rem;
+  }
+
+  .about-intro__body,
+  .about-bio__body {
+    font-size: var(--font-size-base);
+  }
+
+  .about-bio {
+    max-width: 52rem;
+    padding: var(--space-8) var(--space-8) var(--space-16);
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .about-intro,
+  .about-bio {
+    max-width: 64rem;
+  }
+
+  .about-bio {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-10);
+  }
+
+  .about-bio__photo {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+
+  .about-bio__text {
+    flex: 1;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════
    COMING SOON PAGE
 ═══════════════════════════════════════════════════════ */
