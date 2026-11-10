@@ -3396,12 +3396,13 @@ body {
 .about-contact {
   position: relative;
   isolation: isolate;
+  overflow-x: clip;   /* the stretched wave must not widen the page */
 }
 
 .about-contact::before {
   content: "";
   position: absolute;
-  inset: 25% 0 -25% 0;   /* mobile: shifted down behind the contact block */
+  inset: 25% -50% -25% 0;   /* mobile: shifted down; stretched to the right, left edge kept */
   z-index: -1;
   background-image: url('assets/vectors/wave-banner-clear.svg');
   background-size: 100% 100%;
@@ -3436,9 +3437,9 @@ body {
     font-size: var(--font-size-base);
   }
 
-  /* Desktop: shift the contact wave down so it sits lower behind the block */
+  /* Desktop: no contact wave (mobile only) */
   .about-contact::before {
-    inset: 35% 0 -35% 0;
+    display: none;
   }
 
   .about-bio {
