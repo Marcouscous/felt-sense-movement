@@ -3396,9 +3396,10 @@ body {
 
 /* Mobile: footer blob behind the contact block — the same SVG and framing
    the home page uses behind its contact section (.mobile-bg-wrap-2 /
-   .site-bg-mobile-2): a 937px window starting 378px above the contact
+   .site-bg-mobile-2), moved 100px lower: a 937px window starting 278px above the contact
    section, showing the SVG (stretched to 100% x 1067px) from 200px down.
-   background-mobile-2-clear.svg is a copy without the white backing rect,
+   background-mobile-2-clear.svg is a copy without the white backing or the
+   top lavender band (so the top color is the blue-violet),
    so it doesn't paint over the top wave. No z-index on .kw-contact-wrap, so
    the z-index: -1 pseudo-element sits behind all the page text.
    .about-page clips it so it never adds scroll height. Hidden at 650px+. */
@@ -3413,7 +3414,7 @@ body {
 .about-page .kw-contact-wrap::before {
   content: "";
   position: absolute;
-  top: -23.625rem;      /* 378px above the contact section, as on home */
+  top: -17.375rem;      /* 278px above the contact section (home is 378px; moved down 100px) */
   left: 0;
   width: 100%;
   height: 58.5625rem;   /* 937px window, as on home */
