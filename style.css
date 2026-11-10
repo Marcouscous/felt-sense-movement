@@ -3419,8 +3419,10 @@ body {
 @media (min-width: 650px) {
 
   .about-page {
-    background-size: 100% 60rem;   /* desktop: narrower so the wave shows more curves */
-    background-position: 30% 0;
+    /* desktop: narrower so the wave shows more curves; 15rem taller, grown
+       upward (position raised by the same 15rem) so the bottom edge stays put */
+    background-size: 100% 75rem;
+    background-position: 30% -15rem;
   }
 
   .about-intro {
