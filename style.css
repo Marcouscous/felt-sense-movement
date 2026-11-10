@@ -3391,6 +3391,13 @@ body {
   line-height: 1.7;
 }
 
+.about-wave {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: var(--space-8) 0 var(--space-6);
+}
+
 @media (min-width: 650px) {
 
   .about-page {
