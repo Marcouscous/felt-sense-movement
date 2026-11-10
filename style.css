@@ -3420,8 +3420,8 @@ body {
   height: 58.5625rem;   /* 937px window, as on home */
   z-index: -1;
   background-image: url('assets/vectors/background-mobile-2-no-purple.svg?v=9');
-  background-size: 100% 66.6875rem;   /* 1067px, as on home */
-  background-position: 0 -12.5rem;    /* crops the top 200px, as on home */
+  background-size: 100% 46.6875rem;   /* 747px: home's 1067px squished 30% */
+  background-position: 0 -7.4375rem;  /* 119px crop: keeps the blob's top edge exactly where it was before the 30% height squish */
   background-repeat: no-repeat;
   pointer-events: none;
 }
