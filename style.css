@@ -3391,29 +3391,29 @@ body {
   line-height: 1.7;
 }
 
-/* Wave banner behind the contact block. Painted on a pseudo-element so it
-   can be faded for legibility without fading the contact text itself. */
-.about-contact {
+/* Mobile: wave banner behind the "Felt Sense Movement" home link at the
+   bottom of the page. It starts at the link and fills the space below it.
+   Painted on a pseudo-element so it can be faded without fading the link,
+   stretched 50% past the right edge (left edge kept), and clipped so it
+   never widens the page. Hidden at 650px+. */
+.about-page .kw-return-home {
   position: relative;
   isolation: isolate;
-  overflow-x: clip;   /* the stretched wave must not widen the page */
+  overflow-x: clip;
+  margin-top: 0;
+  padding: var(--space-4) var(--space-4) 14rem;
 }
 
-.about-contact::before {
+.about-page .kw-return-home::before {
   content: "";
   position: absolute;
-  inset: 25% -50% -25% 0;   /* mobile: shifted down; stretched to the right, left edge kept */
+  inset: 0 -50% 0 0;
   z-index: -1;
   background-image: url('assets/vectors/wave-banner-clear.svg');
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.45;
-}
-
-/* Keep the home link above the contact wave where the wave runs under it */
-.about-page .kw-return-home {
-  position: relative;
 }
 
 @media (min-width: 650px) {
@@ -3440,8 +3440,12 @@ body {
     font-size: var(--font-size-base);
   }
 
-  /* Desktop: no contact wave (mobile only) */
-  .about-contact::before {
+  /* Desktop: no bottom wave (mobile only) */
+  .about-page .kw-return-home {
+    padding: var(--space-4) var(--space-4) var(--space-12);
+  }
+
+  .about-page .kw-return-home::before {
     display: none;
   }
 
