@@ -3391,11 +3391,23 @@ body {
   line-height: 1.7;
 }
 
-.about-wave {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: var(--space-8) 0 var(--space-6);
+/* Wave banner behind the contact block. Painted on a pseudo-element so it
+   can be faded for legibility without fading the contact text itself. */
+.about-contact {
+  position: relative;
+  isolation: isolate;
+}
+
+.about-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url('assets/vectors/wave-banner-clear.svg');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.45;
 }
 
 @media (min-width: 650px) {
