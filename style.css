@@ -3424,10 +3424,6 @@ body {
   background-position: 0 -12.5rem;    /* crops the top 200px, as on home */
   background-repeat: no-repeat;
   pointer-events: none;
-  /* Fade the top 200px in: the window's top is a straight crop line that
-     the carousel hides on home but would cut across the bio here. */
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 12.5rem);
-  mask-image: linear-gradient(to bottom, transparent, black 12.5rem);
 }
 
 .about-page .kw-return-home {
