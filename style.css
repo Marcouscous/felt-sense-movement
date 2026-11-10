@@ -3416,7 +3416,7 @@ body {
   position: absolute;
   top: 2.625rem;        /* 42px below the top of the contact section (home is 378px above; moved down 420px) */
   left: 0;
-  width: 100%;
+  width: 70%;           /* squished 30% narrower; left edge kept */
   height: 58.5625rem;   /* 937px window, as on home */
   z-index: -1;
   background-image: url('assets/vectors/background-mobile-2-no-purple.svg?v=5');
