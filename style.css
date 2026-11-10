@@ -3398,8 +3398,8 @@ body {
    the home page uses behind its contact section (.mobile-bg-wrap-2 /
    .site-bg-mobile-2), moved 100px lower: a 937px window starting 278px above the contact
    section, showing the SVG (stretched to 100% x 1067px) from 200px down.
-   background-mobile-2-clear.svg is a copy without the white backing or the
-   top lavender band (so the top color is the blue-violet),
+   background-mobile-2-no-purple.svg is a copy without the white backing or the
+   two purple bands (lavender + blue-violet), so the top color is light blue,
    so it doesn't paint over the top wave. No z-index on .kw-contact-wrap, so
    the z-index: -1 pseudo-element sits behind all the page text.
    .about-page clips it so it never adds scroll height. Hidden at 650px+. */
@@ -3419,7 +3419,7 @@ body {
   width: 100%;
   height: 58.5625rem;   /* 937px window, as on home */
   z-index: -1;
-  background-image: url('assets/vectors/background-mobile-2-clear.svg');
+  background-image: url('assets/vectors/background-mobile-2-no-purple.svg');
   background-size: 100% 66.6875rem;   /* 1067px, as on home */
   background-position: 0 -12.5rem;    /* crops the top 200px, as on home */
   background-repeat: no-repeat;
