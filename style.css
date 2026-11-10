@@ -3393,9 +3393,10 @@ body {
 
 /* Mobile: wave banner behind the "Felt Sense Movement" home link at the
    bottom of the page. It starts at the link and fills the space below it.
-   Painted on a pseudo-element so it can be faded without fading the link,
-   stretched 50% past the right edge (left edge kept), and clipped so it
-   never widens the page. Hidden at 650px+. */
+   Painted on a pseudo-element so it can be faded without fading the link.
+   Spans exactly the screen width (left edge kept) so the whole wave fits
+   and scales with the viewport; raised 50px (same height, shifted up).
+   Hidden at 650px+. */
 .about-page .kw-return-home {
   position: relative;
   isolation: isolate;
@@ -3407,7 +3408,7 @@ body {
 .about-page .kw-return-home::before {
   content: "";
   position: absolute;
-  inset: 0 -50% 0 0;
+  inset: -3.125rem 0 3.125rem 0;   /* full width; raised 50px */
   z-index: -1;
   background-image: url('assets/vectors/wave-banner-clear.svg');
   background-size: 100% 100%;
