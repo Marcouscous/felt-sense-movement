@@ -3326,7 +3326,7 @@ body {
 .about-page {
   background-image: url('assets/vectors/background-mobile-3.svg');
   background-size: 300% 79rem;   /* mobile: taller wave */
-  background-position: 8% 0;
+  background-position: 8% -9rem;   /* mobile: raised so it starts behind the photo */
   background-repeat: no-repeat;
 }
 
