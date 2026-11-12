@@ -3328,8 +3328,8 @@ body {
   --about-header-h: 7.5625rem;
   overflow-x: hidden;
   background-image: url('assets/vectors/background-mobile-3.svg');
-  background-size: 100% 106.453125rem;   /* mobile: full screen width like the Kinetic Waves page; 2.25x its ~757px height (~1703px) */
-  background-position: 0 calc(var(--about-header-h) - 12.5rem);   /* mobile: starts 200px above the bottom of the navbar, bleeding up behind it */
+  background-size: 100% 53.2265625rem;   /* mobile: full screen width like the Kinetic Waves page; ~852px tall (half the previous 1703px) */
+  background-position: 0 calc(var(--about-header-h) / 2 - 8.25rem);   /* mobile: the wave's colored top starts 132px into the image, so this puts it halfway down the navbar */
   background-repeat: no-repeat;
 }
 
