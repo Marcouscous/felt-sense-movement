@@ -11,8 +11,8 @@
       if (!window.FSMCalMenu) return;
       // Same all-day event as the Overscore card on the home/events pages
       window.FSMCalMenu.open(saveBtn, {
-        title: 'The Overscore (Sat 2:30–5:30, Sun 12–2:30)',
-        description: 'Saturday 2:30–5:30pm\nSunday 12–2:30pm\nBerkeley Finnish Hall',
+        title: 'The Overscore (Sat 2:30–5:30, Sun 11:30–2:30)',
+        description: 'Saturday 2:30–5:30pm\nSunday 11:30am–2:30pm\nBerkeley Finnish Hall',
         url: 'https://feltsensemovement.com/offerings/the-overscore.html',
         location: 'Berkeley Finnish Hall, 1970 Chestnut St, Berkeley, CA 94702',
         timeZone: 'America/Los_Angeles',
