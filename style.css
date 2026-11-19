@@ -2674,6 +2674,29 @@ body {
   margin-top: var(--space-2);
 }
 
+/* Early bird extension banner (temporary — remove after Nov 20) */
+.ov-hero__promo {
+  margin: var(--space-4) 0 0;
+}
+
+.ov-hero__promo-link {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.4;
+  color: var(--color-text);
+  text-decoration: none;
+  background-color: var(--color-save-event-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.ov-hero__promo-link:hover {
+  text-decoration: underline;
+}
+
 .ov-hero__video-wrap {
   width: 100%;
   aspect-ratio: 16 / 9;
