@@ -2827,6 +2827,13 @@ body {
   transition: background-color var(--transition-fast);
 }
 
+/* Same button, placed in the hero under the tagline */
+.ov-hero__luma-btn {
+  margin: var(--space-4) auto 0;
+  font-size: var(--font-size-base);
+  padding: var(--space-2) var(--space-6);
+}
+
 .ov-register__btn:hover {
   background-color: var(--color-learn-more-hover);
 }
