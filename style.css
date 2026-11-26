@@ -2757,6 +2757,27 @@ body {
   background-color: var(--color-accent-light);
 }
 
+/* Small link to the Luma event page, under "Live music by Ian Erickson" */
+.ov-luma-btn {
+  display: block;
+  width: fit-content;
+  margin: var(--space-3) auto 0;
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  text-decoration: none;
+  background-color: var(--color-accent-light);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: background-color var(--transition-fast);
+}
+
+.ov-luma-btn:hover {
+  background-color: var(--color-learn-more-hover);
+}
+
 /* "Save to your calendar" — same cream fill as the site's Save Event buttons */
 .ov-save-btn {
   display: block;
@@ -2825,13 +2846,6 @@ body {
   border-radius: var(--radius-lg);
   cursor: pointer;
   transition: background-color var(--transition-fast);
-}
-
-/* Same button, placed in the hero under the tagline */
-.ov-hero__luma-btn {
-  margin: var(--space-4) auto 0;
-  font-size: var(--font-size-base);
-  padding: var(--space-2) var(--space-6);
 }
 
 .ov-register__btn:hover {
